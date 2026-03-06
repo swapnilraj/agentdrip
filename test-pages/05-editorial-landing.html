@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Review</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 1.6; background: #FAFAF8; color: #1C1C1C; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* Masthead */
+    .masthead { padding: 20px 0; border-bottom: 1px solid #CCC; display: flex; justify-content: space-between; align-items: baseline; }
+    .masthead h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; }
+    .masthead nav a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-left: 24px; color: #888; }
+    .masthead nav a:hover { color: #D4380D; }
+
+    /* Feature section - asymmetric */
+    .feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; padding: 80px 0; align-items: start; }
+    .feature-img { background: #E5E5E0; width: calc(100% + 48px); margin-left: -48px; aspect-ratio: 4/5; }
+    .kicker { font-family: 'Source Sans 3', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #D4380D; margin-bottom: 4px; }
+    .headline { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; line-height: 1.05; margin-top: 8px; }
+    .deck { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.1rem; color: #555; margin-top: 16px; line-height: 1.6; }
+    .byline { font-size: 0.875rem; color: #888; margin-top: 16px; }
+    .byline strong { color: #1C1C1C; }
+
+    .divider { border: none; border-top: 1px solid #CCC; margin: 0; }
+
+    /* Pull quote */
+    .pull-quote { font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; line-height: 1.3; border-left: 3px solid #D4380D; padding-left: 24px; margin: 48px 0; max-width: 500px; }
+
+    /* Section: Two-column stories */
+    .stories-duo { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; padding: 80px 0; align-items: start; }
+    .stories-duo .story-main-img { background: #DDDDD8; aspect-ratio: 16/9; margin-bottom: 16px; }
+    .stories-duo .story-sidebar .story-item { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #CCC; }
+    .stories-duo .story-sidebar .story-item:last-child { border-bottom: none; }
+    .stories-duo .story-sidebar .kicker { color: #888; }
+    .stories-duo .story-sidebar h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 1.3rem; line-height: 1.25; margin-top: 4px; }
+    .stories-duo .story-sidebar p { font-size: 0.85rem; color: #888; margin-top: 8px; }
+
+    /* Section: Three-column stories */
+    .stories-trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding: 48px 0; }
+    .stories-trio .kicker { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; }
+    .stories-trio h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; margin-top: 4px; line-height: 1.25; }
+    .stories-trio p { font-size: 0.85rem; color: #888; margin-top: 8px; }
+
+    /* Section: Full-width highlight */
+    .highlight-section { padding: 100px 0 80px; text-align: center; }
+    .highlight-section .kicker { color: #D4380D; }
+    .highlight-section h2 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; margin-top: 8px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .highlight-section .deck { max-width: 520px; margin: 20px auto 0; }
+    .highlight-section .byline { text-align: center; }
+
+    /* Section: Asymmetric reversed */
+    .feature-reversed { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; padding: 80px 0; align-items: start; }
+    .feature-reversed .text-col { padding-top: 32px; }
+    .feature-reversed .img-col { background: #E0DDD8; aspect-ratio: 3/4; }
+
+    .footer { padding: 32px 0; border-top: 1px solid #CCC; font-size: 0.75rem; color: #888; }
+
+    @media (max-width: 768px) {
+      .feature, .stories-duo, .stories-trio, .feature-reversed { grid-template-columns: 1fr; }
+      .feature-img { margin-left: 0; width: 100%; }
+      .highlight-section h2 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="masthead">
+      <h1>The Review</h1>
+      <nav><a href="#">Essays</a><a href="#">Fiction</a><a href="#">Interviews</a><a href="#">Archive</a></nav>
+    </div>
+
+    <!-- Feature: Asymmetric image + text -->
+    <div class="feature">
+      <div class="feature-img"></div>
+      <div>
+        <div class="kicker">On the Daily</div>
+        <h2 class="headline">The Weight of Small Decisions</h2>
+        <div class="deck">How the accumulation of minor choices shapes the architecture of a life, and why we rarely notice until it's too late.</div>
+        <div class="byline">By <strong>Elena Marchetti</strong> &mdash; March 2026</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Pull Quote -->
+    <div style="padding: 60px 0; display: flex; justify-content: flex-end;">
+      <blockquote class="pull-quote">"We do not build lives. We accumulate them, one small yes or no at a time."</blockquote>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Two-column: main story + sidebar stories -->
+    <div class="stories-duo">
+      <div>
+        <div class="story-main-img"></div>
+        <div class="kicker">Photography</div>
+        <h2 class="headline" style="font-size: 2.2rem; margin-top: 8px;">The Landscapes We Leave Behind</h2>
+        <div class="deck">A photo essay on abandoned suburban developments and the nature reclaiming them.</div>
+        <div class="byline">By <strong>James Okoro</strong></div>
+      </div>
+      <div class="story-sidebar">
+        <div class="story-item">
+          <div class="kicker">Fiction</div>
+          <h3>The Last Garden on the Block</h3>
+          <p>A short story about inheritance, soil, and the things we choose to tend.</p>
+        </div>
+        <div class="story-item">
+          <div class="kicker">Essay</div>
+          <h3>Against Efficiency</h3>
+          <p>Why the obsession with optimization is hollowing out our capacity for surprise.</p>
+        </div>
+        <div class="story-item">
+          <div class="kicker">Interview</div>
+          <h3>Conversations with Silence</h3>
+          <p>A composer on the art of listening to what isn't there.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Full-width centered highlight -->
+    <div class="highlight-section">
+      <div class="kicker">Long Read</div>
+      <h2>The Architecture of Forgetting</h2>
+      <div class="deck">Inside the libraries that are choosing which books to let go, and what that says about the stories we value.</div>
+      <div class="byline">By <strong>Priya Anand</strong> &mdash; February 2026</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Three-column stories -->
+    <div class="stories-trio">
+      <div>
+        <div class="kicker">Culture</div>
+        <h3>On the Pleasure of Rereading</h3>
+        <p>Why returning to a book you've already read is never quite the same journey.</p>
+      </div>
+      <div>
+        <div class="kicker">Politics</div>
+        <h3>Quiet Dissent</h3>
+        <p>The long tradition of refusal as a political act, from Thoreau to today.</p>
+      </div>
+      <div>
+        <div class="kicker">Science</div>
+        <h3>The Color We Cannot Name</h3>
+        <p>Neuroscientists are mapping the colors that exist between the ones we see.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Reversed asymmetric -->
+    <div class="feature-reversed">
+      <div class="text-col">
+        <div class="kicker">Dispatch</div>
+        <h2 class="headline" style="font-size: 2.5rem;">Letters from Nowhere</h2>
+        <div class="deck">Postcards from places that don't appear on any map, written by the travelers who found them.</div>
+        <div class="byline">By <strong>Saoirse Brennan</strong></div>
+      </div>
+      <div class="img-col"></div>
+    </div>
+
+    <div class="footer">The Review &mdash; Published since 1953</div>
+  </div>
+</body>
+</html>

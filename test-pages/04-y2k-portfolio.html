@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xXx N3ON_W0RKS xXx :: Digital Portfolio Web Ring</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=VT323&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: 'VT323', 'Courier New', monospace;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #FFFFFF;
+      margin: 0;
+      background: #1A0A2E;
+      overflow-x: hidden;
+    }
+    ::selection { background: #FF66CC; color: #000; }
+    .starfield {
+      background: #000 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="20" cy="30" r="1" fill="%23FFF"/><circle cx="80" cy="70" r="0.5" fill="%23AAF"/><circle cx="150" cy="40" r="1" fill="%23FFF"/><circle cx="40" cy="140" r="0.5" fill="%23FFF"/><circle cx="120" cy="160" r="1" fill="%23CCF"/><circle cx="170" cy="120" r="0.5" fill="%23FFF"/></svg>');
+      min-height: 100vh;
+    }
+    .page { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    h1, h2 {
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.5rem; }
+
+    .header { text-align: center; padding: 50px 0 20px; }
+    .header h1 {
+      text-shadow: 0 0 5px #FF66CC, 0 0 10px #FF66CC, 0 0 20px #FF66CC, 0 0 40px #CC0066;
+    }
+    .header .chrome-text {
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, #666, #FFF 30%, #999 50%, #FFF 70%, #666);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 8px;
+    }
+    .header p { color: #AAAACC; margin-top: 8px; font-size: 18px; }
+
+    .nav-links { text-align: center; padding: 16px; }
+    .nav-links a { margin: 0 15px; color: #FF66CC; font-size: 18px; text-transform: uppercase; text-decoration: none; }
+    .nav-links a:hover { color: #00CCFF; text-shadow: 0 0 5px #00CCFF; }
+
+    .marquee {
+      overflow: hidden; white-space: nowrap;
+      border-top: 1px solid #00CCFF; border-bottom: 1px solid #00CCFF;
+      padding: 8px 0; color: #00CCFF; font-size: 14px; margin: 20px 0;
+    }
+    .marquee span { display: inline-block; animation: scroll 15s linear infinite; }
+    @keyframes scroll { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+    .window { background: #2A1A4E; border: 2px solid; border-color: #666 #333 #333 #666; padding: 0; margin: 20px 0; }
+    .window-titlebar {
+      background: linear-gradient(to right, #000066, #0033CC, #000066);
+      padding: 4px 8px; font-size: 12px; color: #FFF;
+      display: flex; justify-content: space-between;
+    }
+    .window-titlebar .btns span {
+      display: inline-block; width: 12px; height: 12px;
+      border: 1px solid; border-color: #999 #333 #333 #999;
+      margin-left: 2px; font-size: 9px; text-align: center; line-height: 12px;
+    }
+    .window-body { padding: 16px; }
+    .window-body h2 { color: #00CCFF; margin-bottom: 12px; }
+
+    .project-preview {
+      width: 100%; height: 120px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-weight: 700; font-size: 14px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .prev1 { background: linear-gradient(45deg, #FF66CC, #1A0A2E, #00CCFF); }
+    .prev2 { background: linear-gradient(135deg, #000, #00FF66, #000); }
+    .prev3 { background: linear-gradient(90deg, #00CCFF, #FF66CC); }
+    .prev4 { background: radial-gradient(circle, #00CCFF, #1A0A2E); }
+    .prev5 { background: linear-gradient(180deg, #FF66CC, #000066, #000); }
+    .prev6 { background: linear-gradient(135deg, #C0C0C0, #FFFFFF, #C0C0C0); color: #000; }
+
+    .columns { display: flex; gap: 20px; }
+    .columns > .window { flex: 1; }
+
+    a { color: #00FF66; text-decoration: none; }
+    a:hover { color: #00CCFF; text-shadow: 0 0 5px #00CCFF; }
+
+    .btn {
+      display: inline-block; padding: 8px 24px;
+      background: linear-gradient(to bottom, #555, #222);
+      border: 2px solid; border-color: #777 #333 #333 #777;
+      color: #00CCFF; font-family: 'VT323', 'Courier New', monospace;
+      font-size: 16px; cursor: pointer; text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn:hover { background: linear-gradient(to bottom, #666, #333); color: #FFF; }
+
+    .glow-blue { text-shadow: 0 0 5px #00CCFF, 0 0 10px #00CCFF, 0 0 20px #00CCFF, 0 0 40px #0066FF; }
+    .glow-green { text-shadow: 0 0 5px #00FF66, 0 0 10px #00FF66, 0 0 20px #00FF66, 0 0 40px #009933; }
+    .glow-pink { text-shadow: 0 0 5px #FF66CC, 0 0 10px #FF66CC, 0 0 20px #FF66CC, 0 0 40px #CC0066; }
+
+    .divider { border: none; border-top: 1px solid #FF66CC; margin: 10px 0; }
+
+    .webring {
+      text-align: center; padding: 20px;
+      background: #0A0015; border: 2px solid; border-color: #333 #666 #666 #333;
+      margin: 20px 0;
+    }
+    .webring p { color: #AAAACC; font-size: 14px; }
+    .webring a { margin: 0 10px; color: #FF66CC; font-size: 18px; }
+
+    .counter { text-align: center; padding: 30px; color: #555; font-size: 13px; }
+    .counter a { color: #FF66CC; }
+  </style>
+</head>
+<body>
+  <div class="starfield">
+    <div class="page">
+      <div class="header">
+        <h1>N3ON_W0RKS</h1>
+        <p class="chrome-text">// Digital Design Portfolio //</p>
+        <p>[ est. 2000 ] :: web design / 3D art / flash animation</p>
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Links</a>
+        <a href="#">Guestbook</a>
+      </div>
+
+      <div class="marquee"><span>*** WELCOME TO N3ON_W0RKS *** PORTFOLIO UPDATED 03.10.2001 *** NOW ACCEPTING FREELANCE WORK *** AIM: NeonWorksDesign *** PART OF THE DIGITAL ARTISTS WEB RING ***</span></div>
+
+      <div class="window">
+        <div class="window-titlebar"><span>about_me.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+        <div class="window-body">
+          <h2 class="glow-blue">About</h2>
+          <div style="display: flex; gap: 20px;">
+            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #FF66CC, #00CCFF, #00FF66); border: 3px solid; border-color: #666 #333 #333 #666; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-size: 40px; font-weight: 900;">NW</div>
+            <div>
+              <p>Handle: <span style="color: #00CCFF;">NeonWorks</span> // Location: Seattle, WA</p>
+              <p>I design websites, make 3D renders, and build Flash intros. Available for freelance. My work has been featured on CoolHomepages.com and WebPagesThatSuck (the good section).</p>
+              <hr class="divider">
+              <p style="color: #AAAACC;">Tools: Dreamweaver 4 / Flash 5 / Photoshop 6 / Bryce 3D / Notepad</p>
+              <p><a href="#">>> AIM: NeonWorksDesign</a> | <a href="#">>> Email: neonworks@hotmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="window">
+          <div class="window-titlebar"><span>project_01.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev1">Client Site</div>
+            <h2 style="font-size: 1.2rem;" class="glow-pink">SkateZone.com</h2>
+            <p style="color: #AAAACC; font-size: 14px;">Full site redesign for a skateboarding community. Flash intro, animated menus, and custom cursor.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+        <div class="window">
+          <div class="window-titlebar"><span>project_02.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev2">Band Site</div>
+            <h2 style="font-size: 1.2rem;" class="glow-green">ElectricVoid Band</h2>
+            <p style="color: #AAAACC; font-size: 14px;">Website for an electronica band. Features MP3 player, tour dates, and animated background.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="window">
+          <div class="window-titlebar"><span>project_03.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev3">Personal Project</div>
+            <h2 style="font-size: 1.2rem; color: #FF66CC;">ChromeScape Gallery</h2>
+            <p style="color: #AAAACC; font-size: 14px;">Personal 3D art gallery with metallic landscapes rendered in Bryce 3D. Over 40 pieces.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+        <div class="window">
+          <div class="window-titlebar"><span>project_04.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev4">Client Site</div>
+            <h2 style="font-size: 1.2rem; color: #00CCFF;">TechnoHub Portal</h2>
+            <p style="color: #AAAACC; font-size: 14px;">Music portal with streaming radio, DJ profiles, and event calendar. Java chat integration.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="window">
+          <div class="window-titlebar"><span>project_05.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev5">Flash Work</div>
+            <h2 style="font-size: 1.2rem; color: #FF66CC;">Flash Intro Collection</h2>
+            <p style="color: #AAAACC; font-size: 14px;">A collection of Flash intros and splash screens made for various clients. Particle effects and 3D text.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+        <div class="window">
+          <div class="window-titlebar"><span>project_06.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+          <div class="window-body">
+            <div class="project-preview prev6">WinAMP Skins</div>
+            <h2 style="font-size: 1.2rem; color: #00CCFF;">WinAMP Skin Pack</h2>
+            <p style="color: #AAAACC; font-size: 14px;">12 custom WinAMP skins with chrome and neon themes. Over 8,000 downloads on WinAMP.com.</p>
+            <br><a href="#" class="btn">View &gt;&gt;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="window">
+        <div class="window-titlebar"><span>testimonials.txt</span><div class="btns"><span>_</span><span>x</span></div></div>
+        <div class="window-body">
+          <h2 style="font-size: 1.2rem; color: #FF66CC;">What People Say</h2>
+          <p style="color: #00FF66;">"Sick Flash intro dude!! Best I've seen all year"</p>
+          <p style="color: #AAAACC; font-size: 14px;">- Sk8terBoi99, CoolHomepages.com forums</p>
+          <hr class="divider">
+          <p style="color: #00FF66;">"NeonWorks made our band site look totally futuristic. Highly recommend!"</p>
+          <p style="color: #AAAACC; font-size: 14px;">- DJ Voltage, ElectricVoid</p>
+        </div>
+      </div>
+
+      <div class="webring">
+        <p style="font-family: 'Orbitron', sans-serif; font-size: 14px; color: #00CCFF; text-transform: uppercase; margin-bottom: 8px;">Digital Artists Web Ring</p>
+        <p>This site is part of the <span style="color: #FF66CC;">Digital Artists Web Ring</span></p>
+        <div style="margin-top: 12px;">
+          <a href="#">&lt;&lt; Prev</a>
+          <a href="#" style="color: #00FF66;">[ Random ]</a>
+          <a href="#">Next &gt;&gt;</a>
+        </div>
+        <p style="margin-top: 8px;"><a href="#" style="font-size: 14px; color: #AAAACC;">Join this web ring</a></p>
+      </div>
+
+      <div class="counter">
+        <p>You are visitor #<span style="color: #00CCFF;">023,847</span></p>
+        <p><a href="#">Sign my Guestbook</a> | <a href="#">View Guestbook</a></p>
+        <p style="margin-top: 10px;">Best viewed in Internet Explorer 5.5+ at 1024x768</p>
+        <p style="margin-top: 5px;">Made with Dreamweaver + Notepad | &copy; 2001 NeonWorks</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

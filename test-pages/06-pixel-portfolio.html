@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIXEL ZONE - File Manager</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; image-rendering: pixelated; }
+    body { font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1.4; background: #2B2B3D; color: #E8E8D0; -webkit-font-smoothing: none; -moz-osx-font-smoothing: unset; }
+    ::selection { background: #6ABE30; color: #1A1A2E; }
+
+    .page { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+    .header { border: 4px solid #E8E8D0; padding: 16px; text-align: center; margin-bottom: 16px; background: #1A1A2E; }
+    .header h1 { font-family: 'Press Start 2P', monospace; font-size: 20px; color: #6ABE30; line-height: 1.6; }
+    .header p { margin-top: 8px; color: #76768A; }
+
+    .divider { height: 8px; background: repeating-linear-gradient(90deg, #6ABE30 0px, #6ABE30 8px, #5B6EE1 8px, #5B6EE1 16px, #AC3232 16px, #AC3232 24px, #FBF236 24px, #FBF236 32px); margin: 16px 0; }
+
+    .window { background: #1A1A2E; border: 4px solid #E8E8D0; margin-bottom: 16px; }
+    .window-title { background: #5B6EE1; color: #E8E8D0; padding: 4px 8px; font-family: 'Press Start 2P', monospace; font-size: 10px; display: flex; justify-content: space-between; line-height: 1.6; }
+    .window-body { padding: 16px; }
+
+    .path-bar { background: #2B2B3D; border: 2px solid #76768A; padding: 4px 8px; margin-bottom: 16px; color: #FBF236; font-size: 18px; }
+
+    .file-list { list-style: none; padding: 0; }
+    .file-entry { border-bottom: 2px solid #2B2B3D; padding: 8px 0; display: flex; justify-content: space-between; align-items: baseline; }
+    .file-entry:hover { background: #5B6EE1; cursor: pointer; }
+    .file-icon { color: #FBF236; margin-right: 8px; }
+    .file-name { color: #6ABE30; flex: 1; }
+    .file-size { color: #76768A; font-size: 16px; margin-left: 16px; }
+    .file-date { color: #76768A; font-size: 16px; margin-left: 16px; min-width: 96px; text-align: right; }
+
+    .file-detail { margin-top: 8px; padding: 8px; border: 2px solid #76768A; background: #2B2B3D; }
+    .file-detail p { font-size: 18px; margin-bottom: 8px; }
+    .file-detail .tag { display: inline-block; padding: 2px 8px; background: #5B6EE1; color: #E8E8D0; font-size: 16px; margin-right: 4px; margin-bottom: 4px; }
+
+    .status-bar { background: #1A1A2E; border: 4px solid #E8E8D0; padding: 8px 16px; display: flex; justify-content: space-between; font-size: 16px; color: #76768A; margin-bottom: 16px; }
+
+    .footer { text-align: center; padding: 16px; color: #76768A; font-size: 16px; }
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>PIXEL ZONE</h1>
+      <p>[ FILE MANAGER ]</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Main file manager window -->
+    <div class="window">
+      <div class="window-title"><span>explorer.exe - C:\PROJECTS\</span><span>[_][X]</span></div>
+      <div class="window-body">
+        <div class="path-bar">C:\PROJECTS\</div>
+
+        <ul class="file-list">
+          <li class="file-entry">
+            <span><span class="file-icon">[DIR]</span><span class="file-name">..</span></span>
+            <span class="file-date">&lt;DIR&gt;</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">DUNGEON_CRAWLER.exe</span></span>
+            <span class="file-size">2.4 MB</span>
+            <span class="file-date">02-15-26</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">SPRITE_EDITOR.exe</span></span>
+            <span class="file-size">1.1 MB</span>
+            <span class="file-date">01-22-26</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">CHIPTUNE_MAKER.exe</span></span>
+            <span class="file-size">896 KB</span>
+            <span class="file-date">12-08-25</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">PIXEL_PAINT.exe</span></span>
+            <span class="file-size">640 KB</span>
+            <span class="file-date">11-30-25</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">SPACE_INVADERS.exe</span></span>
+            <span class="file-size">512 KB</span>
+            <span class="file-date">09-14-25</span>
+          </li>
+          <li class="file-entry">
+            <span><span class="file-icon">[PRJ]</span><span class="file-name">TILE_MAP_GEN.exe</span></span>
+            <span class="file-size">384 KB</span>
+            <span class="file-date">07-02-25</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <span>6 files, 1 directory</span>
+      <span>5.9 MB total</span>
+    </div>
+
+    <!-- Detail windows for selected projects -->
+    <div class="window">
+      <div class="window-title"><span>DUNGEON_CRAWLER.nfo</span><span>[X]</span></div>
+      <div class="window-body">
+        <h2 style="font-family: 'Press Start 2P', monospace; font-size: 14px; color: #FBF236; margin-bottom: 8px; line-height: 1.6;">DUNGEON CRAWLER</h2>
+        <div class="file-detail">
+          <p>A roguelike dungeon crawler with procedurally generated levels, permadeath, and pixel-perfect combat.</p>
+          <p style="color: #6ABE30;">STATUS: In Development (v0.3)</p>
+          <div>
+            <span class="tag">GAME</span>
+            <span class="tag">ROGUELIKE</span>
+            <span class="tag">8-BIT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window">
+      <div class="window-title"><span>SPRITE_EDITOR.nfo</span><span>[X]</span></div>
+      <div class="window-body">
+        <h2 style="font-family: 'Press Start 2P', monospace; font-size: 14px; color: #FBF236; margin-bottom: 8px; line-height: 1.6;">SPRITE EDITOR</h2>
+        <div class="file-detail">
+          <p>A lightweight sprite editor for creating 8x8, 16x16, and 32x32 pixel art. Supports custom palettes and animation frames.</p>
+          <p style="color: #6ABE30;">STATUS: Released (v1.2)</p>
+          <div>
+            <span class="tag">TOOL</span>
+            <span class="tag">ART</span>
+            <span class="tag">EDITOR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window">
+      <div class="window-title"><span>CHIPTUNE_MAKER.nfo</span><span>[X]</span></div>
+      <div class="window-body">
+        <h2 style="font-family: 'Press Start 2P', monospace; font-size: 14px; color: #FBF236; margin-bottom: 8px; line-height: 1.6;">CHIPTUNE MAKER</h2>
+        <div class="file-detail">
+          <p>A tracker-style music tool for composing chiptune audio. Four channels, square and noise wave generators.</p>
+          <p style="color: #6ABE30;">STATUS: Released (v2.0)</p>
+          <div>
+            <span class="tag">TOOL</span>
+            <span class="tag">AUDIO</span>
+            <span class="tag">TRACKER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">C:\PROJECTS\> <span class="blink">_</span></div>
+  </div>
+</body>
+</html>

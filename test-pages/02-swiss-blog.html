@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Measure of Readability &mdash; Struktur Journal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; }
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1A1A1A; background: #FFFFFF; font-size: 16px; line-height: 1.6; }
+    h1, h2, h3 { font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid #1A1A1A; }
+    .nav a { text-decoration: none; color: #1A1A1A; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-left: 32px; }
+    .nav a.active { border-bottom: 2px solid #E63226; }
+    .marker { color: #E63226; font-weight: 700; }
+    .section { border-top: 2px solid #1A1A1A; padding-top: 16px; margin-top: 64px; }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #6B6B6B; }
+    .layout-split { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+
+    .article-header { padding: 96px 0 64px; }
+    .article-header h1 { max-width: 18ch; }
+    .article-meta { margin-top: 32px; font-size: 0.875rem; color: #6B6B6B; }
+
+    .article-body { margin-top: 48px; }
+    .article-body .layout-split { margin-bottom: 0; }
+    .sidebar { position: sticky; top: 48px; }
+    .sidebar h3 { margin-bottom: 16px; }
+    .sidebar p { font-size: 0.875rem; color: #6B6B6B; margin-bottom: 8px; }
+    .content p { margin-bottom: 24px; max-width: 640px; }
+    .content h2 { margin-top: 48px; margin-bottom: 24px; }
+
+    .pullquote { border-top: 3px solid #1A1A1A; padding-top: 24px; margin: 48px 0; }
+    .pullquote p { font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .pullquote cite { display: block; margin-top: 16px; font-size: 0.875rem; font-style: normal; color: #6B6B6B; }
+
+    .related-item { border-top: 1px solid #1A1A1A; padding: 16px 0; }
+    .related-item h2 { font-size: 1.25rem; margin-bottom: 8px; }
+    .related-item p { font-size: 0.875rem; color: #6B6B6B; }
+
+    .footer { margin-top: 96px; padding: 24px 0; border-top: 1px solid #1A1A1A; font-size: 0.75rem; color: #6B6B6B; }
+
+    @media (max-width: 768px) {
+      .layout-split { grid-template-columns: 1fr; gap: 24px; }
+      h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <strong>Struktur Journal</strong>
+      <div><a href="#">Articles</a><a href="#" class="active">Essays</a><a href="#">Contributors</a><a href="#">About</a></div>
+    </nav>
+
+    <div class="article-header">
+      <h1>The measure of readability</h1>
+      <div class="article-meta">
+        <span class="marker">Essay</span> &mdash; Anna Gerber &mdash; 28 February 2026
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="layout-split">
+        <div class="sidebar">
+          <h3>Contents</h3>
+          <p>I. What we measure</p>
+          <p>II. The line and its limits</p>
+          <p>III. Vertical rhythm</p>
+          <p>IV. Clarity as craft</p>
+        </div>
+        <div class="content">
+          <p>Readability is not a feeling. It is a measurable property of typographic composition, determined by the interaction of typeface, size, line length, line spacing, and contrast. When designers speak of readability as a subjective quality, they abdicate responsibility for the one aspect of their work that can be empirically verified.</p>
+
+          <p>The research is extensive and largely consistent. Optimal line length for continuous reading falls between 45 and 75 characters. Line spacing should be approximately 120 to 145 percent of the type size. Contrast ratios below 4.5:1 degrade reading speed measurably. These are not opinions. They are findings, replicated across decades of study.</p>
+
+          <h2>The line and its limits</h2>
+
+          <p>Line length is the most neglected variable in web typography. Responsive layouts that stretch text across the full viewport width routinely produce lines of 120 characters or more. At this length, the eye struggles to track from the end of one line to the beginning of the next. Reading becomes laborious. Comprehension drops. The reader leaves.</p>
+
+          <p>The Swiss method addressed this through the grid. A 12-column grid with proper margins naturally constrains text to appropriate line lengths. The column is not a visual device; it is a reading device. Its width is determined by the typeface and size in use, not by the available screen space.</p>
+
+          <div class="pullquote">
+            <p>Typography is not about making text beautiful. It is about making text readable.</p>
+            <cite>Emil Ruder, 1967</cite>
+          </div>
+
+          <p>This principle is routinely violated by designers who set their grids based on screen dimensions rather than reading conditions. A column that spans eight of twelve grid units may look proportionally elegant, but if the type size and measure produce 90-character lines, the elegance is purely visual. The reader pays for it in fatigue.</p>
+
+          <h2>Vertical rhythm</h2>
+
+          <p>Vertical rhythm refers to the consistent repetition of spacing intervals down the page. When all elements align to a common baseline grid, the page acquires a visual coherence that reduces cognitive load. The reader does not need to recalibrate their expectations at each new element.</p>
+
+          <p>Establishing vertical rhythm requires that every typographic variable be a multiple of the base unit. If the body text is set at 16px with 24px line height, then headings, margins, padding, and image heights should all resolve to multiples of 24px. This is arithmetic, not aesthetics.</p>
+
+          <p>The difficulty increases with complex content. Pull quotes, captions, footnotes, and data tables each introduce typographic variables that must be reconciled with the baseline. The temptation is to abandon the system when it becomes inconvenient. This is precisely when the system is most needed.</p>
+
+          <h2>Clarity as craft</h2>
+
+          <p>The argument for measurable readability is not an argument against visual quality. The most readable typographic compositions are often the most visually compelling, because their proportions emerge from functional logic rather than arbitrary preference. A well-set page of text has the same satisfying inevitability as a well-constructed building.</p>
+
+          <p>Clarity is not the absence of complexity. It is the resolution of complexity into an order that serves the reader. This resolution requires knowledge of the variables, skill in their manipulation, and the discipline to test the result against measurable criteria rather than personal taste.</p>
+
+          <p>The grid, the measure, the leading, the contrast ratio: these are the designer's instruments. Mastery of them is not a constraint on creativity. It is the foundation on which creativity becomes meaningful.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Related Essays</span>
+      <div style="margin-top: 24px;">
+        <div class="related-item">
+          <h2>Grid systems and the modular approach</h2>
+          <p>On constructing grids from content requirements rather than aesthetic preferences. &mdash; Markus Lehner, January 2026</p>
+        </div>
+        <div class="related-item">
+          <h2>Contrast as communication</h2>
+          <p>How typographic contrast ratios encode hierarchy and direct attention. &mdash; Piet Ahrend, December 2025</p>
+        </div>
+        <div class="related-item">
+          <h2>The column as reading instrument</h2>
+          <p>Historical and empirical foundations of column width in publication design. &mdash; Clara Stein, October 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Struktur Journal &mdash; Essays on typography, systems, and visual culture</div>
+  </div>
+</body>
+</html>

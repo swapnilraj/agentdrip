@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Architecture of Restraint - Precision</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: #09090B; color: #FAFAFA; font-size: 15px; line-height: 1.6; font-weight: 400; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #6366F1; color: #FFF; }
+    a { color: #FAFAFA; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .narrow { max-width: 680px; margin: 0 auto; }
+
+    /* Nav */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .nav-brand { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .nav-links a { color: #71717A; font-size: 0.85rem; margin-left: 28px; transition: color 0.2s; }
+    .nav-links a:hover { color: #FAFAFA; }
+
+    /* Divider */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin: 0; border: none; }
+
+    /* Article header */
+    .article-header { padding: 120px 0 60px; position: relative; }
+    .article-header::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(99, 102, 241, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .article-header h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 20px; position: relative; }
+    .article-header h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; position: relative; max-width: 680px; }
+    .article-meta { margin-top: 24px; color: #71717A; font-size: 0.85rem; position: relative; }
+    .article-meta span { margin-right: 20px; }
+
+    /* Article body */
+    .article-body { padding: 60px 0 120px; }
+    .article-body p { color: #FAFAFA; font-size: 15px; line-height: 1.8; margin-bottom: 24px; max-width: 680px; }
+    .article-body p.muted { color: #71717A; }
+    .article-body h2 { font-size: 2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-top: 64px; margin-bottom: 20px; max-width: 680px; }
+    .article-body h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-top: 48px; margin-bottom: 16px; }
+    .article-body blockquote { border-left: 1px solid rgba(255, 255, 255, 0.08); padding-left: 24px; margin: 36px 0; max-width: 680px; }
+    .article-body blockquote p { color: #71717A; font-size: 1.05rem; font-weight: 300; line-height: 1.7; font-style: italic; }
+
+    /* Code in article */
+    .article-code { background: #18181B; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 28px; margin: 32px 0; max-width: 680px; font-size: 0.85rem; line-height: 1.8; }
+    .article-code code { font-family: 'SF Mono', 'Fira Code', monospace; color: #FAFAFA; }
+    .code-muted { color: #71717A; }
+    .code-accent { color: #6366F1; }
+
+    /* Pullout */
+    .pullout { background: #18181B; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 28px; margin: 48px 0; max-width: 680px; }
+    .pullout h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 12px; margin-top: 0; }
+    .pullout ul { list-style: none; padding: 0; }
+    .pullout ul li { font-size: 0.875rem; color: #71717A; padding: 6px 0; }
+    .pullout ul li::before { content: '\2014'; margin-right: 8px; color: #3F3F46; }
+
+    /* Related */
+    .related-section { padding: 80px 0; }
+    .related-section h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .related-item { background: #09090B; padding: 32px; transition: background 0.3s; display: block; }
+    .related-item:hover { background: #18181B; }
+    .related-item .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; display: block; margin-bottom: 12px; }
+    .related-item h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .related-item p { font-size: 0.85rem; color: #71717A; line-height: 1.6; }
+
+    /* Footer */
+    .footer { padding: 40px 0; text-align: center; color: #3F3F46; font-size: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .article-header h1 { font-size: 2.5rem; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-brand">Precision</div>
+      <div class="nav-links">
+        <a href="#">Engineering</a>
+        <a href="#">Product</a>
+        <a href="#">About</a>
+      </div>
+    </nav>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="article-header">
+      <h3>Engineering</h3>
+      <h1>The architecture of restraint</h1>
+      <div class="article-meta">
+        <span>March 2026</span>
+        <span>8 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="article-body">
+      <div class="narrow">
+        <p class="muted">Excellence in engineering is not about adding more. It is about knowing precisely what to remove. The systems that endure are the ones that resist complexity at every decision point.</p>
+
+        <h2>The cost of every abstraction</h2>
+
+        <p>Every layer of abstraction carries weight. It introduces a new mental model, a new surface for bugs, a new thing to maintain. The best engineers treat abstraction as an expense, not a virtue. They ask: does this indirection earn its keep?</p>
+
+        <p>We have observed this pattern across decades of systems design. The projects that scale are not the ones with the cleverest architectures. They are the ones with the fewest unnecessary decisions.</p>
+
+        <blockquote>
+          <p>Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.</p>
+        </blockquote>
+
+        <h3>A practical example</h3>
+
+        <p>Consider a service that processes incoming events. A common instinct is to introduce a message queue, a worker pool, a retry mechanism, and a dead-letter queue from day one. But if your throughput is 50 events per second, a synchronous handler with exponential backoff may be all you need.</p>
+
+        <div class="article-code">
+          <code>
+            <span class="code-muted">// Start simple. Add complexity only when measured.</span><br>
+            <span class="code-accent">async function</span> handleEvent(event) {<br>
+            &nbsp;&nbsp;<span class="code-accent">const</span> result = <span class="code-accent">await</span> process(event);<br>
+            &nbsp;&nbsp;<span class="code-accent">if</span> (!result.ok) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-accent">await</span> retry(event, { backoff: <span class="code-muted">'exponential'</span> });<br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;<span class="code-accent">return</span> result;<br>
+            }
+          </code>
+        </div>
+
+        <p>The queue can come later, when the numbers demand it. Premature infrastructure is a form of technical debt that masquerades as good practice.</p>
+
+        <h2>Measuring what matters</h2>
+
+        <p>Engineering excellence requires measurement, but not all metrics deserve attention. Vanity metrics create noise. The signal lives in a small set of numbers that directly reflect user experience and system health.</p>
+
+        <div class="pullout">
+          <h3>Metrics that matter</h3>
+          <ul>
+            <li>P99 latency at the edge, not averages</li>
+            <li>Error budget burn rate, not incident count</li>
+            <li>Time from commit to production, not lines of code</li>
+            <li>Mean time to recovery, not mean time between failures</li>
+          </ul>
+        </div>
+
+        <p>When your dashboard shows fewer than ten numbers, each one carries weight. When it shows a hundred, none of them do.</p>
+
+        <h2>The discipline of saying no</h2>
+
+        <p>The hardest engineering skill is not building. It is deciding what not to build. Every feature request, every integration, every configuration option is a commitment to maintain something indefinitely. The teams that ship the best software are the ones with the strongest ability to decline.</p>
+
+        <p>This is not about being contrarian. It is about protecting the coherence of the system. A codebase with clear boundaries and a focused scope will outperform a sprawling one every time, not just in speed, but in reliability, security, and the ability to attract engineers who value craft.</p>
+
+        <p class="muted">Restraint is not a limitation. It is the highest form of engineering confidence.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="related-section">
+      <h3>Further reading</h3>
+      <div class="related-grid">
+        <a href="#" class="related-item">
+          <span class="tag">Infrastructure</span>
+          <h2>Edge-first deployment</h2>
+          <p>Why we moved our entire compute layer to the edge and what it cost us.</p>
+        </a>
+        <a href="#" class="related-item">
+          <span class="tag">Process</span>
+          <h2>Writing RFCs that ship</h2>
+          <p>Our lightweight proposal process that keeps decisions documented and reversible.</p>
+        </a>
+        <a href="#" class="related-item">
+          <span class="tag">Performance</span>
+          <h2>The 10ms contract</h2>
+          <p>How we hold every API endpoint to a strict latency budget.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="footer">Precision Engineering &mdash; Writing about the craft of building software</div>
+  </div>
+</body>
+</html>

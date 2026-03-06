@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLKBOX Creative Agency</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Space Grotesk', -apple-system, sans-serif; background: #FFFDF7; color: #1A1A1A; font-size: 16px; line-height: 1.6; font-weight: 400; }
+    a { color: #1A1A1A; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    h1, h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.1; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.1rem; font-weight: 700; }
+    code, .mono { font-family: 'DM Mono', monospace; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    /* Nav */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 3px solid #1A1A1A; }
+    .nav-brand { font-weight: 700; font-size: 1.5rem; }
+    .nav-links a { margin-left: 24px; text-decoration: none; font-weight: 500; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 12px 28px; background: #FFE566; color: #1A1A1A; border: 3px solid #1A1A1A; border-radius: 8px; font-family: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 4px 4px 0px 0px #1A1A1A; transition: transform 0.1s, box-shadow 0.1s; text-decoration: none; }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px 0px #1A1A1A; }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px 0px #1A1A1A; }
+    .btn-pink { background: #FF6B9D; }
+    .btn-blue { background: #6BB5FF; }
+
+    .sticker { display: inline-block; background: #FF6B9D; border: 3px solid #1A1A1A; border-radius: 100px; padding: 8px 20px; font-weight: 700; transform: rotate(3deg); }
+
+    /* Hero */
+    .hero { padding: 80px 0 64px; }
+    .hero h1 { font-size: 4rem; line-height: 1.05; max-width: 14ch; }
+    .hero p { margin-top: 16px; max-width: 520px; font-size: 1.1rem; }
+    .hero-row { display: flex; align-items: center; gap: 24px; margin-top: 32px; }
+
+    /* Work grid */
+    .work-section { padding: 64px 0 96px; }
+    .work-section h2 { margin-bottom: 32px; }
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .work-card { border: 3px solid #1A1A1A; border-radius: 8px; padding: 28px; box-shadow: 6px 6px 0px 0px #1A1A1A; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .work-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px 0px #1A1A1A; }
+    .work-card:nth-child(1) { background: #FFE566; }
+    .work-card:nth-child(2) { background: #6BB5FF; }
+    .work-card:nth-child(3) { background: #C4A1FF; }
+    .work-card:nth-child(4) { background: #FF6B9D; }
+    .work-card:nth-child(5) { background: #7BEA7B; }
+    .work-card:nth-child(6) { background: #FF9A56; }
+    .work-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .work-card p { font-size: 0.9rem; }
+    .work-card .tag { font-family: 'DM Mono', monospace; font-size: 0.8rem; margin-top: 12px; display: inline-block; background: #FFFDF7; border: 2px solid #1A1A1A; border-radius: 8px; padding: 4px 12px; }
+
+    /* Services */
+    .services-section { background: #7BEA7B; border-top: 3px solid #1A1A1A; border-bottom: 3px solid #1A1A1A; padding: 64px 0; }
+    .services-section h2 { margin-bottom: 32px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card { background: #FFFDF7; border: 3px solid #1A1A1A; border-radius: 8px; padding: 24px; box-shadow: 4px 4px 0px 0px #1A1A1A; }
+    .service-card h3 { margin-bottom: 8px; }
+    .service-card p { font-size: 0.9rem; }
+
+    /* Clients */
+    .clients-section { padding: 64px 0; }
+    .clients-section h2 { margin-bottom: 24px; }
+    .client-list { display: flex; flex-wrap: wrap; gap: 16px; }
+    .client-pill { display: inline-block; border: 3px solid #1A1A1A; border-radius: 100px; padding: 10px 24px; font-weight: 700; font-size: 1.1rem; }
+
+    /* CTA */
+    .cta-section { background: #FF9A56; border-top: 3px solid #1A1A1A; border-bottom: 3px solid #1A1A1A; padding: 64px 0; text-align: center; }
+    .cta-section h2 { margin-bottom: 16px; }
+    .cta-section p { margin-bottom: 32px; font-size: 1.1rem; }
+
+    /* Footer */
+    .footer { padding: 24px 0; border-top: 3px solid #1A1A1A; font-size: 0.85rem; display: flex; justify-content: space-between; }
+
+    @media (max-width: 640px) {
+      .work-grid, .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-brand">BLKBOX.</div>
+      <div class="nav-links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>We make brands impossible to ignore</h1>
+      <p>BLKBOX is a creative agency for companies that are done blending in. We build identities, websites, and campaigns that hit hard.</p>
+      <div class="hero-row">
+        <a href="#" class="btn">See Our Work</a>
+        <span class="sticker">Accepting clients</span>
+      </div>
+    </div>
+
+    <section class="work-section">
+      <h2>Selected Work</h2>
+      <div class="work-grid">
+        <div class="work-card">
+          <h3>Fizzbuzz Energy</h3>
+          <p>Full brand identity and packaging for a new energy drink that wanted to stand out on every shelf.</p>
+          <span class="tag">branding</span>
+        </div>
+        <div class="work-card">
+          <h3>Monolith Records</h3>
+          <p>Website and merch design for an independent record label pushing underground electronic music.</p>
+          <span class="tag">web + print</span>
+        </div>
+        <div class="work-card">
+          <h3>TerraLoop</h3>
+          <p>Campaign design for a sustainable fashion startup. Bold visuals for a bold mission.</p>
+          <span class="tag">campaign</span>
+        </div>
+        <div class="work-card">
+          <h3>Stackhaus</h3>
+          <p>Marketing site and product design for a developer tools company that refused to look like every other SaaS.</p>
+          <span class="tag">product design</span>
+        </div>
+        <div class="work-card">
+          <h3>Neonbyte Games</h3>
+          <p>Landing page and launch campaign for an indie game studio with maximum personality and zero corporate energy.</p>
+          <span class="tag">web + campaign</span>
+        </div>
+        <div class="work-card">
+          <h3>Voidform Studio</h3>
+          <p>Complete rebrand and website for a 3D art collective. Dark themes with neon punches of color throughout.</p>
+          <span class="tag">rebrand</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="services-section">
+    <div class="container">
+      <h2>What We Do</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Brand Identity</h3>
+          <p>Logos, color systems, type pairings, and guidelines that make your brand unmistakable.</p>
+        </div>
+        <div class="service-card">
+          <h3>Web Design</h3>
+          <p>Websites that load fast, look loud, and convert visitors into fans.</p>
+        </div>
+        <div class="service-card">
+          <h3>Campaigns</h3>
+          <p>Launch campaigns across digital and print that people actually remember seeing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="clients-section">
+      <h2>Clients</h2>
+      <div class="client-list">
+        <span class="client-pill">Fizzbuzz</span>
+        <span class="client-pill">Monolith</span>
+        <span class="client-pill">TerraLoop</span>
+        <span class="client-pill">Stackhaus</span>
+        <span class="client-pill">Voidform</span>
+        <span class="client-pill">Neonbyte</span>
+        <span class="client-pill">Halftone Co</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Got a project? Let's talk.</h2>
+      <p>We work with teams of all sizes who want design that actually does something.</p>
+      <a href="#" class="btn" style="background: #FFFDF7;">Get in Touch</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="footer">
+      <span>BLKBOX Creative &mdash; 2026</span>
+      <span><a href="#">Twitter</a> &middot; <a href="#">Instagram</a> &middot; <a href="#">Dribbble</a></span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Memex and Its Afterlives</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.75; color: #222; background: #FAFAFA; }
+    a { color: #1A5276; text-decoration: underline; }
+    a:visited { color: #6B4C8A; }
+    a:hover { color: #0D3B5A; }
+    img { max-width: 100%; display: block; }
+    code, .mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+
+    .layout { display: grid; grid-template-columns: 200px 1fr; gap: 48px; max-width: 960px; margin: 0 auto; padding: 32px; }
+
+    .toc { position: sticky; top: 32px; font-size: 0.8rem; line-height: 2; align-self: start; }
+    .toc-label { font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #777; margin-bottom: 4px; }
+    .toc a { display: block; color: #777; text-decoration: none; }
+    .toc a:hover { color: #222; }
+
+    .content { max-width: 680px; }
+    .content h1 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
+    .meta { font-size: 0.8rem; color: #777; margin-bottom: 24px; }
+    .content h2 { font-size: 1.2rem; font-weight: 600; line-height: 1.3; margin-top: 32px; margin-bottom: 8px; border-bottom: 1px solid #DDD; padding-bottom: 4px; }
+    .content h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; margin-top: 24px; margin-bottom: 8px; }
+    .content p { margin-bottom: 16px; }
+    .content p + p { text-indent: 1.5em; margin-top: 0; }
+
+    blockquote { border-left: 3px solid #DDD; padding-left: 12px; color: #777; font-style: italic; margin: 16px 0; }
+
+    sup a { font-size: 0.7em; color: #1A5276; text-decoration: none; vertical-align: super; margin-left: 1px; }
+
+    .highlight { background: #FFF9C4; padding: 2px 4px; }
+
+    .metadata { font-size: 0.8rem; color: #777; border-left: 3px solid #DDD; padding-left: 12px; margin: 24px 0; }
+    .metadata dt { font-weight: 600; color: #222; display: inline; }
+    .metadata dd { display: inline; margin: 0; }
+    .metadata dd::after { content: ''; display: block; }
+
+    .related { margin-top: 32px; padding: 16px; background: #F0F0F0; font-size: 0.85rem; border-radius: 2px; }
+    .related h3 { font-size: 0.9rem; margin-bottom: 8px; margin-top: 0; }
+    .related ul { padding-left: 20px; }
+    .related li { margin-bottom: 4px; }
+
+    .footnotes { border-top: 1px solid #DDD; margin-top: 48px; padding-top: 16px; font-size: 0.85rem; color: #777; }
+    .footnotes ol { padding-left: 20px; }
+    .footnotes li { margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; gap: 16px; }
+      .toc { position: static; margin-bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="toc">
+      <div class="toc-label">Contents</div>
+      <a href="#intro">Introduction</a>
+      <a href="#origins">Origins of the memex</a>
+      <a href="#influence">Influence on hypertext</a>
+      <a href="#zettelkasten">The Zettelkasten parallel</a>
+      <a href="#digital">Digital reincarnations</a>
+      <a href="#limits">Limits of the metaphor</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="#refs">References</a>
+    </aside>
+
+    <main class="content">
+      <h1>The Memex and Its Afterlives</h1>
+      <div class="meta">By Clara Engstrom &middot; Published 2026-02-14 &middot; Last edited 2026-03-01 &middot; <a href="#">Edit</a> &middot; <a href="#">History</a> &middot; <a href="#">Cite</a></div>
+
+      <div class="metadata">
+        <dl>
+          <dt>Subject:</dt> <dd>Information science, hypertext history</dd>
+          <dt>Period:</dt> <dd>1945 &ndash; present</dd>
+          <dt>Archive ID:</dt> <dd><code>MEM-2026-007</code></dd>
+          <dt>Status:</dt> <dd>Peer-reviewed draft</dd>
+        </dl>
+      </div>
+
+      <h2 id="intro">Introduction</h2>
+      <p>Vannevar Bush's 1945 essay "As We May Think" proposed a device called the <span class="highlight">memex</span> &mdash; a mechanized desk that would allow a researcher to store, retrieve, and link documents through associative trails.<sup><a href="#fn1">1</a></sup> The essay, published in <em>The Atlantic Monthly</em>, has since become one of the most cited texts in information science.</p>
+      <p>This article traces the memex concept from its origins through its influence on hypertext, personal knowledge management, and contemporary digital tools. It argues that while the memex is often treated as a prophecy of the World Wide Web, its actual design principles point toward something quite different: a private, cumulative, and deeply personal instrument for thought.</p>
+
+      <h2 id="origins">Origins of the memex</h2>
+      <p>Bush wrote "As We May Think" during the final months of World War II, when he directed the U.S. Office of Scientific Research and Development. The essay responded to a specific problem: the growing volume of scientific literature had outstripped any individual's capacity to navigate it.<sup><a href="#fn2">2</a></sup></p>
+      <p>The memex was imagined as a desk with translucent screens, a keyboard, and a vast store of microfilm. A researcher could call up any document, annotate it, and &mdash; crucially &mdash; create <span class="highlight">trails</span> linking one document to another. These trails could then be shared with colleagues, creating a new form of scholarly communication.</p>
+
+      <blockquote>
+        "Wholly new forms of encyclopedias will appear, ready-made with a mesh of associative trails running through them." &mdash; Vannevar Bush, 1945
+      </blockquote>
+
+      <h2 id="influence">Influence on hypertext</h2>
+      <p>Ted Nelson, who coined the term "hypertext" in 1965, acknowledged Bush as a direct inspiration.<sup><a href="#fn3">3</a></sup> Nelson's Project Xanadu extended the memex concept into a networked system with bidirectional links, transclusion, and version tracking.</p>
+      <p>Douglas Engelbart, whose 1968 "Mother of All Demos" introduced the mouse, windowed interfaces, and collaborative document editing, also cited Bush.<sup><a href="#fn4">4</a></sup> Both Nelson and Engelbart, however, diverged from Bush in a critical way: they envisioned shared, public systems rather than personal archives.</p>
+
+      <h3 id="zettelkasten">The Zettelkasten parallel</h3>
+      <p>Running in parallel to these developments, the German sociologist Niklas Luhmann developed his Zettelkasten (slip-box) method from the 1960s onward.<sup><a href="#fn5">5</a></sup> Luhmann's system of approximately 90,000 interlinked index cards bears a striking resemblance to Bush's memex, though there is no evidence Luhmann was aware of the essay.</p>
+      <p>Both systems share key properties: items are individually addressable, connections between items are explicit and navigable, and the system grows by accretion rather than reorganization. The Zettelkasten has experienced a revival in the 2020s through digital tools such as Obsidian, Roam Research, and Logseq.</p>
+
+      <h2 id="digital">Digital reincarnations</h2>
+      <p>The memex metaphor has been invoked by designers of numerous digital tools. The most direct descendants include:</p>
+      <ul style="margin-bottom: 16px; padding-left: 20px; font-size: 0.85rem;">
+        <li>Apple's HyperCard (1987) &mdash; card-based linking system<sup><a href="#fn6">6</a></sup></li>
+        <li>The World Wide Web (1991) &mdash; though notably lacking bidirectional links</li>
+        <li>Ward Cunningham's WikiWikiWeb (1995) &mdash; collaborative, editable hypertext</li>
+        <li>Are.na (2014) &mdash; visual bookmarking and associative linking</li>
+        <li>Obsidian (2020) &mdash; local-first, graph-based note-taking</li>
+      </ul>
+      <p>Each of these tools embodies some aspect of Bush's vision while departing from others. The Web, for instance, realized the scale Bush imagined but abandoned the personal, cumulative character of the memex. Tools like Obsidian restore the personal dimension but sacrifice the sharing mechanism.</p>
+
+      <h2 id="limits">Limits of the metaphor</h2>
+      <p>It is worth noting what the memex was <em>not</em>. Bush did not anticipate search engines, machine learning, or algorithmic recommendation. The memex was a tool for <span class="highlight">manual, deliberate curation</span> &mdash; the researcher chose each link. There was no automation of discovery.</p>
+      <p>This distinction matters because contemporary invocations of the memex often project onto it capabilities Bush never described. The memex was not an artificial intelligence; it was a filing cabinet with superpowers.<sup><a href="#fn7">7</a></sup></p>
+
+      <h2 id="conclusion">Conclusion</h2>
+      <p>The memex remains a generative concept precisely because it is incomplete. Its emphasis on personal curation, associative trails, and information density continues to inform the design of research tools, even as the technological substrate has changed beyond recognition.</p>
+      <p>Future work might examine whether large language models represent a genuine departure from the memex paradigm or merely a new interface layer atop the same fundamental problem Bush identified: how to navigate more information than any human can hold in memory.</p>
+
+      <div class="related">
+        <h3>Related entries</h3>
+        <ul>
+          <li><a href="#">As We May Think: full text and commentary</a></li>
+          <li><a href="#">Project Xanadu and the dream of bidirectional links</a></li>
+          <li><a href="#">Zettelkasten method: principles and digital implementations</a></li>
+          <li><a href="#">Folksonomy vs. taxonomy in digital archives</a></li>
+          <li><a href="#">The card catalog as information technology</a></li>
+          <li><a href="#">Are.na and the resurgence of manual curation</a></li>
+        </ul>
+      </div>
+
+      <div class="footnotes" id="refs">
+        <ol>
+          <li id="fn1">Bush, V. (1945). "As We May Think." <em>The Atlantic Monthly</em>, 176(1), 101&ndash;108.</li>
+          <li id="fn2">Nyce, J.M. and Kahn, P. (1991). <em>From Memex to Hypertext: Vannevar Bush and the Mind's Machine</em>. Academic Press.</li>
+          <li id="fn3">Nelson, T. (1965). "Complex information processing: a file structure for the complex, the changing and the indeterminate." <em>ACM '65: Proceedings of the 20th National Conference</em>, 84&ndash;100.</li>
+          <li id="fn4">Engelbart, D.C. (1962). "Augmenting Human Intellect: A Conceptual Framework." SRI Summary Report AFOSR-3223.</li>
+          <li id="fn5">Luhmann, N. (1981). "Kommunikation mit Zettelkasten." In <em>Offentliche Meinung und sozialer Wandel</em>, Westdeutscher Verlag, 222&ndash;228.</li>
+          <li id="fn6">Atkinson, B. (1987). HyperCard. Apple Computer, Inc.</li>
+          <li id="fn7">Wardrip-Fruin, N. (2003). "As We May Think (Introduction)." In <em>The New Media Reader</em>, MIT Press.</li>
+        </ol>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

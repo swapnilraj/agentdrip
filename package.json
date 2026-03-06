@@ -1,0 +1,15 @@
+{
+  "name": "design-skill",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "openai": "^6.27.0",
+    "playwright": "^1.58.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.0"
+  }
+}

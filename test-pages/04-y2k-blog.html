@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBERZONE BBS :: Forum Post</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=VT323&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: 'VT323', 'Courier New', monospace;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #FFFFFF;
+      margin: 0;
+      background: #1A0A2E;
+      overflow-x: hidden;
+    }
+    ::selection { background: #FF66CC; color: #000; }
+    .starfield {
+      background: #000 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="20" cy="30" r="1" fill="%23FFF"/><circle cx="80" cy="70" r="0.5" fill="%23AAF"/><circle cx="150" cy="40" r="1" fill="%23FFF"/><circle cx="40" cy="140" r="0.5" fill="%23FFF"/><circle cx="120" cy="160" r="1" fill="%23CCF"/><circle cx="170" cy="120" r="0.5" fill="%23FFF"/></svg>');
+      min-height: 100vh;
+    }
+    .page { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    h1, h2 {
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.5rem; }
+
+    .header { text-align: center; padding: 40px 0 10px; }
+    .header h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 5px #00CCFF, 0 0 10px #00CCFF, 0 0 20px #00CCFF, 0 0 40px #0066FF;
+    }
+    .header .chrome-sub {
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #666, #FFF 30%, #999 50%, #FFF 70%, #666);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 8px;
+    }
+    .header p { color: #AAAACC; margin-top: 6px; }
+
+    .nav-bar {
+      text-align: center; padding: 12px;
+      border-top: 1px solid #333; border-bottom: 1px solid #333;
+      margin: 15px 0;
+    }
+    .nav-bar a {
+      color: #FF66CC; text-decoration: none; margin: 0 12px;
+      text-transform: uppercase; font-size: 18px;
+    }
+    .nav-bar a:hover { color: #00CCFF; text-shadow: 0 0 5px #00CCFF; }
+
+    .marquee {
+      overflow: hidden; white-space: nowrap;
+      border-top: 1px solid #00CCFF; border-bottom: 1px solid #00CCFF;
+      padding: 8px 0; color: #00CCFF; font-size: 14px; margin-bottom: 20px;
+    }
+    .marquee span { display: inline-block; animation: scroll 18s linear infinite; }
+    @keyframes scroll { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+    .window { background: #2A1A4E; border: 2px solid; border-color: #666 #333 #333 #666; padding: 0; margin-bottom: 20px; }
+    .window-titlebar {
+      background: linear-gradient(to right, #000066, #0033CC, #000066);
+      padding: 4px 8px; font-size: 12px; color: #FFF;
+      display: flex; justify-content: space-between;
+    }
+    .window-titlebar .btns span {
+      display: inline-block; width: 12px; height: 12px;
+      border: 1px solid; border-color: #999 #333 #333 #999;
+      margin-left: 2px; font-size: 9px; text-align: center; line-height: 12px;
+    }
+    .window-body { padding: 16px; }
+    .window-body h2 { color: #00CCFF; margin-bottom: 8px; }
+
+    .post-header {
+      background: #0A0015; border: 1px solid #333; padding: 12px; margin-bottom: 16px;
+      display: flex; justify-content: space-between;
+    }
+    .post-header .author { color: #00CCFF; }
+    .post-header .date { color: #AAAACC; }
+    .post-header .post-count { color: #FF66CC; font-size: 14px; }
+
+    .post-body { padding: 0 8px; }
+    .post-body p { margin-bottom: 12px; }
+
+    .post-sig {
+      border-top: 1px dashed #333; margin-top: 20px; padding-top: 12px;
+      color: #AAAACC; font-size: 14px;
+    }
+
+    .reply { margin-top: 0; }
+    .reply .post-header { background: #110022; }
+
+    a { color: #00FF66; text-decoration: none; }
+    a:hover { color: #00CCFF; text-shadow: 0 0 5px #00CCFF; }
+
+    .btn {
+      display: inline-block; padding: 8px 24px;
+      background: linear-gradient(to bottom, #555, #222);
+      border: 2px solid; border-color: #777 #333 #333 #777;
+      color: #00CCFF; font-family: 'VT323', 'Courier New', monospace;
+      font-size: 16px; cursor: pointer; text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn:hover { background: linear-gradient(to bottom, #666, #333); color: #FFF; }
+
+    .thread-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #0A0015; border: 1px solid #333; padding: 10px 16px;
+      margin-bottom: 20px;
+    }
+    .thread-nav .breadcrumb { color: #AAAACC; font-size: 14px; }
+    .thread-nav .breadcrumb a { color: #FF66CC; }
+
+    .divider { border: none; border-top: 1px solid #333; margin: 0; }
+
+    .layout { display: flex; gap: 20px; }
+    .main-col { flex: 3; }
+    .side-col { flex: 1; min-width: 180px; }
+
+    .footer { text-align: center; padding: 30px; color: #555; font-size: 13px; }
+    .footer a { color: #FF66CC; }
+  </style>
+</head>
+<body>
+  <div class="starfield">
+    <div class="page">
+      <div class="header">
+        <h1>CYBERZONE BBS</h1>
+        <div class="chrome-sub">Bulletin Board System v2.4</div>
+        <p>[ 14,208 registered users ] :: [ 892 online now ]</p>
+      </div>
+
+      <div class="nav-bar">
+        <a href="#">Home</a>
+        <a href="#">Forums</a>
+        <a href="#">Members</a>
+        <a href="#">Search</a>
+        <a href="#">Profile</a>
+      </div>
+
+      <div class="marquee"><span>*** WELCOME TO CYBERZONE BBS *** FORUM RULES: BE COOL, NO SPAM *** NEW: AVATAR UPLOADS NOW SUPPORTED *** IRC CHAT: #CYBERZONE ON EFNET ***</span></div>
+
+      <div class="thread-nav">
+        <div class="breadcrumb"><a href="#">Forums</a> &gt; <a href="#">Tech Talk</a> &gt; The Future of Web Design</div>
+        <div><a href="#" class="btn" style="padding: 4px 16px; font-size: 14px;">Reply</a></div>
+      </div>
+
+      <div class="layout">
+        <div class="main-col">
+          <div class="window">
+            <div class="window-titlebar"><span>thread_view.exe :: The Future of Web Design</span><div class="btns"><span>_</span><span>x</span></div></div>
+            <div class="window-body">
+
+              <div class="post-header">
+                <div>
+                  <span class="author" style="font-family: 'Orbitron', sans-serif; font-size: 14px;">CyberMaster2K</span>
+                  <span style="color: #00FF66; font-size: 12px;"> [ADMIN]</span>
+                  <br><span class="post-count">Posts: 1,847</span>
+                </div>
+                <div class="date">March 12, 2001 :: 11:34 PM</div>
+              </div>
+              <div class="post-body">
+                <p style="font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: #00CCFF; text-shadow: 0 0 5px #00CCFF; text-transform: uppercase; margin-bottom: 16px;">The Future of Web Design: Where Are We Headed?</p>
+
+                <p>I have been thinking a lot about where web design is going and I wanted to share some thoughts with the community. We are at an interesting crossroads right now.</p>
+
+                <p>Flash is getting more powerful every release. Macromedia just dropped Flash 5 with ActionScript and it is basically a programming language now. You can build entire applications in Flash. Some people are saying the future of the web is 100% Flash -- no HTML at all. Just one big SWF file.</p>
+
+                <p>But here is what I think people are missing: <span style="color: #00FF66;">HTML itself is evolving</span>. CSS is getting better. We are seeing the first real CSS layouts that do not use tables. The W3C is pushing XHTML. And there is this thing called "web standards" that a lot of smart people are advocating for.</p>
+
+                <p>My prediction: Flash will dominate for intros and interactive stuff, but the core web will stay HTML-based. The browsers will get better at rendering CSS. Tables for layout will eventually die. And we will look back at this era the way we look at the early days of any medium -- experimental, ugly, beautiful, and full of energy.</p>
+
+                <p>What do you all think? Where is web design going?</p>
+
+                <div class="post-sig">
+                  <p>---</p>
+                  <p style="color: #FF66CC;">CyberMaster2K :: Admin of CYBERZONE since 1999</p>
+                  <p>AIM: CyberMaster2K | ICQ: 28475910</p>
+                  <p>"The internet is not a fad."</p>
+                </div>
+              </div>
+
+              <hr class="divider">
+
+              <div class="reply">
+                <div class="post-header">
+                  <div>
+                    <span class="author" style="font-family: 'Orbitron', sans-serif; font-size: 14px;">FlashGuru99</span>
+                    <br><span class="post-count">Posts: 423</span>
+                  </div>
+                  <div class="date">March 13, 2001 :: 01:12 AM</div>
+                </div>
+                <div class="post-body">
+                  <p>Flash is DEFINITELY the future. HTML is so limited. You cannot do real animations, you cannot control fonts, you cannot even position things precisely without hacky table layouts.</p>
+
+                  <p>With Flash you get:</p>
+                  <p style="color: #00FF66;">> vector graphics at any resolution</p>
+                  <p style="color: #00FF66;">> real animation with tweening</p>
+                  <p style="color: #00FF66;">> sound and music</p>
+                  <p style="color: #00FF66;">> ActionScript for real interactivity</p>
+                  <p style="color: #00FF66;">> pixel-perfect control over layout</p>
+
+                  <p>In 5 years every website will be Flash. Mark my words.</p>
+
+                  <div class="post-sig">
+                    <p>---</p>
+                    <p style="color: #AAAACC;">FlashGuru99 :: Macromedia Certified Developer</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="divider">
+
+              <div class="reply">
+                <div class="post-header">
+                  <div>
+                    <span class="author" style="font-family: 'Orbitron', sans-serif; font-size: 14px;">HTMLpurist</span>
+                    <br><span class="post-count">Posts: 1,204</span>
+                  </div>
+                  <div class="date">March 13, 2001 :: 09:47 AM</div>
+                </div>
+                <div class="post-body">
+                  <p>Respectfully disagree with FlashGuru. Flash sites are terrible for accessibility. Screen readers cannot read them. Search engines cannot index them. They take forever to load on 56k.</p>
+
+                  <p>Have you guys seen <a href="#">A List Apart</a>? Jeffrey Zeldman is doing amazing things with pure CSS. No tables, no Flash, just clean semantic HTML and stylesheets. THAT is the future.</p>
+
+                  <p>Also: have you tried using a Flash site on a slow connection? That "loading... 47%" screen is not a good user experience lol.</p>
+
+                  <div class="post-sig">
+                    <p>---</p>
+                    <p style="color: #AAAACC;">HTMLpurist :: Web Standards Advocate</p>
+                    <p style="color: #AAAACC;">"Separate content from presentation."</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="divider">
+
+              <div class="reply">
+                <div class="post-header">
+                  <div>
+                    <span class="author" style="font-family: 'Orbitron', sans-serif; font-size: 14px;">PixelDreamer</span>
+                    <br><span class="post-count">Posts: 87</span>
+                  </div>
+                  <div class="date">March 13, 2001 :: 02:30 PM</div>
+                </div>
+                <div class="post-body">
+                  <p>Great thread!! I think both sides have good points. Maybe the future is a hybrid -- HTML/CSS for content and structure, Flash for the cool interactive bits?</p>
+
+                  <p>One thing I know for sure: <span style="color: #FF66CC;">web design is going to keep getting more visual</span>. As bandwidth increases, we will see more images, more animation, more video. The text-heavy web of 1996 is already looking ancient.</p>
+
+                  <p>Also has anyone heard about this "AJAX" technique where you can update parts of a page without reloading? Saw a demo using XMLHttpRequest. Could be huge.</p>
+
+                  <div class="post-sig">
+                    <p>---</p>
+                    <p style="color: #AAAACC;">PixelDreamer :: "Pushing pixels since '97"</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="divider">
+
+              <div style="text-align: center; padding: 16px;">
+                <a href="#" class="btn">Reply to Thread &gt;&gt;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-col">
+          <div class="window">
+            <div class="window-titlebar"><span>thread_info.dat</span><div class="btns"><span>_</span><span>x</span></div></div>
+            <div class="window-body">
+              <p style="color: #AAAACC; font-size: 14px;">Thread Stats:</p>
+              <p style="color: #00CCFF;">Replies: <span style="color: #FFF;">4</span></p>
+              <p style="color: #00CCFF;">Views: <span style="color: #FFF;">1,247</span></p>
+              <p style="color: #00CCFF;">Started: <span style="color: #FFF;">03.12.01</span></p>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar"><span>online.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+            <div class="window-body">
+              <h2 style="font-size: 1rem; color: #FF66CC;">Who's Online</h2>
+              <p style="color: #00FF66; font-size: 14px;">CyberMaster2K</p>
+              <p style="color: #00FF66; font-size: 14px;">PixelDreamer</p>
+              <p style="color: #AAAACC; font-size: 14px;">HTMLpurist</p>
+              <p style="color: #AAAACC; font-size: 14px;">xXDarkAngelXx</p>
+              <p style="color: #AAAACC; font-size: 14px;">CodeNinja</p>
+              <p style="color: #AAAACC; font-size: 12px; margin-top: 8px;">+ 887 guests</p>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar"><span>hot_threads.url</span><div class="btns"><span>_</span><span>x</span></div></div>
+            <div class="window-body">
+              <h2 style="font-size: 1rem; color: #FF66CC;">Hot Threads</h2>
+              <p><a href="#" style="font-size: 14px;">> Best free web hosts?</a></p>
+              <p><a href="#" style="font-size: 14px;">> Flash 5 vs Flash 4</a></p>
+              <p><a href="#" style="font-size: 14px;">> Show your desktop</a></p>
+              <p><a href="#" style="font-size: 14px;">> IE vs Netscape war</a></p>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar"><span>stats.exe</span><div class="btns"><span>_</span><span>x</span></div></div>
+            <div class="window-body">
+              <p style="color: #AAAACC; font-size: 14px;">Forum Stats:</p>
+              <p style="color: #00CCFF; font-family: 'Orbitron', sans-serif; font-size: 1rem;">14,208</p>
+              <p style="color: #AAAACC; font-size: 12px;">registered users</p>
+              <br>
+              <p style="color: #00CCFF; font-family: 'Orbitron', sans-serif; font-size: 1rem;">247,391</p>
+              <p style="color: #AAAACC; font-size: 12px;">total posts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2001 CYBERZONE BBS :: Powered by vBulletin</p>
+        <p><a href="#">Home</a> | <a href="#">Forums</a> | <a href="#">Rules</a> | <a href="#">Contact Admin</a></p>
+        <p style="margin-top: 10px;">Best viewed in Internet Explorer 5.5 or Netscape 6 at 1024x768</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

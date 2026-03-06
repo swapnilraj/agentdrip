@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIXEL ZONE - Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; image-rendering: pixelated; }
+    body { font-family: 'VT323', 'Courier New', monospace; font-size: 20px; line-height: 1.4; background: #2B2B3D; color: #E8E8D0; -webkit-font-smoothing: none; -moz-osx-font-smoothing: unset; }
+    ::selection { background: #6ABE30; color: #1A1A2E; }
+
+    .page { max-width: 640px; margin: 0 auto; padding: 16px; }
+
+    .header { border: 4px solid #E8E8D0; padding: 16px; text-align: center; margin-bottom: 16px; background: #1A1A2E; }
+    .header h1 { font-family: 'Press Start 2P', monospace; font-size: 20px; color: #6ABE30; line-height: 1.6; }
+    .header p { margin-top: 8px; color: #76768A; }
+
+    .divider { height: 8px; background: repeating-linear-gradient(90deg, #6ABE30 0px, #6ABE30 8px, #5B6EE1 8px, #5B6EE1 16px, #AC3232 16px, #AC3232 24px, #FBF236 24px, #FBF236 32px); margin: 16px 0; }
+
+    .window { background: #1A1A2E; border: 4px solid #E8E8D0; margin-bottom: 16px; }
+    .window-title { background: #5B6EE1; color: #E8E8D0; padding: 4px 8px; font-family: 'Press Start 2P', monospace; font-size: 10px; display: flex; justify-content: space-between; line-height: 1.6; }
+    .window-body { padding: 16px; }
+
+    .post-meta { color: #76768A; font-size: 16px; margin-bottom: 16px; }
+    .post-meta span { color: #FBF236; }
+
+    .post-title { font-family: 'Press Start 2P', monospace; font-size: 16px; color: #FBF236; margin-bottom: 16px; line-height: 1.6; }
+
+    .post-body p { margin-bottom: 16px; font-size: 20px; line-height: 1.5; }
+
+    .post-body h2 { font-family: 'Press Start 2P', monospace; font-size: 12px; color: #6ABE30; margin: 24px 0 16px; line-height: 1.6; }
+
+    .code-block { background: #2B2B3D; border: 2px solid #76768A; padding: 16px; margin: 16px 0; font-size: 18px; color: #6ABE30; overflow-x: auto; }
+
+    .highlight { color: #FBF236; }
+    .comment { color: #76768A; }
+
+    .pixel-box { border: 4px solid #E8E8D0; outline: 4px solid #76768A; outline-offset: -8px; padding: 16px; background: #1A1A2E; margin: 16px 0; }
+
+    .nav-links { display: flex; justify-content: space-between; margin-top: 8px; }
+    .nav-links a { color: #6ABE30; }
+    .nav-links a:hover { background: #6ABE30; color: #1A1A2E; }
+
+    .footer { text-align: center; padding: 16px; color: #76768A; font-size: 16px; }
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor::after { content: '\2588'; animation: blink 0.8s step-end infinite; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>PIXEL ZONE</h1>
+      <p>[ DEVLOG ]</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Blog post window -->
+    <div class="window">
+      <div class="window-title"><span>blog_post_003.txt</span><span>[_][X]</span></div>
+      <div class="window-body">
+        <div class="post-meta">
+          DATE: <span>2026-03-01</span> | AUTHOR: <span>PIXELMASTER</span> | TAGS: <span>GAMEDEV, SPRITES</span>
+        </div>
+
+        <div class="post-title">HOW I BUILT A SPRITE ANIMATION SYSTEM IN 256 BYTES</div>
+
+        <div class="post-body">
+          <p>Building a sprite animation system with extreme constraints is one of the most rewarding challenges in retro game development. Today I want to walk through how I built the animation engine for DUNGEON CRAWLER using only 256 bytes of memory.</p>
+
+          <h2>THE PROBLEM</h2>
+
+          <p>Old hardware had severe memory limits. The original Game Boy had only 8KB of RAM for everything - game logic, sprite data, tile maps, and sound. Every byte counts when you are working within those constraints.</p>
+
+          <p>For DUNGEON CRAWLER, I wanted smooth 4-frame walk cycles for 16 different enemy types. That is 64 frames of animation data. At 16x16 pixels per frame, that would normally eat up a huge chunk of memory.</p>
+
+          <h2>THE SOLUTION</h2>
+
+          <p>The trick is to store only the differences between frames rather than complete frames. Most pixels in a walk cycle don't change between frames - usually only the limbs move.</p>
+
+          <div class="code-block">
+<span class="comment">; Animation delta format:</span>
+<span class="comment">; byte 0: pixel offset (0-255)</span>
+<span class="comment">; byte 1: new color index (0-3)</span>
+<span class="comment">; byte 2: 0xFF = end of frame</span>
+
+ANIM_WALK_FRAME1:
+  .db $1A, $02  <span class="comment">; pixel 26 -> color 2</span>
+  .db $1B, $02  <span class="comment">; pixel 27 -> color 2</span>
+  .db $2A, $01  <span class="comment">; pixel 42 -> color 1</span>
+  .db $FF       <span class="comment">; end frame</span>
+          </div>
+
+          <h2>THE RESULTS</h2>
+
+          <p>Using delta encoding, the entire animation dataset for all 16 enemy types fits in just 248 bytes. That leaves 8 bytes to spare for the animation state machine itself.</p>
+
+          <div class="pixel-box">
+            <p style="color: #FBF236; font-family: 'Press Start 2P', monospace; font-size: 10px; line-height: 1.6;">MEMORY USAGE:</p>
+            <br>
+            <p>Animation data ... 248 / 256 bytes</p>
+            <p>State machine ....   8 / 256 bytes</p>
+            <p style="color: #6ABE30;">TOTAL ............ 256 / 256 bytes</p>
+          </div>
+
+          <p>The key takeaway: constraints breed creativity. When you can't brute-force a solution, you have to think carefully about data representation. That thinking process is what makes retro dev so satisfying.</p>
+
+          <p>Next time I will cover the tile map compression system. Stay tuned<span class="cursor"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="window">
+      <div class="window-title"><span>nav.exe</span><span>[X]</span></div>
+      <div class="window-body">
+        <div class="nav-links">
+          <a href="#">&lt;&lt; PREV POST</a>
+          <a href="#">BACK TO INDEX</a>
+          <a href="#">NEXT POST &gt;&gt;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">PIXEL ZONE DEVLOG | POST #003 <span class="blink">_</span></div>
+  </div>
+</body>
+</html>

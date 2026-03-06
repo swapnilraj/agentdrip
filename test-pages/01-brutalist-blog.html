@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGAINST DEFAULTS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; padding: 0; }
+    body { font-family: 'Space Mono', 'Courier New', Courier, monospace; font-size: 16px; line-height: 1.4; background: #FFF; color: #000; }
+    h1, h2, h3 { font-family: Helvetica, Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 900; }
+    h1 { font-size: 4rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.5rem; }
+    a { color: #0000FF; text-decoration: underline; }
+    a:hover { background: #0000FF; color: #FFF; text-decoration: none; }
+    hr { border: none; border-top: 2px solid #000; margin: 2rem 0; }
+    .inverted { background: #000; color: #FFF; display: inline-block; padding: 0.25rem 0.5rem; }
+    .alert { background: #FF0000; color: #FFF; display: inline-block; padding: 0.25rem 0.5rem; font-size: 0.75rem; text-transform: uppercase; font-family: Helvetica, Arial, sans-serif; font-weight: 900; }
+
+    .header { border-bottom: 3px solid #000; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .header h3 { font-size: 1.25rem; }
+    .header nav a { margin-left: 1rem; font-size: 0.875rem; text-transform: uppercase; }
+
+    .article-header { padding: 1rem; border-bottom: 2px solid #000; }
+    .article-header h1 { line-height: 0.95; }
+
+    .meta { padding: 1rem; border-bottom: 2px solid #000; font-size: 0.75rem; text-transform: uppercase; display: flex; gap: 4rem; }
+
+    .article-body { padding: 1rem; border-bottom: 2px solid #000; }
+    .article-body p { margin-bottom: 1rem; max-width: 700px; }
+    .article-body h2 { margin-top: 4rem; margin-bottom: 1rem; }
+    .article-body blockquote { border-left: 4px solid #000; padding-left: 1rem; margin: 1rem 0; font-weight: 700; }
+
+    .footer { border-top: 3px solid #000; padding: 1rem; font-size: 0.75rem; text-transform: uppercase; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; }
+      .meta { flex-direction: column; gap: 0.25rem; }
+      .header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3><a href="#" style="color: #000; text-decoration: none;">Raw Notes</a></h3>
+    <nav><a href="#">Archive</a> / <a href="#">About</a> / <a href="#">RSS</a></nav>
+  </div>
+
+  <div class="article-header">
+    <span class="alert">Opinion</span>
+    <h1>Against Defaults</h1>
+  </div>
+
+  <div class="meta">
+    <span>By Lena Gruber</span>
+    <span>2026-03-01</span>
+    <span>1,800 words</span>
+  </div>
+
+  <div class="article-body">
+    <p>Every piece of software ships with defaults. Default fonts. Default colors. Default spacing. Default corner radius. These defaults are not neutral. They are decisions made by someone else, embedded into tools you did not build, shaping output you are responsible for.</p>
+
+    <p>When you open a new document in Figma, the canvas is white, the text is black, the font is Inter, and the rectangle has rounded corners. You have made zero decisions but you already have an aesthetic. This is the tyranny of the default. It makes the path of least resistance indistinguishable from a deliberate choice.</p>
+
+    <hr>
+
+    <h2>The Default is a Decision</h2>
+
+    <p>Consider border-radius. In CSS, the default border-radius is zero. A rectangle is a rectangle. But design tools have trained an entire generation to reach for 8px corners before asking whether the content demands them. The rounded corner has become a reflex, not a choice.</p>
+
+    <p>The same applies to shadows. To gradients. To the particular shade of grey that every design system calls "muted" or "secondary." These are not natural phenomena. They are conventions established by a small number of companies and propagated through their tools and templates.</p>
+
+    <blockquote>The question is not whether your defaults are good. The question is whether you chose them.</blockquote>
+
+    <p>A designer who accepts every default is not designing. They are assembling. They are using someone else's visual language to package their own content. The result may be functional. It may even be pleasant. But it is not theirs.</p>
+
+    <hr>
+
+    <h2>Starting From Zero</h2>
+
+    <p>The alternative is to start from nothing. No template. No component library. No pre-built theme. Open a blank HTML file. Set the font. Set the color. Set the measure. Build the structure from the content outward, making each decision consciously and recording each choice explicitly.</p>
+
+    <p>This is slower. It is harder. It produces work that may not match the prevailing aesthetic. Good. The prevailing aesthetic is a product of defaults. Anything that departs from it is, by definition, a decision. And decisions are what design is made of.</p>
+
+    <p>The argument is not that defaults are always wrong. Some defaults are excellent. The argument is that you should have to opt into them rather than having to opt out. The burden of proof should fall on the convention, not on the departure.</p>
+
+    <hr>
+
+    <h2>What Remains</h2>
+
+    <p>Strip away the defaults and what remains is structure. Content arranged in space according to decisions you made for reasons you can articulate. This is the minimum viable design. Not a style. Not a trend. A discipline of attention applied to every element on the page.</p>
+
+    <p>Start with the rectangle. It is the most honest shape a screen can make. Everything else is a choice. Make sure it is yours.</p>
+  </div>
+
+  <div class="footer">Raw Notes / 2026 / <a href="#">RSS</a> / Built with HTML. Nothing else needed.</div>
+</body>
+</html>

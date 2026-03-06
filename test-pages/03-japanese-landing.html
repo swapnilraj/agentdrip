@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shizuka Studio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; font-weight: 300; font-size: 15px; line-height: 1.8; color: #2C2C2C; background: #F7F5F0; letter-spacing: 0.01em; }
+    ::selection { background: #B8564F; color: #F7F5F0; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+    .container-wide { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    .nav { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family: 'Noto Serif', 'Georgia', serif; font-size: 1.1rem; font-weight: 400; }
+    .nav a { color: #8C8880; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; margin-left: 24px; }
+    .nav a:hover { color: #2C2C2C; transition: color 0.4s; }
+    .hero { padding: 200px 0 160px; text-align: center; }
+    .hero h1 { font-family: 'Noto Serif', 'Georgia', serif; font-size: 2.5rem; font-weight: 400; line-height: 1.3; letter-spacing: -0.01em; }
+    .hero p { margin-top: 24px; color: #8C8880; max-width: 400px; margin-left: auto; margin-right: auto; }
+    hr { border: none; height: 1px; background: #EDEBE6; margin: 0 auto; max-width: 80px; }
+    .section { padding: 120px 0; }
+    .section + .section { border-top: 1px solid #EDEBE6; }
+    h2 { font-family: 'Noto Serif', 'Georgia', serif; font-weight: 400; font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.01em; }
+    h3 { font-size: 0.8rem; letter-spacing: 0.15em; color: #8C8880; }
+    .prose { max-width: 600px; margin: 0 auto; text-align: left; }
+    .prose p + p { margin-top: 1.5em; }
+    .image-frame { padding: 24px; background: #EDEBE6; }
+    .image-frame img { display: block; width: 100%; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+    .service h2 { margin-bottom: 12px; }
+    .service p { color: #8C8880; font-size: 14px; }
+    .cta { text-align: center; padding: 120px 0; }
+    .cta-button { display: inline-block; padding: 14px 40px; border: 1px solid #2C2C2C; color: #2C2C2C; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 300; transition: background 0.4s, color 0.4s; }
+    .cta-button:hover { background: #2C2C2C; color: #F7F5F0; }
+    .footer { padding: 60px 0; text-align: center; font-size: 0.75rem; color: #8C8880; letter-spacing: 0.1em; }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .hero { padding: 140px 0 100px; }
+      .services { grid-template-columns: 1fr; gap: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <span class="nav-logo">Shizuka Studio</span>
+      <div>
+        <a href="#">work</a>
+        <a href="#">philosophy</a>
+        <a href="#">contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h3 style="margin-bottom: 24px;">design studio</h3>
+      <h1>In stillness, clarity emerges</h1>
+      <p>We create spaces and objects that honor silence. Design that breathes, composed with restraint and guided by the principle of ma.</p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <div class="image-frame">
+        <div style="background: #D5D2CC; height: 400px;"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="prose">
+        <h3 style="margin-bottom: 24px;">approach</h3>
+        <h2>Less, but with intention</h2>
+        <p style="margin-top: 24px; color: #8C8880;">Every element we place earns its position. We begin by removing, not adding. The empty space between objects is as important as the objects themselves.</p>
+        <p style="color: #8C8880;">Our practice draws from the traditions of Japanese interior design, where a room speaks through what it chooses not to include. We bring this sensibility to every project.</p>
+      </div>
+    </div>
+
+    <hr>
+  </div>
+
+  <div class="container-wide">
+    <div class="section">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h3 style="margin-bottom: 24px;">services</h3>
+        <h2>What we offer</h2>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h2>Interior design</h2>
+          <p>Residential and commercial spaces designed around tranquility. We work with natural materials, muted palettes, and careful proportions to create rooms that feel both empty and complete.</p>
+        </div>
+        <div class="service">
+          <h2>Object design</h2>
+          <p>Furniture and vessels that embody simplicity. Each piece is reduced to its essential form, crafted from honest materials that age with grace.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="prose" style="text-align: center;">
+        <h3 style="margin-bottom: 24px;">selected clients</h3>
+        <p style="color: #8C8880;">Muji  /  Aman Resorts  /  Kyoto Ceramic Institute  /  Nalata Nalata</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="cta">
+      <h2>Begin a conversation</h2>
+      <p style="color: #8C8880; margin-top: 16px; max-width: 360px; margin-left: auto; margin-right: auto;">We take on a small number of projects each year. If our approach resonates, we would welcome hearing from you.</p>
+      <p style="margin-top: 32px;"><a href="#" class="cta-button">get in touch</a></p>
+    </div>
+
+    <div class="section" style="text-align: center;">
+      <h3 style="margin-bottom: 24px;">visit</h3>
+      <p style="color: #8C8880;">4-8 Higashiyama, Sakyo-ku</p>
+      <p style="color: #8C8880;">Kyoto, Japan 606-8445</p>
+      <p style="margin-top: 16px; color: #B8564F; font-size: 0.8rem; letter-spacing: 0.1em;">hello@shizukastudio.jp</p>
+    </div>
+
+    <div class="footer">Shizuka Studio</div>
+  </div>
+</body>
+</html>

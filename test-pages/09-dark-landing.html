@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: #09090B; color: #FAFAFA; font-size: 15px; line-height: 1.6; font-weight: 400; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #6366F1; color: #FFF; }
+    a { color: #FAFAFA; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* Nav */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .nav-brand { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .nav-links a { color: #71717A; font-size: 0.85rem; margin-left: 28px; transition: color 0.2s; }
+    .nav-links a:hover { color: #FAFAFA; }
+    .nav-cta { display: inline-flex; align-items: center; padding: 8px 16px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #FAFAFA; font-size: 0.8rem; font-weight: 500; margin-left: 28px; transition: background 0.2s, border-color 0.2s; }
+    .nav-cta:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.25); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 160px 0 120px; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(99, 102, 241, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 20px; position: relative; }
+    .hero h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; position: relative; }
+    .hero h1 span { background: linear-gradient(135deg, #6366F1, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { margin-top: 20px; color: #71717A; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; font-size: 0.95rem; }
+    .hero-actions { margin-top: 36px; display: flex; gap: 12px; justify-content: center; position: relative; }
+    .btn-primary { display: inline-block; padding: 12px 28px; background: #FAFAFA; color: #09090B; border-radius: 8px; font-weight: 500; font-size: 0.9rem; transition: opacity 0.2s; border: none; cursor: pointer; font-family: inherit; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-ghost { display: inline-flex; align-items: center; padding: 12px 28px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #FAFAFA; font-family: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.25); }
+
+    /* Divider */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin: 0; border: none; }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .feature { background: #09090B; padding: 48px 32px; }
+    .feature h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 12px; font-weight: 500; }
+    .feature h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .feature p { font-size: 0.875rem; color: #71717A; line-height: 1.6; }
+
+    /* Showcase */
+    .showcase { padding: 120px 0; text-align: center; }
+    .showcase h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 48px; }
+    .showcase-card { background: #18181B; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 28px; max-width: 680px; margin: 0 auto; text-align: left; box-shadow: 0 0 60px rgba(99, 102, 241, 0.15); }
+    .showcase-card code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85rem; line-height: 1.8; }
+    .code-muted { color: #71717A; }
+    .code-accent { color: #6366F1; }
+
+    /* Pricing */
+    .pricing-section { padding: 120px 0; text-align: center; }
+    .pricing-section > h2 { font-size: 2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .pricing-section > p { color: #71717A; margin-bottom: 60px; font-size: 0.95rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .pricing-card { background: #18181B; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 28px; text-align: left; }
+    .pricing-card.featured { border-color: rgba(99, 102, 241, 0.4); box-shadow: 0 0 60px rgba(99, 102, 241, 0.15); }
+    .pricing-card h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 16px; }
+    .pricing-amount { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; }
+    .pricing-amount span { font-size: 0.875rem; font-weight: 400; color: #71717A; }
+    .pricing-desc { font-size: 0.875rem; color: #71717A; margin-top: 8px; margin-bottom: 24px; line-height: 1.6; }
+    .pricing-list { list-style: none; padding: 0; }
+    .pricing-list li { font-size: 0.85rem; color: #71717A; padding: 6px 0; }
+    .pricing-list li::before { content: '\2014'; margin-right: 8px; color: #3F3F46; }
+
+    /* Footer */
+    .footer { padding: 40px 0; text-align: center; color: #3F3F46; font-size: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .features { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-brand">Precision</div>
+      <div class="nav-links">
+        <a href="#">Product</a>
+        <a href="#">Docs</a>
+        <a href="#">Pricing</a>
+        <a href="#" class="nav-cta">Dashboard</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h3>Engineered Infrastructure</h3>
+      <h1>Build with<br><span>absolute clarity</span></h1>
+      <p>Tools crafted with obsessive attention to detail. Every pixel considered, every interaction refined to its essence.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Get Started</button>
+        <button class="btn-ghost">Read Documentation</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="features">
+    <div class="feature">
+      <h3>Performance</h3>
+      <h2>Sub-millisecond</h2>
+      <p>Optimized from the ground up for speed that you can feel in every interaction.</p>
+    </div>
+    <div class="feature">
+      <h3>Design</h3>
+      <h2>Pixel-perfect</h2>
+      <p>Every element placed with mathematical precision and deliberate intention.</p>
+    </div>
+    <div class="feature">
+      <h3>Scale</h3>
+      <h2>Infinitely elastic</h2>
+      <p>Architecture that grows with you without compromising quality or clarity.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="showcase">
+      <h3>Integration</h3>
+      <div class="showcase-card">
+        <code>
+          <span class="code-muted">// Initialize Precision</span><br>
+          <span class="code-accent">import</span> { Precision } <span class="code-accent">from</span> '@precision/sdk';<br>
+          <br>
+          <span class="code-accent">const</span> client = <span class="code-accent">new</span> Precision({<br>
+          &nbsp;&nbsp;key: process.env.PRECISION_KEY,<br>
+          &nbsp;&nbsp;region: <span class="code-muted">'auto'</span><br>
+          });<br>
+          <br>
+          <span class="code-accent">const</span> result = <span class="code-accent">await</span> client.query({<br>
+          &nbsp;&nbsp;service: <span class="code-muted">'analytics'</span>,<br>
+          &nbsp;&nbsp;window: <span class="code-muted">'30d'</span><br>
+          });
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="pricing-section">
+      <h2>Simple, transparent pricing</h2>
+      <p>No hidden fees. Scale when you need to.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Developer</h3>
+          <div class="pricing-amount">Free</div>
+          <p class="pricing-desc">For side projects and experimentation.</p>
+          <ul class="pricing-list">
+            <li>10,000 requests / month</li>
+            <li>1 API key</li>
+            <li>Community support</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Professional</h3>
+          <div class="pricing-amount">$49 <span>/ month</span></div>
+          <p class="pricing-desc">For teams shipping production software.</p>
+          <ul class="pricing-list">
+            <li>1M requests / month</li>
+            <li>Unlimited keys</li>
+            <li>Priority support</li>
+            <li>Analytics dashboard</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="pricing-amount">Custom</div>
+          <p class="pricing-desc">For organizations with specific requirements.</p>
+          <ul class="pricing-list">
+            <li>Unlimited requests</li>
+            <li>Dedicated infrastructure</li>
+            <li>SLA guarantee</li>
+            <li>SSO and audit logs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="footer">Precision &mdash; Built for those who notice the details</div>
+  </div>
+</body>
+</html>

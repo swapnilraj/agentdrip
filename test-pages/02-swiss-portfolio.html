@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur &mdash; Work</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; }
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1A1A1A; background: #FFFFFF; font-size: 16px; line-height: 1.6; }
+    h1, h2, h3 { font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid #1A1A1A; }
+    .nav a { text-decoration: none; color: #1A1A1A; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-left: 32px; }
+    .nav a.active { border-bottom: 2px solid #E63226; }
+    .marker { color: #E63226; font-weight: 700; }
+    .section { border-top: 2px solid #1A1A1A; padding-top: 16px; margin-top: 64px; }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #6B6B6B; }
+    .hero { padding: 96px 0 64px; }
+    .hero h1 { max-width: 16ch; }
+    .hero p { margin-top: 32px; max-width: 480px; color: #6B6B6B; }
+    .layout-split { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+    .project { border-top: 1px solid #1A1A1A; padding: 24px 0; }
+    .project .layout-split { margin-top: 0; }
+    .project h2 { margin-bottom: 8px; }
+    .project .meta { font-size: 0.875rem; color: #6B6B6B; margin-bottom: 16px; }
+    .project p { font-size: 0.875rem; color: #6B6B6B; }
+    .project-sidebar h3 { margin-bottom: 8px; }
+    .project-sidebar p { font-size: 0.875rem; color: #6B6B6B; }
+    .footer { margin-top: 96px; padding: 24px 0; border-top: 1px solid #1A1A1A; font-size: 0.75rem; color: #6B6B6B; }
+
+    @media (max-width: 768px) {
+      .layout-split { grid-template-columns: 1fr; gap: 16px; }
+      h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <strong>Struktur</strong>
+      <div><a href="#">Overview</a><a href="#" class="active">Work</a><a href="#">About</a><a href="#">Contact</a></div>
+    </nav>
+
+    <div class="hero">
+      <h1>Selected projects</h1>
+      <p>A selection of identity, editorial, and digital projects completed between 2020 and 2026.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Identity</span>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>Museum fur Gestaltung</p>
+            <p style="margin-top: 8px;">Zurich, 2024</p>
+            <p style="margin-top: 8px;"><span class="marker">Featured</span></p>
+          </div>
+          <div>
+            <h2>Museum fur Gestaltung identity redesign</h2>
+            <p>Complete visual identity system for Zurich's design museum. Modular logotype, grid-based poster system, exhibition typography standards, and a 96-page brand guidelines document. The system accommodates four languages and scales from business cards to building-height banners.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>Helvetia Insurance</p>
+            <p style="margin-top: 8px;">St. Gallen, 2023</p>
+          </div>
+          <div>
+            <h2>Helvetia corporate identity refresh</h2>
+            <p>Typographic refresh of Helvetia's corporate communications. New type scale, color rationalization from 24 brand colors to 6, and a component system for print and digital applications. Reduced production costs by 30% through systematic template design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Editorial</span>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>ETH Zurich</p>
+            <p style="margin-top: 8px;">Zurich, 2025</p>
+            <p style="margin-top: 8px;"><span class="marker">In progress</span></p>
+          </div>
+          <div>
+            <h2>ETH research annual</h2>
+            <p>Annual publication showcasing research output across all departments. 240 pages, 12-column grid with variable module widths for data visualization, photography, and long-form text. Bilingual German-English layout with synchronized vertical rhythm.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>Scheidegger &amp; Spiess</p>
+            <p style="margin-top: 8px;">Zurich, 2022</p>
+          </div>
+          <div>
+            <h2>Concrete Zurich monograph</h2>
+            <p>384-page architectural monograph documenting Zurich's postwar concrete buildings. Custom grid accommodating full-bleed photography, technical drawings, and extended captions. Set in two weights of a commissioned typeface.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Digital</span>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>Swiss Federal Railways</p>
+            <p style="margin-top: 8px;">Bern, 2024</p>
+          </div>
+          <div>
+            <h2>SBB wayfinding digital standards</h2>
+            <p>Digital extension of the SBB wayfinding system. Typographic standards for screens at 142 stations, covering real-time departure boards, platform signage, and mobile applications. All specifications derived from viewing distance and reading speed research.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="layout-split">
+          <div class="project-sidebar">
+            <h3>Client</h3>
+            <p>Vitra Design Museum</p>
+            <p style="margin-top: 8px;">Weil am Rhein, 2023</p>
+          </div>
+          <div>
+            <h2>Vitra collection website</h2>
+            <p>Online collection database for 7,000+ objects. Grid-based browsing interface, structured metadata display, and typographic search results. Performance-optimized to load under 1.5 seconds on mobile connections.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Struktur Design AG &mdash; Zurich, Switzerland</div>
+  </div>
+</body>
+</html>

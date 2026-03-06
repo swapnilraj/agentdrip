@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Review &mdash; Stories</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 1.6; background: #FAFAF8; color: #1C1C1C; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .masthead { padding: 20px 0; border-bottom: 1px solid #CCC; display: flex; justify-content: space-between; align-items: baseline; }
+    .masthead h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; }
+    .masthead nav a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-left: 24px; color: #888; }
+    .masthead nav a:hover { color: #D4380D; }
+
+    .page-title { padding: 60px 0 40px; border-bottom: 1px solid #CCC; }
+    .page-title h2 { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; }
+    .page-title p { font-family: 'Source Serif 4', serif; font-size: 1.1rem; color: #555; margin-top: 12px; }
+
+    .kicker { font-family: 'Source Sans 3', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #D4380D; margin-bottom: 4px; }
+    .byline { font-size: 0.875rem; color: #888; margin-top: 16px; }
+    .byline strong { color: #1C1C1C; }
+    .divider { border: none; border-top: 1px solid #CCC; margin: 0; }
+
+    /* Story 1: Full-width hero */
+    .story-hero { padding: 100px 0 80px; text-align: center; }
+    .story-hero .kicker { color: #888; }
+    .story-hero h3 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; line-height: 1.05; margin-top: 8px; }
+    .story-hero .deck { font-family: 'Source Serif 4', serif; font-size: 1.1rem; color: #555; max-width: 520px; margin: 16px auto 0; line-height: 1.6; }
+    .story-hero .byline { text-align: center; }
+    .story-hero-img { background: #E5E5E0; aspect-ratio: 21/9; margin-top: 40px; }
+
+    /* Story 2: Side-by-side, image left */
+    .story-side { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; padding: 80px 0; align-items: start; }
+    .story-side .img-block { background: #DDDDD8; aspect-ratio: 4/5; }
+    .story-side h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; font-style: italic; line-height: 1.2; margin-top: 8px; }
+    .story-side .deck { font-family: 'Source Serif 4', serif; font-size: 1rem; color: #555; margin-top: 12px; line-height: 1.6; }
+
+    /* Story 3: Text-only with pull quote */
+    .story-text { padding: 80px 0; max-width: 600px; }
+    .story-text h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1.1; margin-top: 8px; }
+    .story-text .deck { font-family: 'Source Serif 4', serif; font-size: 1rem; color: #555; margin-top: 12px; line-height: 1.6; }
+    .pull-quote { font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; line-height: 1.3; border-left: 3px solid #D4380D; padding-left: 24px; margin: 48px 0; max-width: 500px; }
+
+    /* Story 4: Side-by-side reversed, image right */
+    .story-side-rev { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; padding: 80px 0; align-items: start; }
+    .story-side-rev .img-block { background: #E0DDD8; aspect-ratio: 3/4; }
+    .story-side-rev h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; font-style: italic; line-height: 1.2; margin-top: 8px; }
+    .story-side-rev .deck { font-family: 'Source Serif 4', serif; font-size: 1rem; color: #555; margin-top: 12px; line-height: 1.6; }
+
+    /* Story 5: Two-column compact */
+    .story-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 60px 0; }
+    .story-compact .entry .img-block { background: #E5E5E0; aspect-ratio: 16/9; margin-bottom: 12px; }
+    .story-compact .entry .kicker { color: #888; }
+    .story-compact .entry h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; line-height: 1.25; margin-top: 4px; }
+    .story-compact .entry p { font-size: 0.85rem; color: #888; margin-top: 8px; }
+
+    .footer { padding: 32px 0; border-top: 1px solid #CCC; font-size: 0.75rem; color: #888; }
+
+    @media (max-width: 768px) {
+      .story-side, .story-side-rev, .story-compact { grid-template-columns: 1fr; }
+      .page-title h2 { font-size: 2.5rem; }
+      .story-hero h3 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="masthead">
+      <h1>The Review</h1>
+      <nav><a href="#">Essays</a><a href="#">Fiction</a><a href="#">Interviews</a><a href="#">Archive</a></nav>
+    </div>
+
+    <div class="page-title">
+      <h2>Stories</h2>
+      <p>A collection of our finest writing, photography, and reporting.</p>
+    </div>
+
+    <!-- Story 1: Full-width hero -->
+    <div class="story-hero">
+      <div class="kicker">Long Read</div>
+      <h3>The Architecture of Forgetting</h3>
+      <div class="deck">Inside the libraries choosing which books to let go, and what that says about the stories we value.</div>
+      <div class="byline">By <strong>Priya Anand</strong> &mdash; February 2026</div>
+      <div class="story-hero-img"></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Story 2: Image left, text right -->
+    <div class="story-side">
+      <div class="img-block"></div>
+      <div>
+        <div class="kicker">Photography</div>
+        <h3>The Landscapes We Leave Behind</h3>
+        <div class="deck">A photo essay on abandoned suburban developments and the nature slowly reclaiming them, one empty lot at a time.</div>
+        <div class="byline">By <strong>James Okoro</strong></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Story 3: Text-only with pull quote -->
+    <div class="story-text">
+      <div class="kicker">Essay</div>
+      <h3>Against Efficiency</h3>
+      <div class="deck">Why the obsession with optimization is hollowing out our capacity for surprise, wonder, and the productive accident.</div>
+      <div class="byline">By <strong>Marta Villaverde</strong></div>
+    </div>
+    <blockquote class="pull-quote" style="margin-left: auto; margin-right: 40px;">"The efficient life is a life rehearsed. Nothing unexpected can happen when every minute is accounted for."</blockquote>
+
+    <hr class="divider">
+
+    <!-- Story 4: Text left, image right -->
+    <div class="story-side-rev">
+      <div style="padding-top: 24px;">
+        <div class="kicker">Fiction</div>
+        <h3>The Last Garden on the Block</h3>
+        <div class="deck">A short story about inheritance, soil, and the things we choose to tend when everything around us is paved over.</div>
+        <div class="byline">By <strong>Rosa Chen</strong></div>
+      </div>
+      <div class="img-block"></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Story 5: Two-column compact -->
+    <div class="story-compact">
+      <div class="entry">
+        <div class="img-block"></div>
+        <div class="kicker">Interview</div>
+        <h3>Conversations with Silence</h3>
+        <p>A composer on the art of listening to what isn't there.</p>
+      </div>
+      <div class="entry">
+        <div class="img-block"></div>
+        <div class="kicker">Dispatch</div>
+        <h3>Letters from Nowhere</h3>
+        <p>Postcards from places that don't appear on any map.</p>
+      </div>
+    </div>
+
+    <div class="footer">The Review &mdash; Published since 1953</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision - Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Inter', -apple-system, system-ui, sans-serif; background: #09090B; color: #FAFAFA; font-size: 15px; line-height: 1.6; font-weight: 400; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #6366F1; color: #FFF; }
+    a { color: #FAFAFA; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* Nav */
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .nav-brand { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; }
+    .nav-links a { color: #71717A; font-size: 0.85rem; margin-left: 28px; transition: color 0.2s; }
+    .nav-links a:hover { color: #FAFAFA; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 160px 0 120px; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(99, 102, 241, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 20px; position: relative; }
+    .hero h1 { font-size: 3.5rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; position: relative; }
+    .hero p { margin-top: 20px; color: #71717A; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; font-size: 0.95rem; }
+
+    /* Divider */
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin: 0; border: none; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .stat { background: #09090B; padding: 48px 32px; text-align: center; }
+    .stat-number { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; background: linear-gradient(135deg, #6366F1, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-top: 8px; }
+
+    /* Portfolio */
+    .portfolio-section { padding: 120px 0; }
+    .portfolio-section > h3 { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; margin-bottom: 48px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .portfolio-card { background: #18181B; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 28px; transition: border-color 0.2s; }
+    .portfolio-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+    .portfolio-card .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #71717A; display: block; margin-bottom: 16px; }
+    .portfolio-card h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .portfolio-card p { font-size: 0.875rem; color: #71717A; line-height: 1.6; }
+    .portfolio-card .glow { box-shadow: 0 0 60px rgba(99, 102, 241, 0.15); }
+
+    /* CTA */
+    .cta { text-align: center; padding: 160px 0; position: relative; }
+    .cta::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(99, 102, 241, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .cta h2 { font-size: 2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; position: relative; }
+    .cta p { color: #71717A; margin-top: 16px; position: relative; font-size: 0.95rem; }
+    .btn-ghost { display: inline-flex; align-items: center; padding: 10px 20px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #FAFAFA; font-family: inherit; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.2s, border-color 0.2s; margin-top: 32px; position: relative; }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.25); }
+
+    /* Footer */
+    .footer { padding: 40px 0; text-align: center; color: #3F3F46; font-size: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .stats { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-brand">Precision</div>
+      <div class="nav-links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h3>Selected Work</h3>
+      <h1>Engineering that<br>speaks for itself</h1>
+      <p>Infrastructure, developer experience, and precision software for teams that refuse to compromise.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">47</div>
+      <div class="stat-label">Projects shipped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">12M</div>
+      <div class="stat-label">API calls daily</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">99.99%</div>
+      <div class="stat-label">Uptime delivered</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="portfolio-section">
+      <h3>Case Studies</h3>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <span class="tag">CLI / Infrastructure</span>
+          <h2>Vectrix CLI</h2>
+          <p>A command-line interface for infrastructure orchestration. Sub-second deployments with zero-config setup across multi-cloud environments.</p>
+        </div>
+        <div class="portfolio-card" style="box-shadow: 0 0 60px rgba(99, 102, 241, 0.15);">
+          <span class="tag">SDK / API Tooling</span>
+          <h2>Relay SDK</h2>
+          <p>Type-safe API client generation from OpenAPI specs. Adopted by 3,000 engineering teams worldwide for seamless integration.</p>
+        </div>
+        <div class="portfolio-card">
+          <span class="tag">Database / Sync</span>
+          <h2>Substrate</h2>
+          <p>Real-time database synchronization layer. Conflict-free replication at the edge with single-digit latency and zero data loss.</p>
+        </div>
+        <div class="portfolio-card">
+          <span class="tag">Observability / SRE</span>
+          <h2>Optic Monitor</h2>
+          <p>Observability platform built for microservices. Distributed tracing with intelligent anomaly detection and automated root cause analysis.</p>
+        </div>
+        <div class="portfolio-card">
+          <span class="tag">Auth / Security</span>
+          <h2>Keystone Auth</h2>
+          <p>Zero-trust authentication framework with scoped tokens, automatic key rotation, and hardware security module integration.</p>
+        </div>
+        <div class="portfolio-card">
+          <span class="tag">Edge / Compute</span>
+          <h2>Meridian Edge</h2>
+          <p>Global edge compute platform with sub-10ms cold starts. Deploy functions to 200 locations with a single command.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="cta">
+      <h2>Let's build something precise</h2>
+      <p>We partner with engineering teams who care about craft.</p>
+      <button class="btn-ghost">Get in touch</button>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="container">
+    <div class="footer">Precision &mdash; Developer tools, engineered with intent</div>
+  </div>
+</body>
+</html>
