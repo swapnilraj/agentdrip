@@ -1,78 +1,121 @@
 # AgentDrip
 
-Design skill files that encode enough visual DNA for an LLM to generate faithful HTML pages in specific aesthetic styles.
+Design skills for the AI era. Publish, browse, and use design style files that teach AI agents how to build beautiful pages.
 
-**[Live Gallery](https://swapnilraj.github.io/agentdrip/)** - Browse all 30 generated pages across 10 styles.
+**[Live Site](https://agentdrip.vercel.app)** | **[npm Packages](https://www.npmjs.com/org/agentdrip)**
+
+## What is a Design Skill?
+
+A design skill is a markdown file that encodes a visual style's DNA — philosophy, color tokens, typography, spacing, signature patterns, and a reference HTML snippet. Give it to an LLM and it can generate faithful pages in that style.
 
 ## Styles
 
-| # | Style | Vibe |
-|---|-------|------|
-| 01 | Brutalist | Raw monospace, exposed borders, inverted labels |
-| 02 | Swiss International | 12-column grid, typographic hierarchy, red accent |
-| 03 | Japanese Minimal | Warm whites, generous space, light weights |
-| 04 | Y2K | Starfield, neon glow, beveled windows, chrome |
-| 05 | Editorial | Magazine layout, mixed typefaces, kicker>headline>deck |
-| 06 | Retro Pixel | 8-color palette, OS windows, pixel fonts |
-| 07 | Organic Soft | Pastel gradients, pill buttons, layered shadows |
-| 08 | Neo-Brutalist | Bold colors, thick borders, hard offset shadows |
-| 09 | Dark Luxury | Near-black, indigo glow, ghost buttons |
-| 10 | Archival Research | Dense text, TOC sidebar, footnotes, scholarly |
+| Style | Vibe | Package |
+|-------|------|---------|
+| Brutalist | Raw monospace, exposed borders, inverted labels | `@agentdrip/brutalist` |
+| Swiss International | 12-column grid, typographic hierarchy, red accent | `@agentdrip/swiss-international` |
+| Japanese Minimal | Warm whites, generous space, light weights | `@agentdrip/japanese-minimal` |
+| Y2K Aesthetic | Starfield, neon glow, beveled windows, chrome | `@agentdrip/y2k-aesthetic` |
+| Editorial | Magazine layout, mixed typefaces, kicker>headline>deck | `@agentdrip/editorial` |
+| Retro Pixel | 8-color palette, OS windows, pixel fonts | `@agentdrip/retro-pixel` |
+| Organic Soft | Pastel gradients, pill buttons, layered shadows | `@agentdrip/organic-soft` |
+| Neo-Brutalist | Bold colors, thick borders, hard offset shadows | `@agentdrip/neo-brutalist` |
+| Dark Luxury | Near-black, indigo glow, ghost buttons | `@agentdrip/dark-luxury` |
+| Archival Research | Dense text, TOC sidebar, footnotes, scholarly | `@agentdrip/archival-research` |
 
-Each style has 3 test pages: **landing**, **portfolio**, and **blog**.
-
-## Pipeline
-
-Automated end-to-end workflow for generating new design skills:
-
-```
-corpus collection -> vision analysis -> skill generation -> page generation -> screenshot -> review -> refine -> validate
-```
-
-### Usage
+## Using a Skill
 
 ```bash
-# Set up API keys in .env
-OPENROUTER_API_KEY=...
-ARENA_ACCESS_TOKEN=...      # optional
-UNSPLASH_ACCESS_KEY=...     # optional
-SERPAPI_KEY=...              # optional
+# Install from npm
+npm install @agentdrip/brutalist
 
-# Generate a new style
+# Read the skill file
+cat node_modules/@agentdrip/brutalist/skill.md
+
+# Get the CSS skin
+cat node_modules/@agentdrip/brutalist/skin.css
+```
+
+Or use the CLI:
+
+```bash
+drip browse              # Browse available styles
+drip get brutalist       # Get a skill file
+drip wear brutalist      # Get CSS skin
+```
+
+## Publishing Your Own Skill
+
+Anyone can publish a design skill to npm — no account on AgentDrip needed. The index discovers packages automatically via npm keywords.
+
+### Package Structure
+
+```
+my-style/
+  package.json        # keywords: ["agentdrip", "design-skill"]
+  skill.md            # The design skill file
+  skin.css            # CSS skin for live preview
+  moodboard.json      # Inspiration images (optional)
+  previews/
+    landing.html      # Preview page
+  README.md
+```
+
+### package.json
+
+```json
+{
+  "name": "@yourscope/my-style",
+  "keywords": ["agentdrip", "design-skill"],
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "my-style",
+    "displayName": "My Style",
+    "tags": ["minimal", "dark"]
+  }
+}
+```
+
+The index syncs daily and will discover your package within 24 hours.
+
+## Architecture
+
+```
+design-skill/
+  packages/            # 10 @agentdrip npm packages
+  web/                 # Next.js 16 app (agentdrip.vercel.app)
+  cli/                 # CLI tool (drip browse/get/wear)
+  skills/              # Original skill markdown files
+  pipeline.ts          # Skill generation pipeline
+```
+
+### Key Features
+
+- **npm as source of truth** — packages discovered via registry search
+- **Live skin system** — CSS-only style swap via `data-drip-skin`
+- **Playground** — LLM-powered HTML generation with any skill
+- **Moodboard** — visual inspiration per style
+- **Daily cron sync** — auto-indexes new packages
+
+## Development
+
+```bash
+cd web && npm install && npm run dev     # Web app
+cd cli && npx tsx src/index.ts browse    # CLI
+```
+
+## Skill Generation Pipeline
+
+Automated workflow for creating new design skills from visual references:
+
+```
+corpus collection → vision analysis → skill generation → page generation → screenshot → review → refine
+```
+
+```bash
 npx tsx pipeline.ts --style "art-deco" --urls "https://example.com"
-
-# Resume after failure
-npx tsx pipeline.ts --style "art-deco" --resume
-
-# Skip collection, use existing corpus
-npx tsx pipeline.ts --style "art-deco" --skip-collect --corpus corpus/art-deco/
 ```
 
-### Pipeline Steps
+## License
 
-1. **Collect** - Multi-source corpus (Are.na, Unsplash, SerpAPI, Playwright screenshots)
-2. **Analyze** - Vision model extracts design patterns from corpus
-3. **Generate Skill** - Creates skill markdown with validation retry loop (max 3 attempts)
-4. **Generate Pages** - 3 HTML pages (landing, portfolio, blog) generated in parallel
-5. **Screenshot** - Playwright renders and screenshots each page
-6. **Review** - Multi-model review (Claude + Gemini via OpenRouter)
-7. **Refine** - Apply feedback, regenerate skill + pages
-8. **Validate** - Final spec compliance + visual consistency check
-
-## Project Structure
-
-```
-skills/              # Design skill markdown files
-test-pages/          # Generated HTML pages (deployed to GitHub Pages)
-pipeline.ts          # CLI orchestrator
-lib/
-  types.ts           # TypeScript interfaces
-  openrouter.ts      # OpenRouter API wrapper
-  spec-validator.ts  # Skill format validator
-steps/               # Pipeline step implementations
-SKILL-FORMAT-SPEC.md # Skill file format specification
-```
-
-## Skill File Format
-
-Each skill file contains 9 sections: Philosophy, "No" List, Design Tokens (Colors/Typography/Spacing), CSS Enforcers, Signature Moves, Responsive Behavior, DO List, Anti-patterns, and Reference Snippet. See [SKILL-FORMAT-SPEC.md](SKILL-FORMAT-SPEC.md) for the full specification.
+ISC
