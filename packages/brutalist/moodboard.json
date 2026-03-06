@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=600&h=400&fit=crop",
+      "alt": "Brutalist concrete building facade with geometric patterns",
+      "credit": "Simone Hutsch on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
+      "alt": "Raw concrete texture with exposed aggregate",
+      "credit": "Uve Sanchez on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=600&h=400&fit=crop",
+      "alt": "Monochrome architectural structure with bold geometric forms",
+      "credit": "Joel Filipe on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=600&h=400&fit=crop",
+      "alt": "Brutalist architecture with heavy concrete overhangs",
+      "credit": "Kimon Maritz on Unsplash"
+    }
+  ]
+}

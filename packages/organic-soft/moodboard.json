@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1557683316-973673baf926?w=600&h=400&fit=crop",
+      "alt": "Soft pastel gradient with organic flowing shapes",
+      "credit": "Luke Chesser on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1604076913837-52ab5f7c1ac4?w=600&h=400&fit=crop",
+      "alt": "Smooth rounded shapes in soft pink and lavender tones",
+      "credit": "Milad Fakurian on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+      "alt": "Abstract organic blobs with gentle pastel colors",
+      "credit": "Milad Fakurian on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop",
+      "alt": "Smooth gradient transition between warm pastel tones",
+      "credit": "Gradienta on Unsplash"
+    }
+  ]
+}

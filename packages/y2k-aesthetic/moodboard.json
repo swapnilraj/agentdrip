@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
+      "alt": "Neon-lit futuristic corridor with chrome surfaces",
+      "credit": "Adi Goldstein on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=600&h=400&fit=crop",
+      "alt": "Retro-futuristic interface with glowing elements",
+      "credit": "Milad Fakurian on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop",
+      "alt": "Holographic iridescent surface with rainbow reflections",
+      "credit": "Gradienta on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&h=400&fit=crop",
+      "alt": "Vibrant gradient with neon pink and blue tones",
+      "credit": "Luke Chesser on Unsplash"
+    }
+  ]
+}

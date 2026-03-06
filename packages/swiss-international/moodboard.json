@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+      "alt": "Clean grid-based typographic poster design",
+      "credit": "Brands&People on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?w=600&h=400&fit=crop",
+      "alt": "Minimalist Helvetica typography on white background",
+      "credit": "Alexander Andrews on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=400&fit=crop",
+      "alt": "Swiss design poster with bold sans-serif type and geometric shapes",
+      "credit": "Patrick Tomasso on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
+      "alt": "Clean geometric grid layout with precise alignment",
+      "credit": "Scott Webb on Unsplash"
+    }
+  ]
+}

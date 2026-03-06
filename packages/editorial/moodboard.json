@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=600&h=400&fit=crop",
+      "alt": "Open magazine spread with elegant serif typography",
+      "credit": "Cesar La Rosa on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&h=400&fit=crop",
+      "alt": "Fashion editorial photography with dramatic lighting",
+      "credit": "Raychan on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop",
+      "alt": "Stack of carefully designed books and magazines",
+      "credit": "Susan Yin on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop",
+      "alt": "Elegant typography and layout on printed page",
+      "credit": "Kimberly Farmer on Unsplash"
+    }
+  ]
+}

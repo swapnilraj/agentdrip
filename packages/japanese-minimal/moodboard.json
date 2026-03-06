@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=600&h=400&fit=crop",
+      "alt": "Zen garden with carefully raked sand and stones",
+      "credit": "Asoggetti on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1505069190533-da1c5512f4e2?w=600&h=400&fit=crop",
+      "alt": "Minimal Japanese interior with tatami and shoji screens",
+      "credit": "Liam Burnett-Blue on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1528164344885-47b1492bc39a?w=600&h=400&fit=crop",
+      "alt": "Wabi-sabi ceramic bowl with natural imperfections",
+      "credit": "Tom Crew on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop",
+      "alt": "Japanese temple surrounded by serene nature",
+      "credit": "Su San Lee on Unsplash"
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+
+/* =========================================
+   JAPANESE MINIMAL
+   Ma — the conscious use of negative space
+   as a compositional element.
+   ========================================= */
+
+[data-drip-skin="japanese-minimal"] {
+  --drip-bg: #F7F5F0;
+  --drip-fg: #2C2C2C;
+  --drip-muted: #8C8880;
+  --drip-accent: #B8564F;
+  --drip-surface: #EDEBE6;
+  --drip-font-body: 'Inter', -apple-system, sans-serif;
+  --drip-font-heading: 'Noto Serif', Georgia, serif;
+  --drip-bg-elevated: #F0EDE8;
+  --drip-border: #E0DCD6;
+
+  font-family: var(--drip-font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  background: var(--drip-bg);
+  color: var(--drip-fg);
+  letter-spacing: 0.01em;
+}
+
+[data-drip-skin="japanese-minimal"] ::selection {
+  background: var(--drip-accent);
+  color: var(--drip-bg);
+}
+
+/* --- Nav --- */
+[data-drip-skin="japanese-minimal"] [data-drip="nav"] {
+  padding: 32px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="nav:logo"] {
+  font-family: var(--drip-font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="nav:links"] {
+  display: flex;
+  gap: 0;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="nav:link"] {
+  color: var(--drip-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-left: 24px;
+  transition: color 0.4s ease;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="nav:link"]:hover {
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="nav:chrome-dots"] {
+  display: none;
+}
+
+/* --- Hero --- */
+[data-drip-skin="japanese-minimal"] [data-drip="hero"] {
+  padding: 160px 32px 120px;
+  text-align: center;
+  background: transparent;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="hero:title"] {
+  font-family: var(--drip-font-heading);
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="hero:subtitle"] {
+  color: var(--drip-muted);
+  margin-top: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="hero:actions"] {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Delicate rule after hero */
+[data-drip-skin="japanese-minimal"] [data-drip="hero"]::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--drip-surface);
+  max-width: 80px;
+  margin: 80px auto 0;
+}
+
+/* --- Grid --- */
+[data-drip-skin="japanese-minimal"] [data-drip="grid"] {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* --- Card --- */
+[data-drip-skin="japanese-minimal"] [data-drip="card"] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 100px 0;
+  border-top: 1px solid var(--drip-surface);
+  transition: none;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:preview"] {
+  padding: 24px;
+  background: var(--drip-surface);
+  margin-bottom: 32px;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:title"] {
+  font-family: var(--drip-font-heading);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--drip-fg);
+  line-height: 1.3;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:meta"] {
+  font-size: 0.75rem;
+  color: var(--drip-muted);
+  letter-spacing: 0.15em;
+  margin-top: 8px;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:body"] {
+  color: var(--drip-muted);
+  margin-top: 16px;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:tags"] {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:tags"] span {
+  font-size: 0.7rem;
+  color: var(--drip-muted);
+  letter-spacing: 0.1em;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:stats"] {
+  font-size: 0.7rem;
+  color: var(--drip-muted);
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+}
+
+/* --- Shell --- */
+[data-drip-skin="japanese-minimal"] [data-drip="shell"] {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px;
+  background: var(--drip-bg);
+}
+
+/* --- Button --- */
+[data-drip-skin="japanese-minimal"] [data-drip="button"] {
+  background: transparent;
+  color: var(--drip-accent);
+  border: 1px solid var(--drip-surface);
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 12px 28px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="button"]:hover {
+  color: var(--drip-fg);
+  border-color: var(--drip-fg);
+  transform: none;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="button"]:active {
+  color: var(--drip-accent);
+}
+
+/* --- Dividers --- */
+[data-drip-skin="japanese-minimal"] hr {
+  border: none;
+  height: 1px;
+  background: var(--drip-surface);
+  max-width: 80px;
+  margin: 80px auto;
+}
+
+/* --- Decorative accents --- */
+[data-drip-skin="japanese-minimal"] [data-drip="card"]:last-child::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--drip-surface);
+  max-width: 40px;
+  margin: 60px auto 0;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="grid"]::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--drip-surface);
+  max-width: 60px;
+  margin: 0 auto 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  [data-drip-skin="japanese-minimal"] [data-drip="hero"] {
+    padding: 100px 24px 80px;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="card"] {
+    padding: 60px 0;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="hero:title"] {
+    font-size: 2rem;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="nav"] {
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="nav:links"] {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="nav:link"] {
+    margin-left: 0;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="grid"] {
+    padding: 0 24px;
+  }
+
+  [data-drip-skin="japanese-minimal"] [data-drip="hero:actions"] {
+    flex-direction: column;
+    align-items: center;
+  }
+}

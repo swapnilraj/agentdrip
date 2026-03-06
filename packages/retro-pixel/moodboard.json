@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
+      "alt": "Retro gaming setup with colorful pixel displays",
+      "credit": "Lorenzo Herrera on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=600&h=400&fit=crop",
+      "alt": "Vintage arcade machine with pixelated screen",
+      "credit": "Carl Raw on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=600&h=400&fit=crop",
+      "alt": "CRT monitor displaying retro 8-bit graphics",
+      "credit": "Sigmund on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=600&h=400&fit=crop",
+      "alt": "Colorful pixel art mosaic pattern",
+      "credit": "Ryan Quintal on Unsplash"
+    }
+  ]
+}

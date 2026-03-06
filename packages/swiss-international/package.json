@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/swiss-international",
+  "version": "1.1.0",
+  "description": "Clarity through structure. Typography is the primary visual element.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "swiss-international",
+    "displayName": "Swiss International",
+    "philosophy": "Clarity through structure. The grid is sacred geometry. Typography is the primary visual element, not decoration.",
+    "tags": ["grid", "clean", "typographic", "structured", "sans-serif"],
+    "colors": { "bg": "#FFFFFF", "fg": "#1A1A1A", "accent": "#E63226" },
+    "fonts": ["Inter", "DM Sans"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "swiss-international"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

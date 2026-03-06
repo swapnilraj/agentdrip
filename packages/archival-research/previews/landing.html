@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Research Archive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap');
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif; font-size: 15px; line-height: 1.75; color: #222; background: #FAFAFA; }
+    a { color: #1A5276; text-decoration: underline; }
+    a:visited { color: #6B4C8A; }
+    a:hover { color: #0D3B5A; }
+    img { max-width: 100%; display: block; }
+    code, .mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+
+    .layout { display: grid; grid-template-columns: 200px 1fr; gap: 48px; max-width: 960px; margin: 0 auto; padding: 32px; }
+
+    .toc { position: sticky; top: 32px; font-size: 0.8rem; line-height: 2; align-self: start; }
+    .toc-label { font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #777; margin-bottom: 4px; }
+    .toc a { display: block; color: #777; text-decoration: none; }
+    .toc a:hover { color: #222; }
+
+    .content { max-width: 680px; }
+    .content h1 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
+    .content h2 { font-size: 1.2rem; font-weight: 600; line-height: 1.3; margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid #DDD; padding-bottom: 4px; }
+    .desc { font-size: 0.85rem; color: #777; margin-bottom: 24px; }
+
+    .search-bar { margin-bottom: 24px; }
+    .search-bar input { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; padding: 6px 8px; border: 1px solid #DDD; background: #F0F0F0; width: 100%; border-radius: 2px; }
+    .search-bar .hint { font-size: 0.8rem; color: #777; margin-top: 4px; }
+
+    .notice { background: #F0F0F0; padding: 12px 16px; font-size: 0.85rem; margin-bottom: 24px; border-radius: 2px; }
+
+    .stats-row { font-size: 0.85rem; color: #777; margin-bottom: 16px; }
+    .stats-row strong { color: #222; font-weight: 600; }
+
+    .recent-list { list-style: none; padding: 0; }
+    .recent-list li { padding: 8px 0; border-bottom: 1px solid #DDD; }
+    .recent-list li:last-child { border-bottom: none; }
+    .recent-list .title { display: block; }
+    .recent-list .meta { font-size: 0.8rem; color: #777; }
+    .recent-list .meta span { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+
+    .index-list { column-count: 2; column-gap: 32px; font-size: 0.85rem; line-height: 1.8; }
+    .index-list a { display: block; }
+
+    .metadata { font-size: 0.8rem; color: #777; border-left: 3px solid #DDD; padding-left: 12px; margin: 24px 0; }
+    .metadata dt { font-weight: 600; color: #222; display: inline; }
+    .metadata dd { display: inline; margin: 0; }
+    .metadata dd::after { content: ''; display: block; }
+
+    .highlight { background: #FFF9C4; padding: 2px 4px; }
+
+    .footnote-ref { font-size: 0.7em; vertical-align: super; color: #1A5276; text-decoration: none; margin-left: 1px; }
+
+    .footnotes { border-top: 1px solid #DDD; margin-top: 48px; padding-top: 16px; font-size: 0.85rem; color: #777; }
+    .footnotes ol { padding-left: 20px; }
+    .footnotes li { margin-bottom: 8px; }
+
+    footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #DDD; font-size: 0.8rem; color: #777; }
+    footer a { margin-right: 12px; }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; gap: 16px; }
+      .toc { position: static; margin-bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="toc">
+      <div class="toc-label">Contents</div>
+      <a href="#recent">Recently added</a>
+      <a href="#subjects">Browse by subject</a>
+      <a href="#periods">Browse by period</a>
+      <a href="#about">About this archive</a>
+    </aside>
+
+    <main class="content">
+      <h1>Open Research Archive</h1>
+      <p class="desc">A digital library for information science, epistemology, and the history of knowledge systems. Free and open access.<a href="#fn1" class="footnote-ref">1</a></p>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search texts, authors, subjects, identifiers...">
+        <div class="hint">Try: "memex", "folksonomy", "Nelson 1965", or <a href="#">browse all entries</a></div>
+      </div>
+
+      <div class="notice">
+        <span class="highlight">New:</span> 14 entries added in February 2026, including a complete digitization of the Mundaneum index card collection. <a href="#">See recent additions</a>.
+      </div>
+
+      <div class="stats-row">
+        <strong>4,218</strong> texts &middot; <strong>1,307</strong> authors &middot; <strong>89</strong> subject areas &middot; <strong>12,841</strong> cross-references
+      </div>
+
+      <h2 id="recent">Recently added</h2>
+      <ul class="recent-list">
+        <li>
+          <a class="title" href="#">The Mundaneum Index Cards: A Digital Reconstruction</a>
+          <div class="meta">Rayward, W.B. &middot; 2026 &middot; <span>MUN-2026-001</span></div>
+        </li>
+        <li>
+          <a class="title" href="#">Hypertext Before Computers: Cross-Referencing in the Talmud</a>
+          <div class="meta">Lieberman, S. &middot; 2025 &middot; <span>HBC-2025-044</span></div>
+        </li>
+        <li>
+          <a class="title" href="#">Protocols for Distributed Knowledge Graphs</a>
+          <div class="meta">Berners-Lee, T. et al. &middot; 2025 &middot; <span>PDK-2025-019</span></div>
+        </li>
+        <li>
+          <a class="title" href="#">On the Ephemerality of Digital Collections</a>
+          <div class="meta">Kahle, B. &middot; 2025 &middot; <span>EDC-2025-033</span></div>
+        </li>
+        <li>
+          <a class="title" href="#">Annotation as Dialogue: Marginalia in Scholarly Practice</a>
+          <div class="meta">Jackson, H.J. &middot; 2025 &middot; <span>AAD-2025-011</span></div>
+        </li>
+      </ul>
+
+      <h2 id="subjects">Browse by subject</h2>
+      <div class="index-list">
+        <a href="#">Annotation and marginalia (48)</a>
+        <a href="#">Archival theory (62)</a>
+        <a href="#">Bibliography and cataloging (71)</a>
+        <a href="#">Book history (39)</a>
+        <a href="#">Classification systems (54)</a>
+        <a href="#">Digital preservation (41)</a>
+        <a href="#">Epistemology (58)</a>
+        <a href="#">Folksonomy and tagging (29)</a>
+        <a href="#">Hypertext and linking (73)</a>
+        <a href="#">Information retrieval (66)</a>
+        <a href="#">Knowledge graphs (22)</a>
+        <a href="#">Library science (85)</a>
+        <a href="#">Media archaeology (31)</a>
+        <a href="#">Metadata standards (37)</a>
+        <a href="#">Personal knowledge management (44)</a>
+        <a href="#">Semantic web (26)</a>
+      </div>
+
+      <h2 id="periods">Browse by period</h2>
+      <div class="index-list">
+        <a href="#">Before 1900 (112)</a>
+        <a href="#">1900 &ndash; 1945 (203)</a>
+        <a href="#">1945 &ndash; 1970 (387)</a>
+        <a href="#">1970 &ndash; 1990 (614)</a>
+        <a href="#">1990 &ndash; 2010 (1,482)</a>
+        <a href="#">2010 &ndash; present (1,420)</a>
+      </div>
+
+      <h2 id="about">About this archive</h2>
+      <div class="metadata">
+        <dl>
+          <dt>Maintained by:</dt> <dd>Open Research Archive Collective</dd>
+          <dt>License:</dt> <dd>CC BY-SA 4.0 where applicable; see individual entries</dd>
+          <dt>Data formats:</dt> <dd>HTML, plain text, BibTeX, JSON-LD</dd>
+          <dt>Last index update:</dt> <dd>2026-03-05</dd>
+        </dl>
+      </div>
+
+      <div class="footnotes">
+        <ol>
+          <li id="fn1">This archive is a community-maintained project. All contributions are reviewed by volunteer editors. See <a href="#">editorial policy</a> for details.</li>
+        </ol>
+      </div>
+
+      <footer>
+        <a href="#">About</a>
+        <a href="#">API documentation</a>
+        <a href="#">Contribute</a>
+        <a href="#">Export catalog</a>
+        <a href="#">Contact</a>
+        <a href="#">Source code</a>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

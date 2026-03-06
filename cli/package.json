@@ -1,0 +1,15 @@
+{
+  "name": "agentdrip",
+  "version": "1.0.0",
+  "description": "CLI for AgentDrip design skills",
+  "type": "module",
+  "bin": { "drip": "./dist/index.js" },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

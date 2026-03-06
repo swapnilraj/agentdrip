@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* =========================================
+   SWISS INTERNATIONAL
+   Clarity through structure. Typography is
+   the primary visual element.
+   ========================================= */
+
+[data-drip-skin="swiss-international"] {
+  --drip-bg: #FFFFFF;
+  --drip-fg: #1A1A1A;
+  --drip-accent: #E63226;
+  --drip-muted: #6B6B6B;
+  --drip-rule: #1A1A1A;
+  --drip-font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --drip-font-heading: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
+  --drip-bg-elevated: #F0F0F0;
+  --drip-border: #CCCCCC;
+
+  font-family: var(--drip-font-body);
+  background: var(--drip-bg);
+  color: var(--drip-fg);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+[data-drip-skin="swiss-international"] * {
+  border-radius: 0;
+}
+
+/* --- Nav --- */
+[data-drip-skin="swiss-international"] [data-drip="nav"] {
+  border-bottom: 1px solid var(--drip-rule);
+  padding: 24px 48px;
+  background: var(--drip-bg);
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="nav:logo"] {
+  font-family: var(--drip-font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="swiss-international"] [data-drip="nav:links"] {
+  display: flex;
+  gap: 0;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="nav:link"] {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--drip-fg);
+  text-decoration: none;
+  margin-left: 32px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="nav:link"]:hover,
+[data-drip-skin="swiss-international"] [data-drip="nav:link"][aria-current] {
+  border-bottom-color: var(--drip-accent);
+}
+
+[data-drip-skin="swiss-international"] [data-drip="nav:chrome-dots"] {
+  display: none;
+}
+
+/* --- Hero --- */
+[data-drip-skin="swiss-international"] [data-drip="hero"] {
+  padding: 96px 48px 64px;
+  background: var(--drip-bg);
+  text-align: left;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="hero:title"] {
+  font-family: var(--drip-font-heading);
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--drip-fg);
+  max-width: 10ch;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="hero:subtitle"] {
+  margin-top: 32px;
+  max-width: 480px;
+  color: var(--drip-muted);
+  line-height: 1.6;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="hero:actions"] {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+}
+
+/* --- Grid --- */
+[data-drip-skin="swiss-international"] [data-drip="grid"] {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+  border-top: 2px solid var(--drip-rule);
+  padding-top: 16px;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="grid"]::before {
+  content: '';
+  display: block;
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--drip-muted);
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card"] {
+  grid-column: span 4;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* --- Card --- */
+[data-drip-skin="swiss-international"] [data-drip="card:preview"] {
+  background: #F0F0F0;
+  aspect-ratio: 4/3;
+  margin-bottom: 16px;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:title"] {
+  font-family: var(--drip-font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--drip-fg);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:meta"] {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--drip-muted);
+  margin-bottom: 8px;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card"] p {
+  font-size: 0.875rem;
+  color: var(--drip-muted);
+  line-height: 1.5;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:tags"] {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:tags"] span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--drip-muted);
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:tags"] span::before {
+  content: '/ ';
+  color: var(--drip-accent);
+}
+
+/* --- Shell --- */
+[data-drip-skin="swiss-international"] [data-drip="shell"] {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  background: var(--drip-bg);
+}
+
+/* --- Button --- */
+[data-drip-skin="swiss-international"] [data-drip="button"] {
+  background: transparent;
+  color: var(--drip-fg);
+  border: 2px solid var(--drip-rule);
+  font-family: var(--drip-font-body);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 24px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="button"]:hover {
+  background: var(--drip-fg);
+  color: var(--drip-bg);
+  transform: none;
+}
+
+/* --- Dividers --- */
+[data-drip-skin="swiss-international"] hr {
+  border: none;
+  border-top: 2px solid var(--drip-rule);
+  margin: 64px 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  [data-drip-skin="swiss-international"] [data-drip="grid"] {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  [data-drip-skin="swiss-international"] [data-drip="card"] {
+    grid-column: span 3;
+  }
+
+  [data-drip-skin="swiss-international"] [data-drip="hero:title"] {
+    font-size: 2.5rem;
+  }
+
+  [data-drip-skin="swiss-international"] [data-drip="nav"] {
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-drip-skin="swiss-international"] [data-drip="grid"] {
+    grid-template-columns: 1fr;
+  }
+
+  [data-drip-skin="swiss-international"] [data-drip="card"] {
+    grid-column: span 1;
+  }
+}

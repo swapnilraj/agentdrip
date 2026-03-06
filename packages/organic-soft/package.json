@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/organic-soft",
+  "version": "1.1.0",
+  "description": "Warmth, comfort, and approachability. Gentle, inviting, and almost tangible.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "organic-soft",
+    "displayName": "Organic Soft",
+    "philosophy": "Warmth, comfort, and approachability. Everything has rounded edges, soft shadows, and pastel gradients.",
+    "tags": ["pastel", "rounded", "soft", "warm", "friendly"],
+    "colors": { "bg": "#F8F5FF", "fg": "#3D3455", "accent": "#B8A9E8" },
+    "fonts": ["DM Sans", "Nunito"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "organic-soft"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/neo-brutalist",
+  "version": "1.1.0",
+  "description": "Brutalism's rebellious energy meets modern playfulness. Loud, colorful, and bold.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "neo-brutalist",
+    "displayName": "Neo-Brutalist",
+    "philosophy": "Brutalism's rebellious energy meets modern playfulness. Thick black borders, hard drop shadows, and saturated colors.",
+    "tags": ["bold", "colorful", "playful", "borders", "drop-shadow"],
+    "colors": { "bg": "#FFFDF7", "fg": "#1A1A1A", "accent": "#FF6B9D" },
+    "fonts": ["Space Grotesk", "DM Mono"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "neo-brutalist"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

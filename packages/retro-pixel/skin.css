@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* =========================================
+   RETRO PIXEL
+   The 8-bit and 16-bit era brought to the
+   web. Chrome variant with OS windows.
+   ========================================= */
+
+[data-drip-skin="retro-pixel"] {
+  --drip-bg: #2B2B3D;
+  --drip-fg: #E8E8D0;
+  --drip-green: #6ABE30;
+  --drip-blue: #5B6EE1;
+  --drip-red: #AC3232;
+  --drip-yellow: #FBF236;
+  --drip-dark: #1A1A2E;
+  --drip-mid: #76768A;
+  --drip-font-body: 'VT323', 'Courier New', monospace;
+  --drip-font-heading: 'Press Start 2P', monospace;
+  --drip-bg-elevated: #2A2A3E;
+  --drip-border: #4A4A5E;
+
+  font-family: var(--drip-font-body);
+  font-size: 20px;
+  line-height: 1.4;
+  background: var(--drip-bg);
+  color: var(--drip-fg);
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+[data-drip-skin="retro-pixel"] * {
+  border-radius: 0;
+  image-rendering: pixelated;
+}
+
+[data-drip-skin="retro-pixel"] ::selection {
+  background: var(--drip-green);
+  color: var(--drip-dark);
+}
+
+/* --- Nav (OS title bar) --- */
+[data-drip-skin="retro-pixel"] [data-drip="nav"] {
+  background: var(--drip-blue);
+  padding: 4px 8px;
+  font-family: var(--drip-font-heading);
+  font-size: 10px;
+  color: var(--drip-fg);
+  border-bottom: 4px solid var(--drip-fg);
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="nav:logo"] {
+  font-family: var(--drip-font-heading);
+  font-size: 10px;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="nav:links"] {
+  display: flex;
+  gap: 12px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="nav:link"] {
+  color: var(--drip-yellow);
+  text-decoration: none;
+  font-family: var(--drip-font-body);
+  font-size: 16px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="nav:link"]:hover {
+  background: var(--drip-green);
+  color: var(--drip-dark);
+}
+
+/* Chrome dots for OS window buttons */
+[data-drip-skin="retro-pixel"] [data-drip="nav:chrome-dots"] {
+  display: flex;
+  gap: 4px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="nav:chrome-dots"] span {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--drip-fg);
+  background: var(--drip-dark);
+  font-size: 8px;
+  text-align: center;
+  line-height: 8px;
+  color: var(--drip-fg);
+  font-family: var(--drip-font-heading);
+}
+
+/* --- Hero --- */
+[data-drip-skin="retro-pixel"] [data-drip="hero"] {
+  border: 4px solid var(--drip-fg);
+  padding: 16px;
+  text-align: center;
+  margin: 16px;
+  background: var(--drip-dark);
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="hero:title"] {
+  font-family: var(--drip-font-heading);
+  font-size: 20px;
+  color: var(--drip-green);
+  line-height: 1.6;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="hero:subtitle"] {
+  color: var(--drip-mid);
+  font-family: var(--drip-font-body);
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="hero:actions"] {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Pixel art divider after hero */
+[data-drip-skin="retro-pixel"] [data-drip="hero"]::after {
+  content: '';
+  display: block;
+  height: 8px;
+  margin-top: 16px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--drip-green) 0px, var(--drip-green) 8px,
+    var(--drip-blue) 8px, var(--drip-blue) 16px,
+    var(--drip-red) 16px, var(--drip-red) 24px,
+    var(--drip-yellow) 24px, var(--drip-yellow) 32px
+  );
+}
+
+/* --- Grid --- */
+[data-drip-skin="retro-pixel"] [data-drip="grid"] {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* --- Card (OS window) --- */
+[data-drip-skin="retro-pixel"] [data-drip="card"] {
+  background: var(--drip-dark);
+  border: 4px solid var(--drip-fg);
+  padding: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Window title bar */
+[data-drip-skin="retro-pixel"] [data-drip="card"]::before {
+  content: 'file.exe';
+  display: block;
+  background: var(--drip-blue);
+  color: var(--drip-fg);
+  padding: 4px 8px;
+  font-family: var(--drip-font-heading);
+  font-size: 10px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:preview"] {
+  display: none;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:title"] {
+  font-family: var(--drip-font-heading);
+  font-size: 14px;
+  color: var(--drip-yellow);
+  padding: 16px 16px 8px;
+  line-height: 1.6;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:meta"] {
+  font-size: 16px;
+  color: var(--drip-mid);
+  padding: 0 16px;
+  font-family: var(--drip-font-body);
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card"] p {
+  padding: 8px 16px 16px;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:tags"] {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 12px;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:tags"] span {
+  color: var(--drip-green);
+  font-size: 16px;
+  font-family: var(--drip-font-body);
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="card:tags"] span::before {
+  content: '> ';
+}
+
+/* --- Shell --- */
+[data-drip-skin="retro-pixel"] [data-drip="shell"] {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--drip-bg);
+}
+
+/* --- Button (beveled 3D) --- */
+[data-drip-skin="retro-pixel"] [data-drip="button"] {
+  background: var(--drip-blue);
+  color: var(--drip-fg);
+  border: 3px solid;
+  border-color: #8B9EFF #3344AA #3344AA #8B9EFF;
+  font-family: var(--drip-font-heading);
+  font-size: 10px;
+  padding: 8px 16px;
+  box-shadow: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="button"]:hover {
+  background: var(--drip-green);
+  color: var(--drip-dark);
+  transform: none;
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="button"]:active {
+  border-color: #3344AA #8B9EFF #8B9EFF #3344AA;
+}
+
+/* Blinking cursor animation */
+@keyframes pixel-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+[data-drip-skin="retro-pixel"] [data-drip="shell"]::after {
+  content: '_';
+  display: inline-block;
+  color: var(--drip-green);
+  font-family: var(--drip-font-body);
+  font-size: 20px;
+  animation: pixel-blink 1s step-end infinite;
+  margin-top: 16px;
+}

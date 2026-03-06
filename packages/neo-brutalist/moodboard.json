@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "url": "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=600&h=400&fit=crop",
+      "alt": "Bold colorful geometric shapes with thick black outlines",
+      "credit": "Robert Katzki on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=600&h=400&fit=crop",
+      "alt": "Memphis design pattern with bright primary colors",
+      "credit": "Fakurian Design on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&h=400&fit=crop",
+      "alt": "Chunky bold typography on vivid background",
+      "credit": "Nathan Dumlao on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1534312527009-56c7016453e6?w=600&h=400&fit=crop",
+      "alt": "Playful geometric composition with saturated colors",
+      "credit": "Markus Spiske on Unsplash"
+    }
+  ]
+}

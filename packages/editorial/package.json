@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/editorial",
+  "version": "1.1.0",
+  "description": "The magazine spread brought to screen. Typography and imagery in deliberate tension.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "editorial",
+    "displayName": "Editorial",
+    "philosophy": "The magazine spread brought to screen. Typography is expressive and varied. Layout is asymmetric but intentional.",
+    "tags": ["magazine", "typographic", "asymmetric", "serif", "print-inspired"],
+    "colors": { "bg": "#FAFAF8", "fg": "#1C1C1C", "accent": "#D4380D" },
+    "fonts": ["Playfair Display", "Source Sans 3", "Source Serif 4"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "editorial"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

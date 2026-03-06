@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur &mdash; Design Agency</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
+    * { box-sizing: border-box; border-radius: 0 !important; margin: 0; }
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #1A1A1A; background: #FFFFFF; font-size: 16px; line-height: 1.6; }
+    h1, h2, h3 { font-family: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid #1A1A1A; }
+    .nav a { text-decoration: none; color: #1A1A1A; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-left: 32px; }
+    .nav a.active { border-bottom: 2px solid #E63226; }
+    .marker { color: #E63226; font-weight: 700; }
+    .section { border-top: 2px solid #1A1A1A; padding-top: 16px; margin-top: 64px; }
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #6B6B6B; }
+    .hero { padding: 96px 0 64px; }
+    .hero h1 { font-size: 4rem; max-width: 14ch; }
+    .hero p { margin-top: 32px; max-width: 480px; color: #6B6B6B; }
+    .grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+    .layout-split { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; margin-top: 32px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+    .service { border-top: 1px solid #1A1A1A; padding-top: 16px; }
+    .service h2 { margin-bottom: 8px; }
+    .service p { font-size: 0.875rem; color: #6B6B6B; }
+    .client-item { padding: 16px 0; border-bottom: 1px solid #1A1A1A; display: flex; justify-content: space-between; }
+    .client-item span { font-size: 0.875rem; color: #6B6B6B; }
+    .stat { border-top: 1px solid #1A1A1A; padding-top: 16px; }
+    .stat h2 { font-size: 2.5rem; margin-bottom: 4px; }
+    .stat p { font-size: 0.875rem; color: #6B6B6B; }
+    .cta { display: inline-block; margin-top: 32px; padding: 16px 48px; background: #1A1A1A; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+    .footer { margin-top: 96px; padding: 24px 0; border-top: 1px solid #1A1A1A; font-size: 0.75rem; color: #6B6B6B; }
+
+    @media (max-width: 768px) {
+      .grid-12 { grid-template-columns: repeat(6, 1fr); }
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .layout-split { grid-template-columns: 1fr; gap: 24px; }
+      h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 480px) {
+      .grid-12 { grid-template-columns: 1fr; }
+      .container { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <strong>Struktur</strong>
+      <div><a href="#" class="active">Overview</a><a href="#">Work</a><a href="#">About</a><a href="#">Contact</a></div>
+    </nav>
+
+    <div class="hero">
+      <h1>Design with structure, not style</h1>
+      <p>Struktur is a design agency in Zurich specializing in identity systems, editorial design, and digital products built on typographic clarity and systematic thinking.</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Services</span>
+      <div class="grid-3">
+        <div class="service">
+          <h2>Identity</h2>
+          <p>Brand systems grounded in typographic logic. Logos, guidelines, stationery, and signage designed to work across every medium and scale.</p>
+        </div>
+        <div class="service">
+          <h2>Editorial</h2>
+          <p>Publication design with rigorous vertical rhythm. Books, magazines, annual reports, and catalogs built on modular grid systems.</p>
+        </div>
+        <div class="service">
+          <h2>Digital</h2>
+          <p>Websites and applications where content structure drives visual decisions. No decoration. <span class="marker">Only clarity.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Selected Clients</span>
+      <div style="margin-top: 24px;">
+        <div class="client-item">
+          <strong>Museum fur Gestaltung</strong>
+          <span>Identity, Signage</span>
+        </div>
+        <div class="client-item">
+          <strong>ETH Zurich</strong>
+          <span>Publication Design</span>
+        </div>
+        <div class="client-item">
+          <strong>Swiss Federal Railways</strong>
+          <span>Wayfinding System</span>
+        </div>
+        <div class="client-item">
+          <strong>Vitra Design Museum</strong>
+          <span>Exhibition Graphics</span>
+        </div>
+        <div class="client-item">
+          <strong>Helvetia Insurance</strong>
+          <span>Annual Report</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Studio</span>
+      <div class="grid-4">
+        <div class="stat">
+          <h2>2009</h2>
+          <p>Founded</p>
+        </div>
+        <div class="stat">
+          <h2>14</h2>
+          <p>Team members</p>
+        </div>
+        <div class="stat">
+          <h2>200+</h2>
+          <p>Projects completed</p>
+        </div>
+        <div class="stat">
+          <h2>3</h2>
+          <p><span class="marker">Awards this year</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label">Approach</span>
+      <div class="layout-split">
+        <div>
+          <h3>Philosophy</h3>
+        </div>
+        <div>
+          <p>Every project begins with content. We analyze the material, identify hierarchies, and construct grid systems that serve the specific communication needs of each brief. Typography is our primary tool. Color is functional, not decorative. The grid is visible in the result, not as ornament, but as evidence of deliberate organization.</p>
+          <a href="#" class="cta">Start a project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Struktur Design AG &mdash; Zurich, Switzerland</div>
+  </div>
+</body>
+</html>

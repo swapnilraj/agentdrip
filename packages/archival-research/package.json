@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/archival-research",
+  "version": "1.1.0",
+  "description": "The interface as a scholarly tool. Information density is a feature, not a bug.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "archival-research",
+    "displayName": "Archival Research",
+    "philosophy": "The interface as a scholarly tool. Information density is a feature. The visual language borrows from library catalogs and footnotes.",
+    "tags": ["scholarly", "dense", "serif", "utilitarian", "reference"],
+    "colors": { "bg": "#FAFAFA", "fg": "#222222", "accent": "#1A5276" },
+    "fonts": ["Source Serif 4", "IBM Plex Mono"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "archival-research"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

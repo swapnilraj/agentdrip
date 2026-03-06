@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* =========================================
+   NEO-BRUTALIST
+   Brutalism's rebellious energy meets modern
+   playfulness. Loud, colorful, and bold.
+   ========================================= */
+
+[data-drip-skin="neo-brutalist"] {
+  --drip-bg: #FFFDF7;
+  --drip-fg: #1A1A1A;
+  --drip-border: #1A1A1A;
+  --drip-pink: #FF6B9D;
+  --drip-yellow: #FFE566;
+  --drip-blue: #6BB5FF;
+  --drip-green: #7BEA7B;
+  --drip-orange: #FF9A56;
+  --drip-purple: #C4A1FF;
+  --drip-font-body: 'Space Grotesk', -apple-system, sans-serif;
+  --drip-font-mono: 'DM Mono', monospace;
+
+  font-family: var(--drip-font-body);
+  background: var(--drip-bg);
+  color: var(--drip-fg);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+[data-drip-skin="neo-brutalist"] a {
+  color: var(--drip-fg);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* --- Nav --- */
+[data-drip-skin="neo-brutalist"] [data-drip="nav"] {
+  border-bottom: 3px solid var(--drip-border);
+  padding: 20px 32px;
+  background: var(--drip-bg);
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="nav:logo"] {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="nav:links"] {
+  display: flex;
+  gap: 0;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="nav:link"] {
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 20px;
+  color: var(--drip-fg);
+  transition: color 0.1s;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="nav:link"]:hover {
+  color: var(--drip-pink);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="nav:chrome-dots"] {
+  display: none;
+}
+
+/* --- Hero --- */
+[data-drip-skin="neo-brutalist"] [data-drip="hero"] {
+  padding: 80px 32px;
+  background: var(--drip-bg);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="hero:title"] {
+  font-family: var(--drip-font-body);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1.05;
+  color: var(--drip-fg);
+  max-width: 12ch;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="hero:subtitle"] {
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin-top: 16px;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="hero:actions"] {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Sticker decoration */
+[data-drip-skin="neo-brutalist"] [data-drip="hero"]::after {
+  content: 'NEW!';
+  display: inline-block;
+  background: var(--drip-pink);
+  border: 3px solid var(--drip-border);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transform: rotate(3deg);
+  margin-top: 16px;
+  color: var(--drip-fg);
+}
+
+/* --- Grid --- */
+[data-drip-skin="neo-brutalist"] [data-drip="grid"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 48px 32px 96px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Card (hard shadow, colored fills) --- */
+[data-drip-skin="neo-brutalist"] [data-drip="card"] {
+  border: 3px solid var(--drip-border);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 5px 5px 0 var(--drip-border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card"]:nth-child(3n+1) {
+  background: var(--drip-yellow);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card"]:nth-child(3n+2) {
+  background: var(--drip-blue);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card"]:nth-child(3n) {
+  background: var(--drip-pink);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--drip-border);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:preview"] {
+  border: 2px solid var(--drip-border);
+  border-radius: 6px;
+  aspect-ratio: 16/9;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:title"] {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--drip-fg);
+  margin-bottom: 8px;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:meta"] {
+  font-family: var(--drip-font-mono);
+  font-size: 0.8rem;
+  color: var(--drip-fg);
+  opacity: 0.7;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card"] p {
+  font-size: 0.9rem;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:tags"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:tags"] span {
+  background: var(--drip-bg);
+  border: 2px solid var(--drip-border);
+  border-radius: 100px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* --- Shell --- */
+[data-drip-skin="neo-brutalist"] [data-drip="shell"] {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  background: var(--drip-bg);
+}
+
+/* --- Button (thick border, hard shadow) --- */
+[data-drip-skin="neo-brutalist"] [data-drip="button"] {
+  background: var(--drip-yellow);
+  color: var(--drip-fg);
+  border: 3px solid var(--drip-border);
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 5px 5px 0 var(--drip-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="button"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--drip-border);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="button"]:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--drip-border);
+}
+
+/* --- Colored section band --- */
+[data-drip-skin="neo-brutalist"] [data-drip="shell"]::after {
+  content: '';
+  display: block;
+  background: var(--drip-green);
+  border-top: 3px solid var(--drip-border);
+  border-bottom: 3px solid var(--drip-border);
+  padding: 24px;
+  margin-top: 48px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  [data-drip-skin="neo-brutalist"] [data-drip="grid"] {
+    grid-template-columns: 1fr;
+  }
+
+  [data-drip-skin="neo-brutalist"] [data-drip="hero:title"] {
+    font-size: 2.5rem;
+  }
+}

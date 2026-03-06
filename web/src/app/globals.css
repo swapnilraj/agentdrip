@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/*
+ * Skin color reset.
+ * When data-drip-skin is active, force all Tailwind color utilities
+ * to yield to the skin's CSS custom properties. This is the ONE place
+ * where !important is acceptable — it's a framework-level reset that
+ * ensures skin colors propagate through Tailwind's utility classes.
+ */
+
+/* Body text and background */
+html[data-drip-skin] body {
+  background-color: var(--drip-bg) !important;
+  color: var(--drip-fg) !important;
+}
+
+/* All text elements inherit skin colors */
+html[data-drip-skin] h1,
+html[data-drip-skin] h2,
+html[data-drip-skin] h3,
+html[data-drip-skin] h4,
+html[data-drip-skin] p,
+html[data-drip-skin] li,
+html[data-drip-skin] label,
+html[data-drip-skin] pre,
+html[data-drip-skin] code,
+html[data-drip-skin] blockquote {
+  color: inherit !important;
+}
+
+/* Links and spans inherit skin colors */
+html[data-drip-skin] a,
+html[data-drip-skin] span {
+  color: inherit !important;
+}
+
+/* Reset gradient text clips (e.g. "AI Era" gradient text) */
+html[data-drip-skin] .bg-clip-text,
+html[data-drip-skin] [class*="bg-clip-text"] {
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  background-image: none !important;
+}
+
+/* Backgrounds on sections/divs inherit skin bg */
+html[data-drip-skin] section,
+html[data-drip-skin] main,
+html[data-drip-skin] footer {
+  background-color: inherit !important;
+}
+
+/* Border colors adapt */
+html[data-drip-skin] nav,
+html[data-drip-skin] [class*="border-neutral"] {
+  border-color: var(--drip-border, rgba(128, 128, 128, 0.2)) !important;
+}
+
+/* Buttons: let skin [data-drip="button"] rules handle these,
+   but reset Tailwind's bg-purple/bg-green on untagged buttons */
+html[data-drip-skin] button:not([data-drip]) {
+  color: inherit !important;
+}
+
+/* Form elements */
+html[data-drip-skin] input,
+html[data-drip-skin] select,
+html[data-drip-skin] textarea {
+  color: var(--drip-fg) !important;
+  background-color: var(--drip-bg-elevated, var(--drip-bg)) !important;
+  border-color: var(--drip-border, rgba(128, 128, 128, 0.3)) !important;
+}
+
+/* Dark card backgrounds (e.g. bg-neutral-800 on preview areas) */
+html[data-drip-skin] [class*="bg-neutral-800"],
+html[data-drip-skin] [class*="bg-neutral-900"] {
+  background-color: var(--drip-bg-elevated, var(--drip-bg)) !important;
+}

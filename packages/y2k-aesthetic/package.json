@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/y2k-aesthetic",
+  "version": "1.1.0",
+  "description": "The internet as a frontier -- chaotic, glossy, and optimistic. Everything glows.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "y2k-aesthetic",
+    "displayName": "Y2K Aesthetic",
+    "philosophy": "The internet as a frontier -- chaotic, glossy, and optimistic. Chrome gradients, bubble shapes, and the thrill of new technology.",
+    "tags": ["neon", "glossy", "dark", "retro", "maximal"],
+    "colors": { "bg": "#1A0A2E", "fg": "#FFFFFF", "accent": "#00CCFF" },
+    "fonts": ["Orbitron", "VT323"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "y2k-aesthetic"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

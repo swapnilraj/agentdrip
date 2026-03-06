@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/brutalist",
+  "version": "1.1.0",
+  "description": "Raw, honest, structural. The design exposes its own construction.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "brutalist",
+    "displayName": "Brutalist",
+    "philosophy": "Raw, honest, structural. Every element declares its purpose through visible construction.",
+    "tags": ["monospace", "raw", "structural", "high-contrast", "uppercase"],
+    "colors": { "bg": "#FFFFFF", "fg": "#000000", "accent": "#0000FF" },
+    "fonts": ["Space Mono"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "brutalist"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}

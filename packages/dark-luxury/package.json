@@ -1,0 +1,23 @@
+{
+  "name": "@agentdrip/dark-luxury",
+  "version": "1.1.0",
+  "description": "Premium, restrained, and atmospheric. Content glows against a dark stage.",
+  "agentdrip": {
+    "type": "design-skill",
+    "slug": "dark-luxury",
+    "displayName": "Dark Luxury",
+    "philosophy": "Premium, restrained, and atmospheric. The dark background is a deliberate stage for content to glow against.",
+    "tags": ["dark", "premium", "minimal", "glow", "engineered"],
+    "colors": { "bg": "#09090B", "fg": "#FAFAFA", "accent": "#6366F1" },
+    "fonts": ["Inter"]
+  },
+  "exports": {
+    "./skill": "./skill.md",
+    "./skin": "./skin.css",
+    "./previews/*": "./previews/*"
+  },
+  "keywords": ["agentdrip", "design-skill", "dark-luxury"],
+  "author": "AgentDrip Team",
+  "license": "MIT",
+  "files": ["skill.md", "skin.css", "previews", "moodboard.json", "README.md"]
+}
