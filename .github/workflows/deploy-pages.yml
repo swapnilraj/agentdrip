@@ -1,0 +1,124 @@
+name: Deploy Style Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'test-pages/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build index page
+        run: |
+          mkdir -p _site
+          cp test-pages/*.html _site/
+
+          cat > _site/index.html << 'INDEXEOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AgentDrip - Design Skill Gallery</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: 'Inter', -apple-system, system-ui, sans-serif;
+                background: #0a0a0a; color: #e5e5e5;
+                min-height: 100vh; padding: 3rem 2rem;
+              }
+              h1 {
+                font-size: 2.5rem; font-weight: 800;
+                background: linear-gradient(135deg, #7c3aed, #ec4899);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                margin-bottom: 0.5rem;
+              }
+              .subtitle { color: #737373; margin-bottom: 3rem; font-size: 1.1rem; }
+              .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 2rem; max-width: 1200px; margin: 0 auto;
+              }
+              .style-card {
+                background: #171717; border: 1px solid #262626;
+                border-radius: 12px; overflow: hidden;
+                transition: border-color 0.2s;
+              }
+              .style-card:hover { border-color: #7c3aed; }
+              .style-card h2 {
+                font-size: 1.25rem; font-weight: 700;
+                padding: 1.25rem 1.25rem 0.5rem; color: #fafafa;
+              }
+              .style-card .pages {
+                padding: 0 1.25rem 1.25rem;
+                display: flex; gap: 0.5rem; flex-wrap: wrap;
+              }
+              .style-card a {
+                display: inline-block; padding: 0.4rem 0.75rem;
+                background: #262626; color: #a78bfa;
+                border-radius: 6px; text-decoration: none;
+                font-size: 0.85rem; font-weight: 500;
+                transition: background 0.15s;
+              }
+              .style-card a:hover { background: #7c3aed; color: #fff; }
+              .header { max-width: 1200px; margin: 0 auto 2rem; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <h1>AgentDrip</h1>
+              <p class="subtitle">10 design skills, 30 pages. Each style generated from a design skill file.</p>
+            </div>
+            <div class="grid" id="grid"></div>
+            <script>
+              const styles = [
+                { id: '01', name: 'Brutalist', prefix: '01-brutalist' },
+                { id: '02', name: 'Swiss International', prefix: '02-swiss' },
+                { id: '03', name: 'Japanese Minimal', prefix: '03-japanese' },
+                { id: '04', name: 'Y2K', prefix: '04-y2k' },
+                { id: '05', name: 'Editorial', prefix: '05-editorial' },
+                { id: '06', name: 'Retro Pixel', prefix: '06-pixel' },
+                { id: '07', name: 'Organic Soft', prefix: '07-soft' },
+                { id: '08', name: 'Neo-Brutalist', prefix: '08-neobr' },
+                { id: '09', name: 'Dark Luxury', prefix: '09-dark' },
+                { id: '10', name: 'Archival Research', prefix: '10-archival' },
+              ];
+              const types = ['landing', 'portfolio', 'blog'];
+              const grid = document.getElementById('grid');
+              styles.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'style-card';
+                card.innerHTML = `<h2>${s.id}. ${s.name}</h2><div class="pages">${
+                  types.map(t => `<a href="${s.prefix}-${t}.html">${t}</a>`).join('')
+                }</div>`;
+                grid.appendChild(card);
+              });
+            </script>
+          </body>
+          </html>
+          INDEXEOF
+
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
