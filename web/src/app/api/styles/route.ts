@@ -98,14 +98,13 @@ async function semanticSearch(
       .join(" OR ");
 
     if (ftsQuery) {
-      const ftsRows = await db.all<{ slug: string; rank: number }>(
+      const rawResult = await db.all<{ slug: string; rank: number }>(
         sql`SELECT slug, rank FROM packages_fts WHERE packages_fts MATCH ${ftsQuery} ORDER BY rank LIMIT 50`
       );
-      ftsResults = ftsRows;
+      ftsResults = rawResult;
     }
-  } catch (err) {
-    // FTS table might not exist (e.g. npm-synced DB without FTS)
-    console.warn("FTS search failed, falling back:", err);
+  } catch {
+    // FTS table might not exist (e.g. Turso prod DB without FTS)
   }
 
   // Step 2: Try embedding-based search (if API key available and FTS gave few results)

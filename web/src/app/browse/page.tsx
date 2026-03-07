@@ -85,14 +85,22 @@ export default function BrowsePage() {
         </div>
       )}
 
-      <div className="flex flex-row gap-3 mb-10">
-        <input
-          type="text"
-          placeholder="Search styles..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500"
-        />
+      <div className="flex flex-col gap-2 mb-10">
+        <div className="flex flex-row gap-3">
+        <div className="relative flex-1">
+          <input
+            type="text"
+            placeholder='Try "warm and friendly" or "raw monospace brutalism"...'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500"
+          />
+          {!search && (
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-neutral-600 bg-neutral-800 px-1.5 py-0.5 rounded">
+              Semantic
+            </span>
+          )}
+        </div>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortOption)}
@@ -102,6 +110,12 @@ export default function BrowsePage() {
           <option value="recent">Recent</option>
           <option value="name">Name</option>
         </select>
+        </div>
+        {search && (
+          <p className="text-xs text-neutral-600">
+            Searching across names, descriptions, philosophies, tags, and skill content
+          </p>
+        )}
       </div>
 
       {loading ? (
