@@ -14,6 +14,11 @@ interface Package {
   previewHtml: string | null;
 }
 
+interface TagCount {
+  tag: string;
+  count: number;
+}
+
 type SortOption = "recent" | "popular" | "name";
 
 export default function BrowsePage() {
@@ -21,12 +26,22 @@ export default function BrowsePage() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortOption>("popular");
   const [loading, setLoading] = useState(true);
+  const [tags, setTags] = useState<TagCount[]>([]);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/tags")
+      .then((r) => r.ok ? r.json() : [])
+      .then(setTags)
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     async function load() {
       setLoading(true);
       const params = new URLSearchParams({ sort });
       if (search) params.set("search", search);
+      if (activeTag) params.set("tag", activeTag);
       const res = await fetch(`/api/styles?${params}`);
       if (res.ok) {
         const data = await res.json();
@@ -36,11 +51,39 @@ export default function BrowsePage() {
     }
     const timer = setTimeout(load, 200);
     return () => clearTimeout(timer);
-  }, [search, sort]);
+  }, [search, sort, activeTag]);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-8">Browse Styles</h1>
+
+      {tags.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-6">
+          <button
+            onClick={() => setActiveTag(null)}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              activeTag === null
+                ? "bg-purple-600 text-white"
+                : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700"
+            }`}
+          >
+            All
+          </button>
+          {tags.map((t) => (
+            <button
+              key={t.tag}
+              onClick={() => setActiveTag(activeTag === t.tag ? null : t.tag)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                activeTag === t.tag
+                  ? "bg-purple-600 text-white"
+                  : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700"
+              }`}
+            >
+              {t.tag} ({t.count})
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="flex flex-row gap-3 mb-10">
         <input

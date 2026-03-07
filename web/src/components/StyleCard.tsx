@@ -37,7 +37,7 @@ export function StyleCard({
           </div>
         )}
       </div>
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-16">
+      <div data-drip="card:overlay" className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-16">
         <h3 data-drip="card:title" className="font-semibold text-lg text-white group-hover:text-purple-300 transition-colors">
           {displayName}
         </h3>

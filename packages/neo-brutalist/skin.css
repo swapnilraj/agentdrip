@@ -193,6 +193,19 @@
   font-weight: 700;
 }
 
+[data-drip-skin="neo-brutalist"] [data-drip="card:overlay"] {
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.85), transparent);
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:overlay"] h3 {
+  color: #FFFDF7;
+  font-weight: 700;
+}
+
+[data-drip-skin="neo-brutalist"] [data-drip="card:overlay"] p {
+  color: #ddd;
+}
+
 /* --- Shell --- */
 [data-drip-skin="neo-brutalist"] [data-drip="shell"] {
   max-width: 1100px;
@@ -203,8 +216,8 @@
 
 /* --- Button (thick border, hard shadow) --- */
 [data-drip-skin="neo-brutalist"] [data-drip="button"] {
-  background: var(--drip-yellow);
-  color: var(--drip-fg);
+  background: var(--drip-yellow) !important;
+  color: var(--drip-fg) !important;
   border: 3px solid var(--drip-border);
   border-radius: 8px;
   padding: 14px 32px;

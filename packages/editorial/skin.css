@@ -190,6 +190,16 @@
   color: var(--drip-accent);
 }
 
+[data-drip-skin="editorial"] [data-drip="card:overlay"] h3 {
+  font-family: var(--drip-font-heading);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+[data-drip-skin="editorial"] [data-drip="card:overlay"] p {
+  font-size: 0.8rem;
+}
+
 /* --- Shell --- */
 [data-drip-skin="editorial"] [data-drip="shell"] {
   max-width: 1100px;
@@ -200,8 +210,8 @@
 
 /* --- Button (typographic CTA, not UI button) --- */
 [data-drip-skin="editorial"] [data-drip="button"] {
-  background: transparent;
-  color: var(--drip-accent);
+  background: transparent !important;
+  color: var(--drip-accent) !important;
   border: none;
   border-bottom: 2px solid var(--drip-accent);
   font-family: var(--drip-font-body);
@@ -215,7 +225,7 @@
 }
 
 [data-drip-skin="editorial"] [data-drip="button"]:hover {
-  color: var(--drip-fg);
+  color: var(--drip-fg) !important;
   border-color: var(--drip-fg);
   transform: none;
 }

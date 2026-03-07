@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import * as schema from "./schema";
 import { syncAllPackages } from "../lib/npm-indexer";
+import { getEmbedding, buildEmbeddingText } from "../lib/embeddings";
 
 const PACKAGES_DIR = "/Users/swp/dev/swapnilraj/design-skill/packages";
 
@@ -15,6 +16,7 @@ const db = drizzle(client, { schema });
 
 async function resetDb() {
   await client.executeMultiple(`
+    DROP TABLE IF EXISTS packages_fts;
     DROP TABLE IF EXISTS style_versions;
     DROP TABLE IF EXISTS style_pages;
     DROP TABLE IF EXISTS corpus_images;
@@ -39,9 +41,28 @@ async function resetDb() {
       preview_html TEXT,
       last_synced_at TEXT NOT NULL,
       first_seen_at TEXT NOT NULL,
-      weekly_downloads INTEGER DEFAULT 0
+      weekly_downloads INTEGER DEFAULT 0,
+      moodboard TEXT,
+      embedding TEXT
+    );
+
+    CREATE VIRTUAL TABLE packages_fts USING fts5(
+      slug,
+      display_name,
+      description,
+      philosophy,
+      tags,
+      skill_excerpt,
+      tokenize='porter unicode61'
     );
   `);
+}
+
+function buildFtsExcerpt(skillContent: string | null): string {
+  if (!skillContent) return "";
+  // Extract the most searchable parts: first 1500 chars covers
+  // title, philosophy, design tokens, and signature moves
+  return skillContent.slice(0, 1500);
 }
 
 async function seedFromLocal() {
@@ -57,6 +78,7 @@ async function seedFromLocal() {
 
   const now = new Date().toISOString();
   let count = 0;
+  const hasApiKey = !!process.env.OPENROUTER_API_KEY;
 
   for (const dir of dirs) {
     const pkgJsonPath = path.join(PACKAGES_DIR, dir, "package.json");
@@ -76,26 +98,51 @@ async function seedFromLocal() {
       typeof pkgJson.author === "string"
         ? pkgJson.author
         : pkgJson.author?.name ?? "Unknown";
+    const description = pkgJson.description ?? null;
+    const philosophy = agentdrip.philosophy ?? null;
+    const tags = agentdrip.tags ? JSON.stringify(agentdrip.tags) : null;
+    const skillContent = readFile("skill.md");
+
+    // Generate embedding if API key available
+    let embedding: string | null = null;
+    if (hasApiKey) {
+      const text = buildEmbeddingText({ displayName, description, philosophy, tags, skillContent });
+      const vec = await getEmbedding(text);
+      if (vec) {
+        embedding = JSON.stringify(vec);
+        console.log(`  Generated embedding for ${slug} (${vec.length} dims)`);
+      }
+    }
 
     await db.insert(schema.packages).values({
       name: pkgJson.name ?? `@agentdrip/${dir}`,
       slug,
       version: pkgJson.version ?? "1.0.0",
       displayName,
-      description: pkgJson.description ?? null,
-      philosophy: agentdrip.philosophy ?? null,
+      description,
+      philosophy,
       authorName,
-      tags: agentdrip.tags ? JSON.stringify(agentdrip.tags) : null,
+      tags,
       colors: agentdrip.colors ? JSON.stringify(agentdrip.colors) : null,
       fonts: agentdrip.fonts ? JSON.stringify(agentdrip.fonts) : null,
       thumbnailUrl: null,
       npmUrl: `https://www.npmjs.com/package/${pkgJson.name ?? `@agentdrip/${dir}`}`,
-      skillContent: readFile("skill.md"),
+      skillContent,
       skinCss: readFile("skin.css"),
       previewHtml: readFile("previews/landing.html"),
       lastSyncedAt: now,
       firstSeenAt: now,
       weeklyDownloads: 0,
+      moodboard: readFile("moodboard.json"),
+      embedding,
+    });
+
+    // Index into FTS5
+    const tagsFlat = agentdrip.tags ? agentdrip.tags.join(" ") : "";
+    await client.execute({
+      sql: `INSERT INTO packages_fts(rowid, slug, display_name, description, philosophy, tags, skill_excerpt)
+            VALUES ((SELECT rowid FROM packages WHERE slug = ?), ?, ?, ?, ?, ?, ?)`,
+      args: [slug, slug, displayName, description ?? "", philosophy ?? "", tagsFlat, buildFtsExcerpt(skillContent)],
     });
 
     console.log(`Seeded: ${displayName} (${slug})`);
@@ -109,26 +156,36 @@ async function seed() {
   console.log("Resetting database...");
   await resetDb();
 
-  // Try npm sync first
-  console.log("\nAttempting npm sync...");
-  try {
-    const result = await syncAllPackages();
-    if (result.synced > 0) {
-      console.log(`Synced ${result.synced} packages from npm.`);
-      if (result.errors.length > 0) {
-        console.log(`Errors: ${result.errors.join(", ")}`);
+  // Try npm sync first (skip if LOCAL_SEED env var is set)
+  if (!process.env.LOCAL_SEED) {
+    console.log("\nAttempting npm sync...");
+    try {
+      const result = await syncAllPackages();
+      if (result.synced > 0) {
+        console.log(`Synced ${result.synced} packages from npm.`);
+        if (result.errors.length > 0) {
+          console.log(`Errors: ${result.errors.join(", ")}`);
+        }
+        // TODO: build FTS index for npm-synced packages
+        client.close();
+        return;
       }
-      client.close();
-      return;
+      console.log("No packages found on npm, falling back to local seed.");
+    } catch (err) {
+      console.log(`npm sync failed (${err}), falling back to local seed.`);
     }
-    console.log("No packages found on npm, falling back to local seed.");
-  } catch (err) {
-    console.log(`npm sync failed (${err}), falling back to local seed.`);
+  } else {
+    console.log("\nLOCAL_SEED set, skipping npm sync.");
   }
 
   // Fallback: seed from local packages directory
   const count = await seedFromLocal();
   console.log(`\nSeeded ${count} packages from local directory.`);
+  if (process.env.OPENROUTER_API_KEY) {
+    console.log("Embeddings: generated (semantic search enabled)");
+  } else {
+    console.log("Embeddings: skipped (no OPENROUTER_API_KEY, using FTS only)");
+  }
   console.log(`Database at: ${dbPath}`);
   client.close();
 }

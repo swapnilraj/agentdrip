@@ -132,7 +132,7 @@
   background: transparent;
   border: none;
   box-shadow: none;
-  padding: 100px 0;
+  padding: 32px 0;
   border-top: 1px solid var(--drip-surface);
   transition: none;
 }
@@ -143,9 +143,7 @@
 }
 
 [data-drip-skin="japanese-minimal"] [data-drip="card:preview"] {
-  padding: 24px;
-  background: var(--drip-surface);
-  margin-bottom: 32px;
+  display: none !important;
 }
 
 [data-drip-skin="japanese-minimal"] [data-drip="card:title"] {
@@ -180,6 +178,24 @@
   letter-spacing: 0.1em;
 }
 
+[data-drip-skin="japanese-minimal"] [data-drip="card:overlay"] {
+  position: static !important;
+  background: none !important;
+  padding: 16px 0;
+  padding-top: 16px;
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:overlay"] h3 {
+  font-family: var(--drip-font-heading);
+  font-weight: 400;
+  color: var(--drip-fg);
+}
+
+[data-drip-skin="japanese-minimal"] [data-drip="card:overlay"] p {
+  font-weight: 300;
+  color: var(--drip-muted);
+}
+
 [data-drip-skin="japanese-minimal"] [data-drip="card:stats"] {
   font-size: 0.7rem;
   color: var(--drip-muted);
@@ -197,8 +213,8 @@
 
 /* --- Button --- */
 [data-drip-skin="japanese-minimal"] [data-drip="button"] {
-  background: transparent;
-  color: var(--drip-accent);
+  background: transparent !important;
+  color: var(--drip-accent) !important;
   border: 1px solid var(--drip-surface);
   font-weight: 300;
   font-size: 0.85rem;
@@ -210,7 +226,7 @@
 }
 
 [data-drip-skin="japanese-minimal"] [data-drip="button"]:hover {
-  color: var(--drip-fg);
+  color: var(--drip-fg) !important;
   border-color: var(--drip-fg);
   transform: none;
 }

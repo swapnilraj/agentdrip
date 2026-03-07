@@ -140,7 +140,29 @@
 }
 
 [data-drip-skin="archival-research"] [data-drip="card:preview"] {
-  display: none;
+  display: none !important;
+}
+
+[data-drip-skin="archival-research"] [data-drip="card:overlay"] {
+  position: static !important;
+  background: none !important;
+  padding: 0;
+  padding-top: 0;
+}
+
+[data-drip-skin="archival-research"] [data-drip="card:overlay"] h3 {
+  color: var(--drip-fg);
+  font-family: var(--drip-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+[data-drip-skin="archival-research"] [data-drip="card:overlay"] p {
+  color: var(--drip-muted);
+  font-size: 0.75rem;
+  font-family: var(--drip-font-mono);
+  margin-top: 4px;
 }
 
 [data-drip-skin="archival-research"] [data-drip="card:title"] {
@@ -188,8 +210,8 @@
 
 /* --- Button (plain link style) --- */
 [data-drip-skin="archival-research"] [data-drip="button"] {
-  background: transparent;
-  color: var(--drip-link);
+  background: transparent !important;
+  color: var(--drip-link) !important;
   border: none;
   text-decoration: underline;
   font-family: var(--drip-font-body);
@@ -200,7 +222,7 @@
 }
 
 [data-drip-skin="archival-research"] [data-drip="button"]:hover {
-  color: #0D3B5A;
+  color: #0D3B5A !important;
   transform: none;
 }
 

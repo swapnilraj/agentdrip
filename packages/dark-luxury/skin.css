@@ -141,7 +141,30 @@
 }
 
 [data-drip-skin="dark-luxury"] [data-drip="card:preview"] {
-  display: none;
+  display: none !important;
+}
+
+[data-drip-skin="dark-luxury"] [data-drip="card:overlay"] {
+  position: static !important;
+  background: none !important;
+  padding: 48px 32px;
+  padding-top: 48px;
+}
+
+[data-drip-skin="dark-luxury"] [data-drip="card:overlay"] h3 {
+  color: var(--drip-fg);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+[data-drip-skin="dark-luxury"] [data-drip="card:overlay"] p {
+  color: var(--drip-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
 [data-drip-skin="dark-luxury"] [data-drip="card:title"] {
@@ -189,8 +212,8 @@
 
 /* --- Button (primary: solid white) --- */
 [data-drip-skin="dark-luxury"] [data-drip="button"] {
-  background: var(--drip-fg);
-  color: var(--drip-bg);
+  background: var(--drip-fg) !important;
+  color: var(--drip-bg) !important;
   border: none;
   border-radius: 8px;
   padding: 12px 28px;
@@ -259,7 +282,7 @@
 
 [data-drip-skin="dark-luxury"] [data-drip="card"] {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 [data-drip-skin="dark-luxury"] [data-drip="card"]:hover::before {

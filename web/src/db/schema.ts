@@ -20,4 +20,5 @@ export const packages = sqliteTable("packages", {
   firstSeenAt: text("first_seen_at").notNull(),
   weeklyDownloads: integer("weekly_downloads").default(0),
   moodboard: text("moodboard"),              // JSON string of moodboard data
+  embedding: text("embedding"),              // JSON array of floats (vector)
 });

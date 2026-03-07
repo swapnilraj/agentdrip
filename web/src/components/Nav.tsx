@@ -8,6 +8,8 @@ export function Nav() {
 
   const links = [
     { href: "/browse", label: "Browse" },
+    { href: "/playground", label: "Playground" },
+    { href: "/compare", label: "Compare" },
     { href: "/publish", label: "Publish" },
   ];
 

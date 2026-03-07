@@ -178,6 +178,15 @@
   color: var(--drip-accent);
 }
 
+[data-drip-skin="swiss-international"] [data-drip="card:overlay"] h3 {
+  font-family: var(--drip-font-heading);
+  font-weight: 700;
+}
+
+[data-drip-skin="swiss-international"] [data-drip="card:overlay"] p {
+  font-size: 0.875rem;
+}
+
 /* --- Shell --- */
 [data-drip-skin="swiss-international"] [data-drip="shell"] {
   max-width: 1200px;
@@ -188,8 +197,8 @@
 
 /* --- Button --- */
 [data-drip-skin="swiss-international"] [data-drip="button"] {
-  background: transparent;
-  color: var(--drip-fg);
+  background: transparent !important;
+  color: var(--drip-fg) !important;
   border: 2px solid var(--drip-rule);
   font-family: var(--drip-font-body);
   font-size: 0.875rem;
@@ -202,8 +211,8 @@
 }
 
 [data-drip-skin="swiss-international"] [data-drip="button"]:hover {
-  background: var(--drip-fg);
-  color: var(--drip-bg);
+  background: var(--drip-fg) !important;
+  color: var(--drip-bg) !important;
   transform: none;
 }
 

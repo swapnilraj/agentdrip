@@ -14,7 +14,7 @@ html[data-drip-skin] body {
   color: var(--drip-fg) !important;
 }
 
-/* All text elements inherit skin colors */
+/* All text elements inherit skin colors (no !important so skin CSS can override) */
 html[data-drip-skin] h1,
 html[data-drip-skin] h2,
 html[data-drip-skin] h3,
@@ -25,13 +25,12 @@ html[data-drip-skin] label,
 html[data-drip-skin] pre,
 html[data-drip-skin] code,
 html[data-drip-skin] blockquote {
-  color: inherit !important;
+  color: inherit;
 }
 
-/* Links and spans inherit skin colors */
-html[data-drip-skin] a,
-html[data-drip-skin] span {
-  color: inherit !important;
+/* Links inherit skin colors (except styled buttons) */
+html[data-drip-skin] a:not([data-drip="button"]) {
+  color: inherit;
 }
 
 /* Reset gradient text clips (e.g. "AI Era" gradient text) */
@@ -55,8 +54,7 @@ html[data-drip-skin] [class*="border-neutral"] {
   border-color: var(--drip-border, rgba(128, 128, 128, 0.2)) !important;
 }
 
-/* Buttons: let skin [data-drip="button"] rules handle these,
-   but reset Tailwind's bg-purple/bg-green on untagged buttons */
+/* Untagged buttons: reset Tailwind colors */
 html[data-drip-skin] button:not([data-drip]) {
   color: inherit !important;
 }

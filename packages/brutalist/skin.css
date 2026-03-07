@@ -128,7 +128,34 @@
 }
 
 [data-drip-skin="brutalist"] [data-drip="card:preview"] {
-  display: none;
+  display: none !important;
+}
+
+[data-drip-skin="brutalist"] [data-drip="card:overlay"] {
+  position: static !important;
+  background: none !important;
+  padding: 0;
+  padding-top: 0;
+  border-top: 1px solid var(--drip-border);
+}
+
+[data-drip-skin="brutalist"] [data-drip="card:overlay"] h3 {
+  color: var(--drip-bg);
+  background: var(--drip-fg);
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--drip-font-heading);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+[data-drip-skin="brutalist"] [data-drip="card:overlay"] p {
+  color: var(--drip-fg);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-family: var(--drip-font-body);
+  margin-top: 0.5rem;
 }
 
 [data-drip-skin="brutalist"] [data-drip="card:title"] {
@@ -176,8 +203,8 @@
 
 /* --- Button --- */
 [data-drip-skin="brutalist"] [data-drip="button"] {
-  background: var(--drip-fg);
-  color: var(--drip-bg);
+  background: var(--drip-fg) !important;
+  color: var(--drip-bg) !important;
   border: 2px solid var(--drip-border);
   font-family: var(--drip-font-body);
   text-transform: uppercase;
@@ -190,8 +217,8 @@
 }
 
 [data-drip-skin="brutalist"] [data-drip="button"]:hover {
-  background: var(--drip-accent);
-  border-color: var(--drip-accent);
+  background: var(--drip-accent) !important;
+  border-color: var(--drip-accent) !important;
   transform: none;
 }
 

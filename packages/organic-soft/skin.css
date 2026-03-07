@@ -208,6 +208,21 @@
   font-weight: 500;
 }
 
+[data-drip-skin="organic-soft"] [data-drip="card:overlay"] {
+  background: linear-gradient(to top, rgba(61, 52, 85, 0.8), transparent);
+  border-radius: 0 0 28px 16px;
+}
+
+[data-drip-skin="organic-soft"] [data-drip="card:overlay"] h3 {
+  color: #fff;
+  font-family: var(--drip-font-heading);
+  font-weight: 700;
+}
+
+[data-drip-skin="organic-soft"] [data-drip="card:overlay"] p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 /* --- Shell --- */
 [data-drip-skin="organic-soft"] [data-drip="shell"] {
   max-width: 900px;
@@ -218,8 +233,8 @@
 
 /* --- Button (pill) --- */
 [data-drip-skin="organic-soft"] [data-drip="button"] {
-  background: linear-gradient(135deg, var(--drip-accent-1), var(--drip-accent-3));
-  color: #FFF;
+  background: linear-gradient(135deg, var(--drip-accent-1), var(--drip-accent-3)) !important;
+  color: #FFF !important;
   border: none;
   border-radius: 100px;
   padding: 14px 36px;

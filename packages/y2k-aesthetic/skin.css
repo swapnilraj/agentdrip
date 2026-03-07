@@ -180,7 +180,28 @@
 }
 
 [data-drip-skin="y2k-aesthetic"] [data-drip="card:preview"] {
-  display: none;
+  display: none !important;
+}
+
+[data-drip-skin="y2k-aesthetic"] [data-drip="card:overlay"] {
+  position: static !important;
+  background: none !important;
+  padding: 0;
+  padding-top: 0;
+}
+
+[data-drip-skin="y2k-aesthetic"] [data-drip="card:overlay"] h3 {
+  color: var(--drip-glow-blue);
+  font-family: var(--drip-font-heading);
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 16px 16px 0;
+}
+
+[data-drip-skin="y2k-aesthetic"] [data-drip="card:overlay"] p {
+  color: var(--drip-text-muted);
+  padding: 4px 16px 16px;
+  font-size: 0.75rem;
 }
 
 [data-drip-skin="y2k-aesthetic"] [data-drip="card:title"] {
@@ -227,9 +248,9 @@
 
 /* --- Button (beveled) --- */
 [data-drip-skin="y2k-aesthetic"] [data-drip="button"] {
-  background: linear-gradient(to bottom, #555, var(--drip-chrome-dark));
+  background: linear-gradient(to bottom, #555, var(--drip-chrome-dark)) !important;
   border: 2px solid;
-  border-color: #777 #333 #333 #777;
+  border-color: #777 #333 #333 #777 !important;
   color: var(--drip-glow-blue);
   font-family: var(--drip-font-body);
   text-transform: uppercase;
@@ -240,8 +261,8 @@
 }
 
 [data-drip-skin="y2k-aesthetic"] [data-drip="button"]:hover {
-  background: linear-gradient(to bottom, #666, #333);
-  color: var(--drip-fg);
+  background: linear-gradient(to bottom, #666, #333) !important;
+  color: var(--drip-fg) !important;
   text-shadow: 0 0 8px var(--drip-glow-blue);
   transform: none;
 }
