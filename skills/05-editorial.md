@@ -4,15 +4,15 @@
 The magazine spread brought to screen. Editorial design treats the page as a canvas where typography and imagery dance in deliberate tension. Inspired by print publications — The Paris Review, Bloomberg Businessweek, Monocle. Typography is expressive and varied. Layout is asymmetric but intentional. Every page turn should feel like a new composition. The reader is guided by visual weight, not UI conventions.
 
 ## The "No" List
-- NO uniform card grids — every section should have unique composition
-- NO single typeface — editorial demands typographic variety (2-3 families)
-- NO default link styling (no blue underlines)
-- NO UI-style buttons — use typographic CTAs instead
-- NO uniform spacing between all sections
-- NO stock-photo-style imagery (prefer photojournalistic, illustration, or abstract)
-- NO sidebar navigation patterns
-- NO hamburger menus
-- NO monospace fonts for body text
+- NO uniform card grids (repetitive grids kill the editorial rhythm — each section is a new composition)
+- NO single typeface (editorial demands typographic variety; a lone font flattens the hierarchy)
+- NO default link styling (blue underlines break the refined palette and feel generic)
+- NO UI-style buttons (editorial CTAs are typographic — buttons belong in apps, not magazines)
+- NO uniform spacing between all sections (varied spacing creates visual pacing like a page turn)
+- NO stock-photo-style imagery (photojournalistic or illustrative imagery preserves editorial credibility)
+- NO sidebar navigation patterns (sidebars compete with content; editorial nav is minimal and top-aligned)
+- NO hamburger menus (editorial navigation is curated and always visible — nothing to hide)
+- NO monospace fonts for body text (monospace undermines the serif/sans contrast that defines the style)
 
 ## Design Tokens
 
@@ -159,6 +159,27 @@ a {
   color: #1C1C1C;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration:** 300-500ms ease-out — elegant, unhurried, like turning a page
+- **Hover states:** links gain a subtle underline slide-in (`border-bottom` from 0 to 1px); cards shift with `translateY(-2px)` and a soft shadow lift
+- **Focus states:** 2px solid `#D4380D` outline with 3px offset — visible but refined
+- **Page load:** staggered fade-in (opacity 0→1, 200ms delay per element) for above-the-fold content
+- **`prefers-reduced-motion`:** disable all transforms and staggered delays; keep instant opacity changes
+
+## Component Patterns
+- **Buttons:** editorial avoids traditional buttons. Primary CTA is a text link in uppercase `Source Sans 3` at 0.75rem with `letter-spacing: 0.12em` and a 1px bottom border on hover. Secondary is the same without uppercase. No background fills, no border-radius — typography is the affordance.
+- **Cards:** no uniform card component. Feature stories use the asymmetric grid layout (1fr 1.5fr). Secondary stories are text-only with kicker + headline + excerpt, separated by 1px `#CCC` rules. No box shadows, no borders around cards.
+- **Navigation:** horizontal top bar, flush with masthead. Links are uppercase sans-serif at 0.8rem with `letter-spacing: 0.12em`, color `#888`. Active link uses `#1C1C1C`. No icons, no dropdowns.
+- **Forms:** inputs have no visible border except a 1px bottom rule in `#CCC`. Label above in uppercase sans-serif kicker style. Focus state adds `border-bottom-color: #D4380D`. Submit uses the typographic CTA pattern.
+
+## Accessibility
+- **Color contrast:** `--fg` (#1C1C1C) on `--bg` (#FAFAF8) is 16.5:1 — exceeds WCAG AAA. `--muted` (#888) on `--bg` is 3.5:1 — passes for large text only; use at 18px+ or bold 14px+.
+- **Focus indicators:** 2px solid `#D4380D` outline with 3px offset; `#D4380D` on `#FAFAF8` is 5.3:1 (passes 3:1 adjacent-color requirement).
+- **Semantic HTML:** use `<nav>` for masthead links, `<main>` for content, `<article>` for each story, `<footer>` for colophon.
+- **Touch targets:** typographic CTAs must have at least 44px tall hit area via padding (even if visually minimal).
+- **`prefers-reduced-motion`:** disable transforms, staggered fade-ins, and underline slide animations (cross-ref Motion section).
+- **Font sizing:** body at 16px minimum; serif body variant at 18px. All sizing in px for print-precision, but no smaller than 12px for kickers.
 
 ## Responsive Behavior
 - Collapse multi-column layouts to single column below 768px

@@ -4,16 +4,16 @@
 The interface as a scholarly tool. Inspired by Wikipedia, Are.na, archive.org, and academic databases. Information density is a feature, not a bug. The design serves readers who want to navigate, cross-reference, and explore. Everything is plainly labeled. Links are abundant. The visual language borrows from library catalogs, footnotes, and card indexes. It's utilitarian but elegant in its commitment to access.
 
 ## The "No" List
-- NO hero sections with large headlines
-- NO decorative imagery
-- NO more than 2 colors beyond black/white
-- NO large font sizes (max heading: 1.5rem)
-- NO marketing language or CTAs
-- NO rounded corners beyond 4px
-- NO animations or transitions
-- NO full-width layouts (content stays narrow)
-- NO custom cursors or fancy hover states
-- NO heavy font weights for body text
+- NO hero sections with large headlines (scholarly documents lead with titles, not billboards)
+- NO decorative imagery (images must be figures with captions, never ornamental)
+- NO more than 2 colors beyond black/white (restraint signals credibility in academic contexts)
+- NO large font sizes — max heading: 1.5rem (dense information needs compact typography)
+- NO marketing language or CTAs (the reader is a researcher, not a customer)
+- NO rounded corners beyond 4px (sharp edges match the utilitarian, document-first aesthetic)
+- NO animations or transitions (scholarly interfaces feel instant and mechanical, not performative)
+- NO full-width layouts — content stays narrow at 680px max (optimal reading width for sustained study)
+- NO custom cursors or fancy hover states (decoration distracts from the text itself)
+- NO heavy font weights for body text (body at 400; only headings and metadata labels use 600)
 
 ## Design Tokens
 
@@ -196,6 +196,27 @@ img {
   display: block;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration range:** 0ms — no easing, no transitions. State changes are instant, like clicking a hyperlink in 1998.
+- **Hover states:** links darken to #0D3B5A (color change only, no transform or underline animation). TOC links shift from #777 to #222. No hover effects on cards or containers.
+- **Focus states:** 2px solid #1A5276 outline, 1px offset — plain and functional, matches link color
+- **Page load:** immediate render, no entrance animations. Content appears fully formed.
+- **`prefers-reduced-motion`:** no changes needed — the style uses no motion by default
+
+## Component Patterns
+- **Buttons:** this style avoids buttons. Use underlined text links instead. If a button is unavoidable: `background: none; border: 1px solid #DDD; padding: 6px 12px; font-family: inherit; font-size: 0.85rem; color: #1A5276; cursor: pointer`. No border-radius beyond 2px.
+- **Cards:** no shadow, no border-radius. Use `background: #F0F0F0; padding: 16px; font-size: 0.85rem` for related-content boxes. Or use `border-left: 3px solid #DDD` metadata blocks instead of cards.
+- **Navigation:** TOC sidebar (sticky, 200px, `font-size: 0.8rem; line-height: 2`). Links undecorated in muted gray, darken on hover. Horizontal nav is secondary — plain text links separated by middots.
+- **Forms:** `border: 1px solid #DDD; padding: 6px 8px; font-family: inherit; font-size: 0.85rem; background: #FFF`. Labels above inputs in 0.8rem muted text. No floating labels or placeholder-as-label patterns.
+
+## Accessibility
+- **Color contrast:** `--fg` (#222) on `--bg` (#FAFAFA) = 15.4:1 ✓. `--link` (#1A5276) on `--bg` (#FAFAFA) = 8.2:1 ✓. `--muted` (#777) on `--bg` (#FAFAFA) = 4.5:1 ✓ (AA minimum). Highlight (#FFF9C4) background with #222 text = 14.1:1 ✓.
+- **Focus indicators:** 2px solid #1A5276 outline — 8.2:1 contrast against #FAFAFA
+- **Semantic HTML:** require `<nav>` (TOC), `<main>`, `<article>`, `<aside>`, `<footer>`. Use `<ol>` for footnotes, `<dl>` for metadata.
+- **Touch targets:** inline links rely on line-height (1.75 * 15px = 26px) — acceptable for text-heavy scholarly content. TOC links at line-height 2 = 30px; add padding to reach 44px on touch devices.
+- **`prefers-reduced-motion`:** no action required — style uses zero animation
+- **Font sizing:** 15px body base, all headings in rem, footnotes no smaller than 0.8rem (12px)
 
 ## Responsive Behavior
 - Collapse sidebar TOC to top-of-page on screens below 768px

@@ -1,6 +1,6 @@
 {
   "name": "@agentdrip/retro-pixel",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "The 8-bit and 16-bit era brought to the web. Pixels are never anti-aliased.",
   "agentdrip": {
     "type": "design-skill",

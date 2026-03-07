@@ -4,16 +4,16 @@
 Premium, restrained, and atmospheric. Inspired by Linear, Vercel, Stripe, and high-end product marketing. The dark background isn't just dark mode — it's a deliberate stage for content to glow against. Every element feels engineered and precise. Typography is clean and confident. Color is used surgically — a single accent that says "expensive." The design whispers authority rather than shouting it.
 
 ## The "No" List
-- NO pure white text on pure black — use off-white on near-black
-- NO saturated colors as backgrounds
-- NO playful fonts or rounded typefaces
-- NO visible borders heavier than 1px
-- NO hard shadows
-- NO decorative elements, patterns, or textures
-- NO more than 1 accent color family (indigo-to-purple gradient counts as one)
-- NO large blocks of body text without a clear hierarchy
-- NO traditional "card" layouts with obvious outlines
-- NO emoji or icons that feel casual
+- NO pure white text on pure black (harsh contrast fatigues the eye and breaks the atmospheric mood)
+- NO saturated colors as backgrounds (competes with the accent glow and cheapens the palette)
+- NO playful fonts or rounded typefaces (undermines the engineered, precise tone)
+- NO visible borders heavier than 1px (thick borders feel structural, not premium)
+- NO hard shadows (depth comes from glow and subtle borders, not drop shadows)
+- NO decorative elements, patterns, or textures (luxury = restraint, not ornamentation)
+- NO more than 1 accent color family (multiple accents dilute the surgical color strategy; indigo-to-purple gradient counts as one)
+- NO large blocks of body text without a clear hierarchy (dense text without hierarchy feels like documentation, not product)
+- NO traditional "card" layouts with obvious outlines (cards should dissolve into the dark, not frame themselves)
+- NO emoji or icons that feel casual (breaks the whispered authority of the aesthetic)
 
 ## Design Tokens
 
@@ -175,6 +175,27 @@ img {
   border: none;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration range:** 400–700ms ease-out — slow, cinematic, deliberate
+- **Hover states:** ghost buttons brighten border opacity; cards gain a faint glow (`box-shadow: 0 0 40px rgba(99,102,241,0.08)`); links fade from muted to off-white
+- **Focus states:** 2px solid #6366F1 outline with 2px offset on dark backgrounds — visible but refined
+- **Page load:** staggered fade-in (opacity 0→1, translateY(12px→0)) with 400ms base + 150ms delay per element
+- **`prefers-reduced-motion`:** disable all transforms and staggered delays; keep opacity transitions at 200ms
+
+## Component Patterns
+- **Buttons:** primary — `background: #FAFAFA; color: #09090B; border-radius: 8px; padding: 12px 28px; font-weight: 500; transition: opacity 0.4s`. Secondary (ghost) — transparent bg, `border: 1px solid rgba(255,255,255,0.15)`, hover brightens border. No tertiary/text variant — too casual.
+- **Cards:** `background: #18181B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px`. No visible shadow. Hover adds faint glow. Content uses h3 (uppercase label) → h2 → muted paragraph.
+- **Navigation:** horizontal flex, brand left, links right. Links in `#71717A` at 0.85rem, hover → `#FAFAFA` over 400ms. No underlines, no active indicators beyond color.
+- **Forms:** inputs use `background: #18181B; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: #FAFAFA`. Focus border brightens to `rgba(255,255,255,0.25)`. Labels are uppercase muted text above the field.
+
+## Accessibility
+- **Color contrast:** `--fg` (#FAFAFA) on `--bg` (#09090B) = 19.3:1 ✓. `--muted` (#71717A) on `--bg` (#09090B) = 4.8:1 ✓ (AA). Accent (#6366F1) on dark bg = 4.6:1 ✓ for large text only — use off-white for small accent-labeled text.
+- **Focus indicators:** 2px solid #6366F1, 2px offset — meets 3:1 against #09090B (4.6:1)
+- **Semantic HTML:** require `<nav>`, `<main>`, `<article>`, `<footer>` landmarks
+- **Touch targets:** ghost buttons and nav links minimum 44px tall (padding ensures this)
+- **`prefers-reduced-motion`:** disable staggered fade-ins and translateY transforms; retain opacity
+- **Font sizing:** 15px base (body), headings in rem; avoid anything below 12px
 
 ## Responsive Behavior
 - Collapse feature grids to single column below 768px

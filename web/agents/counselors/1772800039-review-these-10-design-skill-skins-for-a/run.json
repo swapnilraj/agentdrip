@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-03-06T12:42:19.110Z",
+  "slug": "1772800039-review-these-10-design-skill-skins-for-a",
+  "prompt": "Review these 10 design skill skins for a website. Each skin should TRULY transform the website to match the style — not just colors but layout, typography, spacing, borders, decorative elements. Rate each skin 1-10 for fidelity to its source style. Flag any that are just color swaps. The components have these data-drip attributes: nav, nav:logo, nav:links, nav:link, nav:chrome-dots, hero, hero:title, hero:subtitle, hero:actions, grid, card, card:preview, card:title, card:meta, card:tags, shell, button.",
+  "promptSource": "inline",
+  "readOnlyPolicy": "bestEffort",
+  "tools": [
+    {
+      "toolId": "claude-opus",
+      "status": "success",
+      "exitCode": 0,
+      "durationMs": 74019,
+      "wordCount": 1035,
+      "outputFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/claude-opus.md",
+      "stderrFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/claude-opus.stderr"
+    },
+    {
+      "toolId": "codex-5.3-high",
+      "status": "timeout",
+      "exitCode": 1,
+      "durationMs": 900012,
+      "wordCount": 5714,
+      "outputFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/codex-5.3-high.md",
+      "stderrFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/codex-5.3-high.stderr",
+      "error": ""
+    },
+    {
+      "toolId": "gemini-3-pro",
+      "status": "success",
+      "exitCode": 0,
+      "durationMs": 118959,
+      "wordCount": 979,
+      "outputFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/gemini-3-pro.md",
+      "stderrFile": "/Users/swp/dev/swapnilraj/design-skill/web/agents/counselors/1772800039-review-these-10-design-skill-skins-for-a/gemini-3-pro.stderr"
+    }
+  ]
+}

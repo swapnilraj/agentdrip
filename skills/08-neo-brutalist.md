@@ -4,15 +4,15 @@
 Brutalism's rebellious energy meets modern playfulness. Unlike classic brutalism (monochrome, raw), neo-brutalism is loud, colorful, and bold. Thick black borders, hard drop shadows, saturated background colors, and an intentionally "undesigned" feel. Inspired by Gumroad, Figma marketing pages, and the new wave of anti-corporate SaaS design. It says "we don't take ourselves too seriously" while still being functional.
 
 ## The "No" List
-- NO subtle shadows (shadows are hard, offset, and visible)
-- NO gradients
-- NO thin borders (minimum 2px, prefer 3-4px)
-- NO muted or pastel colors as primary fills
-- NO elegant serif fonts
-- NO smooth rounded corners beyond 12px (exception: pill shapes like stickers and tags use 100px)
-- NO transparency or glassmorphism
-- NO dark mode — neo-brutalist is bright and loud
-- NO uniform grid layouts — intentionally varied
+- NO subtle shadows (shadows are hard, offset, and visible — blurred shadows feel polished and corporate)
+- NO gradients (flat color fills are bolder and more graphic — gradients soften the punch)
+- NO thin borders (minimum 2px, prefer 3-4px — thin borders feel delicate and precious)
+- NO muted or pastel colors as primary fills (pastels are too quiet — this style yells)
+- NO elegant serif fonts (serifs feel editorial and refined, the opposite of playful rebellion)
+- NO smooth rounded corners beyond 12px (exception: pill shapes like stickers and tags use 100px — large radii feel bubbly and soft, not chunky)
+- NO transparency or glassmorphism (frosted glass is sleek and trendy, not raw and honest)
+- NO dark mode — neo-brutalist is bright and loud (darkness adds sophistication this style rejects)
+- NO uniform grid layouts — intentionally varied (perfect grids feel corporate and predictable)
 
 ## Design Tokens
 
@@ -152,6 +152,27 @@ a {
   transform: rotate(3deg);
 }
 ```
+
+## Motion & Interaction
+- **Transitions:** 150-250ms ease on interactive elements — snappy and physical, like clicking a real button
+- **Hover:** Cards shift with `translate(-2px, -2px)` and shadow grows from 5px to 7px; feels like lifting a sticker off paper
+- **Focus:** 3px solid `#1A1A1A` outline with 2px offset on white backgrounds; on colored fills, use white outline instead
+- **Page load:** No fancy entrance animations — content appears immediately, loud and confident. Optional: cards can pop in with a quick `scale(0.95→1)` at 150ms.
+- **`prefers-reduced-motion`:** Disable translate shifts on hover; keep instant color changes on `:active` states
+
+## Component Patterns
+- **Buttons:** Primary uses `#FFE566` fill, `border: 3px solid #1A1A1A`, `border-radius: 8px`, `box-shadow: 4px 4px 0 #1A1A1A`, `font-weight: 700`. Secondary uses white fill with same border treatment. Ghost uses no fill, no shadow, just thick underline. Active state pushes down with `translate(2px, 2px)` and shadow shrinks.
+- **Cards:** White or bold-color fill, `border: 3px solid #1A1A1A`, `border-radius: 8px-10px`, `padding: 24-28px`, hard offset `box-shadow: 5px 5px 0 #1A1A1A`. Each card in a set should use a different accent color.
+- **Navigation:** Horizontal flex, brand in bold 700 uppercase-friendly, links with `text-decoration: none` and `font-weight: 500`. `border-bottom: 3px solid #1A1A1A` under the nav bar. Active link gets a colored background highlight.
+- **Forms:** Inputs with `border: 3px solid #1A1A1A`, `border-radius: 8px`, `padding: 10px 14px`, white background. Focus adds `box-shadow: 3px 3px 0 #1A1A1A` and a colored border like `#6BB5FF`. Labels in `font-weight: 700` above inputs.
+
+## Accessibility
+- **Color contrast:** `--fg` (#1A1A1A) on `--bg` (#FFFDF7) = 17.8:1 (AAA). `--fg` on `--yellow` (#FFE566) = 9.1:1 (AAA). `--fg` on `--pink` (#FF6B9D) = 4.6:1 (AA). All color fills use dark text, never white.
+- **Focus indicators:** 3px solid black outline with 2px offset — thick and unmissable, matching the border-heavy aesthetic
+- **Semantic HTML:** Use `nav`, `main`, `section`, `footer` landmarks. Sticker/tag elements are `span` with `role` only when interactive.
+- **Touch targets:** Minimum 44x44px; thick-bordered buttons with `padding: 12px 28px` exceed this naturally
+- **`prefers-reduced-motion`:** Disable hover translate shifts and shadow transitions; keep `:active` press-down state as instant snap
+- **Font sizing:** Body text at 16px minimum, headings scale large (3.5rem h1) for impact
 
 ## Responsive Behavior
 - Stack card grids to single column below 640px

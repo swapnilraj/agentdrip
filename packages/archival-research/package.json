@@ -1,6 +1,6 @@
 {
   "name": "@agentdrip/archival-research",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "The interface as a scholarly tool. Information density is a feature, not a bug.",
   "agentdrip": {
     "type": "design-skill",

@@ -4,16 +4,16 @@
 Raw, honest, structural. The design exposes its own construction — it looks like a blueprint or database dump. It rejects polish, smoothness, and conventional UX pleasantries. Content is the interface. The aesthetic comes from the absence of aesthetic.
 
 ## The "No" List
-- NO border-radius anywhere
-- NO box-shadows or depth effects
-- NO gradients
-- NO opacity or transparency
-- NO smooth transitions or animations
-- NO subtle greys — use pure black #000 and pure white #FFF
-- NO centered hero layouts with large padding
-- NO stock photography or decorative imagery
-- NO more than 2 typefaces
-- NO comfortable whitespace — either cramped or deliberately vast
+- NO border-radius anywhere (raw edges expose structural honesty)
+- NO box-shadows or depth effects (flatness enforces rawness)
+- NO gradients (gradients imply smoothness and refinement)
+- NO opacity or transparency (everything is fully opaque and confrontational)
+- NO smooth transitions or animations (instant state changes reflect mechanical honesty)
+- NO subtle greys — use pure black #000 and pure white #FFF (ambiguity is weakness)
+- NO centered hero layouts with large padding (reject conventional marketing comfort)
+- NO stock photography or decorative imagery (content is the only visual)
+- NO more than 2 typefaces (constraint is the point)
+- NO comfortable whitespace — either cramped or deliberately vast (medium spacing is mediocrity)
 
 ## Design Tokens
 
@@ -122,6 +122,27 @@ hr {
   padding: 1rem;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration**: 0ms. No easing, no animation. State changes are instant — hover on, hover off, done.
+- **Hover states**: Invert colors immediately. Link becomes `background: #0000FF; color: #FFF`. No fade, no slide.
+- **Focus states**: 2px solid #000 outline with 2px offset. On dark backgrounds, 2px solid #FFF. No glow, no ring.
+- **Page load**: Immediate render. No fade-in, no staggered entrance. The page appears like a light switch.
+- **`prefers-reduced-motion`**: No changes needed — there is no motion to reduce.
+
+## Component Patterns
+- **Buttons**: `border: 2px solid #000; background: #FFF; color: #000; padding: 0.5rem 1rem; font-family: 'Space Mono', monospace; text-transform: uppercase; cursor: pointer`. Primary: inverted (`background: #000; color: #FFF`). Ghost: border only. Hover: invert all variants instantly.
+- **Cards**: `border: 2px solid #000; padding: 1rem; background: #FFF`. No shadow, no radius. Title uses inverted text block (`.inverted` signature move). Cards touch each other or use 1rem gap — nothing in between.
+- **Navigation**: Horizontal, slash-separated links (`/`). All links visible, no hamburger ever. Active state: inverted text block. `font-size: 0.875rem; text-transform: uppercase`.
+- **Forms**: `border: 2px solid #000; padding: 0.5rem; font-family: 'Space Mono', monospace; background: #FFF`. Labels above inputs, uppercase, 0.75rem. No placeholder text — use visible labels. Focus: 2px solid #0000FF outline.
+
+## Accessibility
+- **Color contrast**: #000 on #FFF is 21:1 (exceeds WCAG AAA). #0000FF on #FFF is 8.6:1 (passes AA). Inverted #FFF on #000 is 21:1.
+- **Focus indicators**: 2px solid outline with 2px offset — always visible, never obscured. Meets 3:1 contrast requirement.
+- **Semantic HTML**: Use `<nav>`, `<main>`, `<article>`, `<footer>`. Structure is the aesthetic — semantic tags reinforce it.
+- **Touch targets**: All buttons and links minimum 44x44px hit area. Pad small links with extra padding if needed.
+- **`prefers-reduced-motion`**: No motion exists to disable (cross-ref Motion section).
+- **Font sizing**: Body text 16px minimum. Monospace at smaller sizes is harder to read — never go below 14px for any text.
 
 ## Responsive Behavior
 - Stack grid columns to single column below 600px

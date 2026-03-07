@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/swp/dev/swapnilraj/design-skill/web/src/components/StylePreview.tsx"],"sourcesContent":["\"use client\";\n\nexport function StylePreview({\n  html,\n  className,\n}: {\n  html: string;\n  className?: string;\n}) {\n  return (\n    <iframe\n      srcDoc={html}\n      sandbox=\"allow-scripts\"\n      className={className}\n      style={{ border: \"none\" }}\n    />\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;AAEO,SAAS,aAAa,EAC3B,IAAI,EACJ,SAAS,EAIV;IACC,qBACE,6LAAC;QACC,QAAQ;QACR,SAAQ;QACR,WAAW;QACX,OAAO;YAAE,QAAQ;QAAO;;;;;;AAG9B;KAfgB"}}]
+}

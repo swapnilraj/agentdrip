@@ -1,24 +1,29 @@
 {
   "images": [
     {
-      "url": "https://images.unsplash.com/photo-1557683316-973673baf926?w=600&h=400&fit=crop",
-      "alt": "Soft pastel gradient with organic flowing shapes",
-      "credit": "Luke Chesser on Unsplash"
+      "url": "https://images.unsplash.com/photo-1762227144580-431ec0015003?w=600&h=400&fit=crop",
+      "alt": "Soft pastel gradient with pink, yellow, and blue hues — organic color flow",
+      "credit": "Eve on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1604076913837-52ab5f7c1ac4?w=600&h=400&fit=crop",
-      "alt": "Smooth rounded shapes in soft pink and lavender tones",
-      "credit": "Milad Fakurian on Unsplash"
+      "url": "https://images.unsplash.com/photo-1761798983856-6f67414ea18c?w=600&h=400&fit=crop",
+      "alt": "Abstract pastel purple and pink gradient wave — flowing organic shape",
+      "credit": "Eve on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
-      "alt": "Abstract organic blobs with gentle pastel colors",
-      "credit": "Milad Fakurian on Unsplash"
+      "url": "https://images.unsplash.com/photo-1755076539245-42614526d518?w=600&h=400&fit=crop",
+      "alt": "Abstract soft pink and blue gradient background — gentle blob forms",
+      "credit": "Yue Ma on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop",
-      "alt": "Smooth gradient transition between warm pastel tones",
-      "credit": "Gradienta on Unsplash"
+      "url": "https://images.unsplash.com/photo-1758843405103-41fcaaee080c?w=600&h=400&fit=crop",
+      "alt": "Abstract soft gradient waves of blue and pink — rounded pastel layers",
+      "credit": "BoliviaInteligente on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1762951566347-ebe046f817e1?w=600&h=400&fit=crop",
+      "alt": "Abstract pastel colors blending softly together — warm organic tones",
+      "credit": "Woliul Hasan on Unsplash"
     }
   ]
 }

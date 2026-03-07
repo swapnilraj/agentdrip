@@ -1,24 +1,29 @@
 {
   "images": [
     {
-      "url": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=600&h=400&fit=crop",
-      "alt": "Zen garden with carefully raked sand and stones",
-      "credit": "Asoggetti on Unsplash"
+      "url": "https://images.unsplash.com/photo-1764445274404-f2e14fd3f20c?w=600&h=400&fit=crop",
+      "alt": "Traditional Japanese room with shoji screens and tatami mats — minimal interior",
+      "credit": "Yosuke Ota on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1505069190533-da1c5512f4e2?w=600&h=400&fit=crop",
-      "alt": "Minimal Japanese interior with tatami and shoji screens",
-      "credit": "Liam Burnett-Blue on Unsplash"
+      "url": "https://images.unsplash.com/photo-1496113329550-ce8886d06d54?w=600&h=400&fit=crop",
+      "alt": "Empty room with tatami mats and windows — serene Japanese minimalism",
+      "credit": "charlesdeluvio on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1528164344885-47b1492bc39a?w=600&h=400&fit=crop",
-      "alt": "Wabi-sabi ceramic bowl with natural imperfections",
-      "credit": "Tom Crew on Unsplash"
+      "url": "https://images.unsplash.com/photo-1757829315863-61d2e9cb4779?w=600&h=400&fit=crop",
+      "alt": "Zen garden with rocks and raked sand — meditative wabi-sabi landscape",
+      "credit": "Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&h=400&fit=crop",
-      "alt": "Japanese temple surrounded by serene nature",
-      "credit": "Su San Lee on Unsplash"
+      "url": "https://images.unsplash.com/photo-1764445274424-47bbc216073b?w=600&h=400&fit=crop",
+      "alt": "Traditional Japanese room with garden view — natural light and calm neutrals",
+      "credit": "Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1578394349001-9302cf6d8d39?w=600&h=400&fit=crop",
+      "alt": "Green leafed plant in minimalist pot — simple organic form against clean backdrop",
+      "credit": "Unsplash"
     }
   ]
 }

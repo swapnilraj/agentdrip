@@ -4,14 +4,14 @@
 The internet as a frontier — chaotic, glossy, and optimistic. Y2K design celebrates the late-90s/early-2000s digital excess: chrome gradients, bubble shapes, pixelated textures, and the thrill of new technology. It's the visual language of AIM, early Flash sites, and Windows XP. Futuristic yet nostalgic. Sleek yet kitschy. Everything glows.
 
 ## The "No" List
-- NO flat design — everything needs depth, gloss, or texture
-- NO modern sans-serif fonts (Inter, SF Pro, etc.)
-- NO clean minimalism
-- NO muted earthy tones
-- NO large whitespace areas
-- NO CSS grid for main layouts (use flexbox styled to look era-appropriate)
-- NO subtle anything — Y2K is maximal
-- NO responsive-first thinking — design for a fixed 800-1024px width
+- NO flat design — everything needs depth, gloss, or texture (flatness kills the 3D chrome illusion)
+- NO modern sans-serif fonts like Inter, SF Pro, etc. (they scream 2020s, not 2000s)
+- NO clean minimalism (minimalism is the antithesis of Y2K excess)
+- NO muted earthy tones (the palette is neon and chrome, not nature)
+- NO large whitespace areas (empty space feels broken, not intentional — fill it with stars or gradients)
+- NO CSS grid for main layouts (use flexbox styled to look era-appropriate; grid feels too modern/clean)
+- NO subtle anything — Y2K is maximal (if it doesn't glow, bevel, or scroll, it doesn't belong)
+- NO responsive-first thinking — design for a fixed 800-1024px width (era-authentic sites were fixed-width)
 
 ## Design Tokens
 
@@ -145,6 +145,27 @@ body {
   to { transform: translateX(-100%); }
 }
 ```
+
+## Motion & Interaction
+- Transitions: 150-250ms ease-in-out — snappy and electric, like clicking through a Flash site
+- Hover: buttons invert gradient + glow pulse; links gain text-shadow 0 0 8px currentColor
+- Focus: 2px solid #00CCFF outline with neon glow (box-shadow: 0 0 6px #00CCFF) — unmissable and on-brand
+- Page load: marquee starts scrolling immediately; headings can flash/pulse once on entrance
+- `prefers-reduced-motion`: stop marquee animation, disable glow pulses, keep static gradients and borders
+
+## Component Patterns
+- **Buttons**: beveled 3D style — background linear-gradient(to bottom, #555, #222), border 2px solid with border-color #777 #333 #333 #777, color #00CCFF, padding 8px 24px, font-family 'VT323', text-transform uppercase. Hover: gradient lightens, color #FFF. Ghost variant: transparent bg, border-color #00CCFF, color #00CCFF.
+- **Cards**: use the beveled window container pattern — .window with title bar (linear-gradient blue), beveled border, dark purple body (#2A1A4E), padding 16px. No border-radius.
+- **Navigation**: links styled as terminal commands with ">" prefix, color #00FF66, no underline. Active: text-shadow glow. Wrap nav in a .window panel for chrome framing.
+- **Forms**: input background #0A0015, border 1px solid #00CCFF, color #FFF, padding 8px 12px, font-family 'VT323'. Label color #AAAACC, text-transform uppercase, font-size 12px. Focus: box-shadow 0 0 8px #00CCFF.
+
+## Accessibility
+- Color contrast: #FFFFFF on #1A0A2E = 15.4:1 (passes AAA). #AAAACC on #1A0A2E = 6.8:1 (passes AA). #00CCFF on #1A0A2E = 8.6:1 (passes AA)
+- Focus indicators: 2px solid #00CCFF + box-shadow glow — highly visible against dark backgrounds, exceeds 3:1 contrast
+- Semantic HTML: use nav, main, article, footer landmarks despite the retro visual aesthetic
+- Touch targets: buttons minimum 44x44px; beveled style naturally provides generous hit areas via padding
+- `prefers-reduced-motion`: disable marquee scroll, glow pulse animations; keep static neon text-shadow and gradients (see Motion section)
+- Body text 16px minimum with 'VT323'; ensure pixel font remains legible at that size
 
 ## Responsive Behavior
 - Design for fixed 800-960px width — center on larger screens

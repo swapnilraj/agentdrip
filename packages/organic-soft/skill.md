@@ -4,16 +4,16 @@
 Warmth, comfort, and approachability. Inspired by Headspace, Linear's softer moments, and Scandinavian product design. Everything has rounded edges, soft shadows, and pastel gradients. The interface feels like it was made of marshmallow or clay. It's the antithesis of sharp corporate design — gentle, inviting, and almost tangible. Colors blend like watercolors. Surfaces feel touchable.
 
 ## The "No" List
-- NO sharp corners (minimum border-radius: 12px, prefer 16-24px)
-- NO pure black text (use dark grey or dark purple)
-- NO hard borders (use soft shadows or subtle color shifts instead)
-- NO high-contrast stark combinations
-- NO aggressive uppercase headings
-- NO monospace fonts
-- NO heavy font weights above 700
-- NO abrupt color transitions
-- NO dense information layouts
-- NO dark backgrounds (keep it light and airy)
+- NO sharp corners (minimum border-radius: 12px, prefer 16-24px — sharp edges feel cold and clinical, breaking the marshmallow softness)
+- NO pure black text (use dark grey or dark purple — pure black is too harsh against pastel backgrounds)
+- NO hard borders (use soft shadows or subtle color shifts instead — visible borders add rigidity that fights the organic feel)
+- NO high-contrast stark combinations (jarring contrast undermines the gentle, watercolor atmosphere)
+- NO aggressive uppercase headings (uppercase feels like shouting, this style whispers)
+- NO monospace fonts (monospace feels technical and mechanical, not warm and human)
+- NO heavy font weights above 700 (extra-bold type feels heavy and imposing, not soft)
+- NO abrupt color transitions (sudden shifts break the smooth, blended gradient aesthetic)
+- NO dense information layouts (cramped content contradicts the spacious, breathing philosophy)
+- NO dark backgrounds (keep it light and airy — darkness kills the warmth and approachability)
 
 ## Design Tokens
 
@@ -143,6 +143,27 @@ img {
   border-radius: 20px;
 }
 ```
+
+## Motion & Interaction
+- **Transitions:** 300-500ms ease-out on all interactive elements — everything moves like it's floating through honey
+- **Hover:** Cards lift gently with `translateY(-4px)` and shadow expansion; buttons scale up with `scale(1.02)` and glow brighter
+- **Focus:** 3px solid `#B8A9E8` outline with 3px offset and border-radius matching the element — soft but visible
+- **Page load:** Staggered fade-and-rise entrance (opacity 0→1, translateY 20px→0) with 100ms delay per element, 400ms duration
+- **`prefers-reduced-motion`:** Disable all transforms and staggered delays; keep opacity fades at 200ms
+
+## Component Patterns
+- **Buttons:** Primary uses gradient fill (`#B8A9E8` → `#A8D8EA`), white text, `border-radius: 100px`, `padding: 12px 28px`. Secondary uses white background with 2px `#B8A9E8` border. Ghost uses transparent background with `color: #B8A9E8`. All have layered `box-shadow` and 300ms hover transitions.
+- **Cards:** White background, `border-radius: 20px`, `padding: 32px`, triple-layer `box-shadow` (see Signature Moves). No visible borders — depth comes entirely from shadow.
+- **Navigation:** Horizontal flex layout, brand in `Nunito` 700, links in muted `#9B92B5` that transition to `#3D3455` on hover over 300ms. No underlines — color shift is sufficient.
+- **Forms:** Inputs have `border-radius: 12px`, `border: 2px solid #E8E2F4`, `padding: 12px 16px`. Focus state swaps border to `#B8A9E8` with soft outer glow via `box-shadow: 0 0 0 4px rgba(184,169,232,0.2)`. Labels above inputs in `font-weight: 500`.
+
+## Accessibility
+- **Color contrast:** `--fg` (#3D3455) on `--bg` (#F8F5FF) = 9.2:1 (AAA). `--muted` (#9B92B5) on `--bg` = 3.4:1 (AA for large text only — use 18px+ or bold for muted text).
+- **Focus indicators:** 3px solid `#B8A9E8` outline with 3px offset, meets 3:1 contrast against white and lavender surfaces
+- **Semantic HTML:** Use `nav`, `main`, `article`, `section`, `footer` landmarks. Cards use `article` when self-contained.
+- **Touch targets:** Minimum 44x44px on all buttons and links; pill buttons naturally exceed this with `padding: 12px 28px`
+- **`prefers-reduced-motion`:** Disable translateY lifts, scale transforms, and staggered delays; retain simple opacity fades
+- **Font sizing:** Body text at 16px minimum, all sizing in rem for user scaling
 
 ## Responsive Behavior
 - Stack card grids to single column below 640px

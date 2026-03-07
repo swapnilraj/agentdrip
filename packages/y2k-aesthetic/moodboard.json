@@ -1,24 +1,29 @@
 {
   "images": [
     {
-      "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
-      "alt": "Neon-lit futuristic corridor with chrome surfaces",
-      "credit": "Adi Goldstein on Unsplash"
+      "url": "https://images.unsplash.com/photo-1672872476232-da16b45c9001?w=600&h=400&fit=crop",
+      "alt": "Futuristic city at night with neon lights — cyberpunk Y2K atmosphere",
+      "credit": "Nat on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=600&h=400&fit=crop",
-      "alt": "Retro-futuristic interface with glowing elements",
-      "credit": "Milad Fakurian on Unsplash"
+      "url": "https://images.unsplash.com/photo-1623679971411-7b7d672bca5b?w=600&h=400&fit=crop",
+      "alt": "Futuristic city at night with neon lights — chrome and glow aesthetic",
+      "credit": "Alexander Mils on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop",
-      "alt": "Holographic iridescent surface with rainbow reflections",
-      "credit": "Gradienta on Unsplash"
+      "url": "https://images.unsplash.com/photo-1604706924699-108850a7df9e?w=600&h=400&fit=crop",
+      "alt": "Purple and pink love neon light signage — glowing Y2K color palette",
+      "credit": "Super Straho on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&h=400&fit=crop",
-      "alt": "Vibrant gradient with neon pink and blue tones",
-      "credit": "Luke Chesser on Unsplash"
+      "url": "https://images.unsplash.com/photo-1614849286521-4c58b2f0ff15?w=600&h=400&fit=crop",
+      "alt": "Purple and pink light illustration — iridescent holographic glow",
+      "credit": "Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1545920281-8f9385c1b875?w=600&h=400&fit=crop",
+      "alt": "Purple LED heart sign — neon pop futurism reminiscent of early 2000s web",
+      "credit": "Ayana Wyse on Unsplash"
     }
   ]
 }

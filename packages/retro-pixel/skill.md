@@ -4,15 +4,15 @@
 The 8-bit and 16-bit era brought to the web. Inspired by Game Boy, NES, early Mac OS, and DOS interfaces. Everything is built on a visible pixel grid. Colors are limited like a hardware palette. Interfaces reference windowed operating systems and game UIs. The aesthetic is playful, constrained, and chunky. Pixels are never anti-aliased — they are celebrated.
 
 ## The "No" List
-- NO anti-aliased text rendering (use pixel fonts)
-- NO smooth gradients
-- NO photography or photorealistic images
-- NO border-radius (except 0)
-- NO font sizes below 10px (keep pixels readable)
-- NO modern UI patterns (no hamburger menus, no cards with shadows)
-- NO opacity or transparency
-- NO CSS transitions or smooth animations (use step() timing)
-- NO more than 8 colors per palette
+- NO anti-aliased text rendering (smooth fonts destroy the pixel grid — the crunch is the point)
+- NO smooth gradients (real hardware couldn't render them; use hard color stops or dithering patterns)
+- NO photography or photorealistic images (pixel art only — photos break the 8-bit illusion)
+- NO border-radius (except 0) (rounded corners didn't exist on 1-bit displays)
+- NO font sizes below 10px (pixel fonts become unreadable mush below this threshold)
+- NO modern UI patterns like hamburger menus or shadow cards (these betray the retro OS window paradigm)
+- NO opacity or transparency (old hardware had no alpha channel — everything is solid)
+- NO CSS transitions or smooth animations (movement must use `step()` timing to match frame-by-frame rendering)
+- NO more than 8 colors per palette (hardware palette limits are the creative constraint)
 
 ## Design Tokens
 
@@ -142,6 +142,27 @@ body {
   margin: 24px 0;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration:** 0ms — no easing, no tweening. All state changes are instant, like flipping a sprite frame.
+- **Hover states:** full background color swap (e.g., `background: #6ABE30; color: #1A1A2E`). No partial effects — the entire element toggles like a selected menu item.
+- **Focus states:** 4px solid `#FBF236` outline, no offset — chunky and unmissable, like a selection cursor.
+- **Page load:** no entrance animations. Content appears instantly as if the ROM loaded. Optional: a blinking cursor element using `step-end`.
+- **`prefers-reduced-motion`:** disable the blink animation. All other interactions are already instant, so no further changes needed.
+
+## Component Patterns
+- **Buttons:** beveled 3D look using asymmetric `border-color` (light top-left `#8B9EFF`, dark bottom-right `#3344AA`). On `:active`, border colors invert to simulate a press. `Press Start 2P` at 10px, padding `8px 16px`. No hover color change — press is the only feedback.
+- **Cards:** use the OS-window pattern instead of cards. Each content block is a `.os-window` with a colored title bar (`#5B6EE1`), 4px solid border, and dark body (`#1A1A2E`). No shadows, no rounded corners.
+- **Navigation:** vertical menu inside an OS window. Each link is a block element prefixed with `>`. Hover fills the entire row with `#6ABE30` background and `#1A1A2E` text. Active item uses `#FBF236` text.
+- **Forms:** inputs have 3px inset borders (dark top-left, light bottom-right — opposite of buttons). Background `#1A1A2E`, text `#E8E8D0`. Labels in `Press Start 2P` at 10px above the field. No placeholder text — use a blinking cursor inside.
+
+## Accessibility
+- **Color contrast:** `--fg` (#E8E8D0) on `--bg` (#2B2B3D) is 8.2:1 — passes WCAG AAA. `--green` (#6ABE30) on `--dark` (#1A1A2E) is 5.8:1 — passes AA. `--yellow` (#FBF236) on `--bg` is 10.1:1.
+- **Focus indicators:** 4px solid `#FBF236` outline; #FBF236 on `#2B2B3D` exceeds 3:1 for adjacent-color contrast.
+- **Semantic HTML:** use `<nav>` for menu windows, `<main>` for primary content window, `<article>` for news items, `<footer>` for visitor counter.
+- **Touch targets:** buttons and menu links must be at least 44px tall — pixel padding of `12px 16px` minimum on interactive elements.
+- **`prefers-reduced-motion`:** disable blink/cursor animations (cross-ref Motion section). Instant state changes remain since they involve no motion.
+- **Font sizing:** VT323 body at 20px. Press Start 2P headings at 10px+ are legible due to the font's high x-height, but never go below 10px.
 
 ## Responsive Behavior
 - Use fixed-width layout (640px) centered on screen — do not make fluid

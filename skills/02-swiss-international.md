@@ -4,16 +4,16 @@
 Clarity through structure. The Swiss/International style treats the grid as sacred geometry. Typography is the primary visual element — not decoration, not imagery. Every element aligns to an invisible mathematical system. Whitespace is not empty; it is a deliberate compositional choice. The design communicates through hierarchy, not through ornamentation.
 
 ## The "No" List
-- NO decorative elements or ornaments
-- NO more than 2 typefaces (one sans-serif for headings, one for body)
-- NO centered text (left-align or right-align only)
-- NO border-radius
-- NO gradients or shadows
-- NO script or handwritten fonts
-- NO full-bleed background images
-- NO text smaller than 14px
-- NO color used decoratively — only functionally
-- NO asymmetry that doesn't serve the grid
+- NO decorative elements or ornaments (the grid and type ARE the decoration)
+- NO more than 2 typefaces (one sans-serif for headings, one for body) (typographic discipline is non-negotiable)
+- NO centered text (left-align or right-align only) (centering breaks the grid's left edge anchor)
+- NO border-radius (sharp corners reinforce geometric precision)
+- NO gradients or shadows (flatness preserves the mathematical plane)
+- NO script or handwritten fonts (organic forms contradict systematic design)
+- NO full-bleed background images (imagery must live within the grid, not behind it)
+- NO text smaller than 14px (legibility is a functional requirement, not a suggestion)
+- NO color used decoratively — only functionally (color signals meaning, not mood)
+- NO asymmetry that doesn't serve the grid (every offset must be intentional and measurable)
 
 ## Design Tokens
 
@@ -119,6 +119,27 @@ body {
   border-bottom: 3px solid #E63226;
 }
 ```
+
+## Motion & Interaction
+- **Transition duration**: 200-300ms `ease-out`. Precise and mechanical — never bouncy, never sluggish.
+- **Hover states**: Links gain `border-bottom: 2px solid #E63226`. Cards: no lift, no shadow — subtle background shift to `#F5F5F5`. Everything stays on the grid plane.
+- **Focus states**: `outline: 2px solid #E63226; outline-offset: 2px`. Red accent doubles as focus color — functional, not decorative.
+- **Page load**: No entrance animations. Content renders immediately in its final position. The grid does not move.
+- **`prefers-reduced-motion`**: Disable all transitions. Elements snap to final state. Layout and color remain unchanged.
+
+## Component Patterns
+- **Buttons**: Primary: `background: #1A1A1A; color: #FFF; padding: 12px 24px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; border: none`. Secondary: `background: transparent; border: 2px solid #1A1A1A; color: #1A1A1A`. Ghost: `background: none; border: none; color: #1A1A1A; text-decoration: underline`. Hover: primary shifts to `#E63226` background.
+- **Cards**: `border-top: 2px solid #1A1A1A; padding-top: 16px`. No border on sides or bottom — the top rule is the card boundary. Content left-aligned. Title in `h3` uppercase label style.
+- **Navigation**: Horizontal, right-aligned links. `font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #1A1A1A`. Active state: `border-bottom: 2px solid #E63226`. No hamburger until 480px.
+- **Forms**: Inputs: `border: none; border-bottom: 1px solid #6B6B6B; padding: 8px 0; font-size: 16px; font-family: 'Inter', sans-serif`. Labels above, uppercase, `font-size: 0.75rem; letter-spacing: 0.1em; color: #6B6B6B`. Focus: border-bottom changes to `2px solid #E63226`.
+
+## Accessibility
+- **Color contrast**: #1A1A1A on #FFF is 17.4:1 (exceeds AAA). #E63226 on #FFF is 4.6:1 (passes AA for large text; use only for accents/markers, not body text). #6B6B6B on #FFF is 5.9:1 (passes AA).
+- **Focus indicators**: 2px solid #E63226 outline with 2px offset. Red on white is 4.6:1 — passes 3:1 minimum for non-text elements.
+- **Semantic HTML**: `<nav>` for navigation, `<main>` for content, `<article>` for discrete items, `<footer>` for page end. Grid structure maps to semantic regions.
+- **Touch targets**: Minimum 44x44px for all interactive elements. Nav links padded to meet target size.
+- **`prefers-reduced-motion`**: All transitions disabled (cross-ref Motion section). No transforms or animations exist to preserve.
+- **Font sizing**: Body text 16px (`1rem`). Smallest text is 14px (0.875rem) for nav/labels — never smaller.
 
 ## Responsive Behavior
 - Collapse 12-column grid to 6 columns at 768px, single column at 480px

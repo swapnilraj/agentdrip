@@ -19,6 +19,9 @@ Every skill file follows this exact section order:
 ### Spacing
 ## CSS Enforcers
 ## Signature Moves
+## Motion & Interaction
+## Component Patterns
+## Accessibility
 ## Responsive Behavior
 ## DO List
 ## Anti-patterns
@@ -42,6 +45,7 @@ Hard constraints that prevent style drift. Each item starts with "NO" and names 
 
 **Rules for writing constraints:**
 - Be specific enough to be machine-verifiable: "NO border-radius anywhere" not "NO rounded things"
+- Include a brief "why" in parentheses: "NO border-radius anywhere (raw edges expose structural honesty)" not just "NO border-radius anywhere"
 - If a constraint has exceptions, state them inline: "NO rounded corners beyond 12px (exception: pill shapes use 100px)"
 - Never contradict tokens or signature moves defined later in the file
 - Scope constraints precisely: "NO monospace fonts for body text" not "NO monospace fonts" (if code blocks need them)
@@ -77,25 +81,66 @@ Named CSS patterns with descriptive headers and complete code blocks. These are 
 - Include complete, copy-pasteable CSS
 - Use hardcoded values that match the Design Tokens (not custom properties, since generated pages inline everything)
 
-### 6. Responsive Behavior (2-3 bullets)
+### 6. Motion & Interaction (3-5 items)
+
+How the style handles animation, transitions, and interactive states. Each style should define its own motion personality.
+
+**Required items:**
+- **Transition duration range** — e.g., "0ms (instant, no easing)" for brutalist, "300-500ms ease-out" for organic soft
+- **Hover state behavior** — what happens on interactive element hover
+- **Focus state style** — visible focus indicators that match the aesthetic
+- **Page load behavior** — any entrance animations or immediate render
+- **`prefers-reduced-motion` handling** — what to disable when user prefers reduced motion
+
+**Good:** "Transitions: 200-400ms ease-out. Hover: cards lift with translateY(-4px) + shadow expansion. Focus: 3px solid accent outline with 2px offset. Load: staggered fade-in (100ms delay per element). Reduced motion: disable all transforms, keep opacity fades."
+**Bad:** "Add some animations."
+
+### 7. Component Patterns (4-6 patterns)
+
+Style-specific specifications for common UI components. Each pattern defines how the style applies to a specific component type.
+
+**Required components:**
+- **Buttons** — primary, secondary, and ghost/text variants with sizing, padding, and states
+- **Cards** — border treatment, padding, shadow, and content layout
+- **Navigation** — structure (horizontal/vertical), link treatment, active states
+- **Forms** — input styling, label placement, validation display
+
+**Each pattern must include:**
+- Specific CSS property values (not just descriptions)
+- How it relates to the style's signature moves
+- How it differs from a "generic" version
+
+### 8. Accessibility (4-6 items)
+
+Non-negotiable accessibility requirements adapted to the style's aesthetic.
+
+**Required items:**
+- **Color contrast** — WCAG AA minimum (4.5:1 for normal text, 3:1 for large text). State which token pairs meet this and which need adjustment.
+- **Focus indicators** — visible focus style that matches the aesthetic but meets 3:1 contrast against adjacent colors
+- **Semantic HTML** — required landmark elements (nav, main, article, footer)
+- **Touch targets** — minimum 44x44px for interactive elements
+- **`prefers-reduced-motion`** — reiterate what gets disabled (cross-ref with Motion section)
+- **Font sizing** — minimum 16px body text, relative units (rem/em) preferred
+
+### 9. Responsive Behavior (2-3 bullets)
 
 How the design adapts to smaller screens. Specify:
 - Grid collapse behavior and breakpoint
 - Typography scaling on mobile
 - Which visual elements are preserved vs. simplified
 
-### 7. DO List (3-5 items)
+### 10. DO List (3-5 items)
 
 Positive guidance for what the style MUST include. Each starts with "DO" and names a specific technique or element. These complement the "No" list by telling the LLM what to actively include, not just what to avoid.
 
 **Good:** "DO use border-top as primary section separators"
 **Bad:** "DO make it look nice"
 
-### 8. Anti-patterns (4-6 items)
+### 11. Anti-patterns (4-6 items)
 
 Prose descriptions of common mistakes. More nuanced than the "No" list — these describe *patterns* rather than properties. Start with "Do NOT".
 
-### 9. Reference Snippet
+### 12. Reference Snippet
 
 A complete, standalone HTML file (with inline `<style>`) demonstrating the style applied to a realistic page. This is the single most important section — it serves as the primary example for generation.
 
@@ -121,6 +166,10 @@ Before finalizing a skill file, verify:
 - [ ] DO list items are specific and actionable
 - [ ] Responsive behavior section covers grid collapse and typography scaling
 - [ ] Each color token has exactly one value (no "X or Y")
+- [ ] Motion section defines transition durations, hover states, and prefers-reduced-motion behavior
+- [ ] Component patterns cover buttons, cards, navigation, and forms
+- [ ] Accessibility section confirms WCAG AA contrast ratios and includes focus indicator spec
+- [ ] "No" list items include brief "why" explanations in parentheses
 
 ---
 

@@ -1,24 +1,29 @@
 {
   "images": [
     {
-      "url": "https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?w=600&h=400&fit=crop",
-      "alt": "Brutalist concrete building facade with geometric patterns",
-      "credit": "Simone Hutsch on Unsplash"
+      "url": "https://images.unsplash.com/photo-1760340769739-653d00200baf?w=600&h=400&fit=crop",
+      "alt": "Symmetrical view of concrete brutalist architecture against sky — The Barbican, London",
+      "credit": "Mike Hindle on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&h=400&fit=crop",
-      "alt": "Raw concrete texture with exposed aggregate",
-      "credit": "Uve Sanchez on Unsplash"
+      "url": "https://images.unsplash.com/photo-1422284763110-6d0edd657b13?w=600&h=400&fit=crop",
+      "alt": "Brutalist architecture: modern concrete apartment buildings with repeating geometric forms",
+      "credit": "Annie Spratt on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=600&h=400&fit=crop",
-      "alt": "Monochrome architectural structure with bold geometric forms",
-      "credit": "Joel Filipe on Unsplash"
+      "url": "https://images.unsplash.com/photo-1769610324847-72fb036317b9?w=600&h=400&fit=crop",
+      "alt": "Modern brutalist concrete building with geometric design — stark angular facade",
+      "credit": "Rowan Heuvel on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=600&h=400&fit=crop",
-      "alt": "Brutalist architecture with heavy concrete overhangs",
-      "credit": "Kimon Maritz on Unsplash"
+      "url": "https://images.unsplash.com/photo-1770891948880-65950e82697d?w=600&h=400&fit=crop",
+      "alt": "Pattern of windows on a brutalist concrete building — repetitive grid structure, Brasilia",
+      "credit": "Christer Gundersen on Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1750056661722-8381f9012079?w=600&h=400&fit=crop",
+      "alt": "Concrete wall texture seen up close — raw exposed aggregate surface",
+      "credit": "Unsplash"
     }
   ]
 }

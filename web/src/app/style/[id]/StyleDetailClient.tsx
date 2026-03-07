@@ -5,7 +5,7 @@ import { StylePreview } from "@/components/StylePreview";
 import { WearButton } from "@/components/WearButton";
 import { PlaygroundPanel } from "@/components/PlaygroundPanel";
 
-type Tab = "preview" | "skill" | "moodboard";
+type Tab = "preview" | "playground" | "skill" | "moodboard";
 
 interface Props {
   style: {
@@ -36,53 +36,58 @@ export function StyleDetailClient({ style }: Props) {
 
   const tabs: { key: Tab; label: string }[] = [
     { key: "preview", label: "Preview" },
+    { key: "playground", label: "Playground" },
     { key: "skill", label: "Skill File" },
     { key: "moodboard", label: "Moodboard" },
   ];
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
-        <div>
-          <h1 className="text-3xl font-bold">{style.name}</h1>
-          {style.description && (
-            <p className="text-neutral-400 mt-2 max-w-2xl">{style.description}</p>
-          )}
-          {style.philosophy && (
-            <p className="text-neutral-500 mt-2 max-w-2xl text-sm italic">{style.philosophy}</p>
-          )}
-          <div className="flex items-center gap-4 mt-3 text-sm text-neutral-500">
-            <span>by {style.authorName}</span>
-            <span>v{style.version}</span>
-            <span>{style.likesCount} downloads/week</span>
-          </div>
-          {tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {tags.map((tag) => (
-                <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-400">
-                  {tag}
-                </span>
-              ))}
+      <div className="mb-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div>
+            <h1 className="text-3xl font-bold">{style.name}</h1>
+            {style.description && (
+              <p className="text-neutral-400 mt-2 max-w-2xl">{style.description}</p>
+            )}
+            {style.philosophy && (
+              <p className="text-neutral-500 mt-2 max-w-2xl text-sm italic">{style.philosophy}</p>
+            )}
+            <div className="flex items-center gap-4 mt-3 text-sm text-neutral-500">
+              <span>by {style.authorName}</span>
+              <span>v{style.version}</span>
+              <span>{style.likesCount} downloads/week</span>
             </div>
-          )}
-        </div>
-        <div className="flex gap-3">
-          <WearButton styleId={style.slug} slug={style.slug} name={style.name} />
-          <a
-            href={`https://www.npmjs.com/package/${npmName}`}
-            target="_blank"
-            rel="noopener"
-            className="px-5 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors"
-          >
-            View on npm
-          </a>
-          <a
-            href={`data:text/markdown;charset=utf-8,${encodeURIComponent(style.skillContent)}`}
-            download={`${style.slug}.md`}
-            className="px-5 py-2.5 rounded-lg border border-neutral-700 hover:border-neutral-500 text-neutral-300 text-sm font-medium transition-colors"
-          >
-            Download
-          </a>
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {tags.map((tag) => (
+                  <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-400">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col items-end gap-3">
+            <WearButton styleId={style.slug} slug={style.slug} name={style.name} variant="hero" />
+            <div className="flex gap-2">
+              <a
+                href={`https://www.npmjs.com/package/${npmName}`}
+                target="_blank"
+                rel="noopener"
+                className="px-3 py-1.5 rounded-lg text-xs text-neutral-400 border border-neutral-800 hover:border-neutral-600 transition-colors"
+              >
+                npm
+              </a>
+              <a
+                href={`data:text/markdown;charset=utf-8,${encodeURIComponent(style.skillContent)}`}
+                download={`${style.slug}.md`}
+                className="px-3 py-1.5 rounded-lg text-xs text-neutral-400 border border-neutral-800 hover:border-neutral-600 transition-colors"
+              >
+                Download
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -120,6 +125,10 @@ export function StyleDetailClient({ style }: Props) {
             </div>
           )}
         </div>
+      )}
+
+      {tab === "playground" && (
+        <PlaygroundPanel slug={style.slug} />
       )}
 
       {tab === "skill" && (
@@ -160,7 +169,6 @@ export function StyleDetailClient({ style }: Props) {
         );
       })()}
 
-      <PlaygroundPanel slug={style.slug} />
     </div>
   );
 }

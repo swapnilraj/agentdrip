@@ -4,16 +4,16 @@
 Ma (間) — the conscious use of negative space as a compositional element. Inspired by wabi-sabi (beauty in imperfection) and Japanese interior design. The page breathes. Every element earns its place. The design whispers rather than shouts. Restraint is the primary tool. Natural materials and muted warmth replace cold minimalism.
 
 ## The "No" List
-- NO bold saturated colors
-- NO heavy borders or thick rules
-- NO uppercase text
-- NO text larger than 3rem for headings
-- NO more than 1 accent color
-- NO dense layouts or information overload
-- NO decorative icons or emoji
-- NO hard black (#000) — use near-black instead
-- NO animations faster than 0.4s
-- NO grid layouts with more than 3 columns
+- NO bold saturated colors (overpowering hues destroy the quiet warmth of wabi-sabi)
+- NO heavy borders or thick rules (visual weight contradicts the whisper-quiet aesthetic)
+- NO uppercase text (uppercase feels aggressive; this style speaks softly)
+- NO text larger than 3rem for headings (oversized type dominates the negative space)
+- NO more than 1 accent color (restraint is the foundation — multiple accents create noise)
+- NO dense layouts or information overload (ma requires emptiness to function as design)
+- NO decorative icons or emoji (ornamentation distracts from material honesty)
+- NO hard black (#000) — use near-black instead (pure black is too stark against warm whites)
+- NO animations faster than 0.4s (abrupt motion breaks the meditative pace)
+- NO grid layouts with more than 3 columns (complexity undermines single-focus clarity)
 
 ## Design Tokens
 
@@ -127,6 +127,27 @@ hr {
   width: 100%;
 }
 ```
+
+## Motion & Interaction
+- Transitions: 400-600ms ease-out — unhurried, like a sliding shoji screen
+- Hover: subtle opacity shift (0.7) on links; no transform or shadow changes
+- Focus: 2px solid #B8564F outline with 4px offset — visible but delicate, matches accent
+- Page load: no entrance animation — content appears immediately, already at rest
+- `prefers-reduced-motion`: disable all transitions; layout remains unchanged
+
+## Component Patterns
+- **Buttons**: ghost style only — no fill, 1px solid #EDEBE6 border, padding 12px 28px, font-size 0.8rem, letter-spacing 0.1em, color #2C2C2C. Hover: border-color #B8564F. No border-radius.
+- **Cards**: no shadow, no border. Use background #EDEBE6, padding 32px. Content stacked vertically with 16px gap. Relate to the "subtle image presentation" signature move.
+- **Navigation**: horizontal, right-aligned links. Link style: color #8C8880, font-size 0.8rem, letter-spacing 0.1em, no underline. Active: color #2C2C2C. No background highlights.
+- **Forms**: label above input, font-size 0.8rem, color #8C8880, letter-spacing 0.1em. Input: border-bottom 1px solid #EDEBE6 only (no full border), background transparent, padding 8px 0, font-size 15px, font-weight 300.
+
+## Accessibility
+- Color contrast: #2C2C2C on #F7F5F0 = 11.5:1 (passes AAA). #8C8880 on #F7F5F0 = 3.5:1 (passes AA large text only — use for labels/captions, not body)
+- Focus indicators: 2px solid #B8564F with 4px offset — #B8564F on #F7F5F0 = 4.1:1 (passes 3:1 requirement)
+- Semantic HTML: use nav, main, article, footer landmarks in every page
+- Touch targets: buttons and links minimum 44x44px tap area (use padding to achieve this on small text links)
+- `prefers-reduced-motion`: all transitions disabled (see Motion section)
+- Body text 15px minimum; use rem/em for scalability
 
 ## Responsive Behavior
 - Maintain single-column layouts at all sizes — no breakpoint-driven restructuring

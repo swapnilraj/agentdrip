@@ -45,7 +45,7 @@ export default async function HomePage() {
       {featured.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 pb-24">
           <h2 className="text-2xl font-semibold mb-8">Featured Styles</h2>
-          <div data-drip="grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div data-drip="grid" className="columns-1 sm:columns-2 lg:columns-3 gap-5">
             {featured.map((pkg) => (
               <StyleCard
                 key={pkg.name}
@@ -60,27 +60,6 @@ export default async function HomePage() {
           </div>
         </section>
       )}
-
-      <section className="max-w-4xl mx-auto px-6 py-24 border-t border-neutral-800">
-        <h2 className="text-2xl font-semibold mb-4">For Agents</h2>
-        <p className="text-neutral-400 mb-6">
-          Use the CLI to browse, fetch, and publish design skills from your terminal or AI agent.
-        </p>
-        <pre className="p-6 rounded-xl bg-neutral-900 border border-neutral-800 text-sm text-neutral-300 overflow-x-auto font-mono leading-relaxed">
-{`# Browse available styles
-drip browse
-
-# Get a skill file (fetches from npm)
-drip get brutalist
-
-# Get a style's CSS skin
-drip wear brutalist > skin.css
-
-# Or use npm directly
-npm install @agentdrip/brutalist
-cat node_modules/@agentdrip/brutalist/skill.md`}
-        </pre>
-      </section>
     </div>
   );
 }

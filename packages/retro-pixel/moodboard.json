@@ -1,24 +1,29 @@
 {
   "images": [
     {
-      "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop",
-      "alt": "Retro gaming setup with colorful pixel displays",
-      "credit": "Lorenzo Herrera on Unsplash"
+      "url": "https://images.unsplash.com/photo-1601414380752-b0d4cb86a47e?w=600&h=400&fit=crop",
+      "alt": "Video game machine with neon lights in retro gaming room",
+      "credit": "Senad Palic on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=600&h=400&fit=crop",
-      "alt": "Vintage arcade machine with pixelated screen",
-      "credit": "Carl Raw on Unsplash"
+      "url": "https://images.unsplash.com/photo-1757444838044-d9dcb1bb3017?w=600&h=400&fit=crop",
+      "alt": "Vintage arcade machine glowing with neon lights — classic cabinet pixel display",
+      "credit": "Brunno Tozzo on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=600&h=400&fit=crop",
-      "alt": "CRT monitor displaying retro 8-bit graphics",
-      "credit": "Sigmund on Unsplash"
+      "url": "https://images.unsplash.com/photo-1636070759654-5c93bbca2862?w=600&h=400&fit=crop",
+      "alt": "Arcade machines and neon lights in retro gaming room — 8-bit era nostalgia",
+      "credit": "Dillon Kydd on Unsplash"
     },
     {
-      "url": "https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=600&h=400&fit=crop",
-      "alt": "Colorful pixel art mosaic pattern",
-      "credit": "Ryan Quintal on Unsplash"
+      "url": "https://images.unsplash.com/photo-1646708198974-4c4893e8a2d7?w=600&h=400&fit=crop",
+      "alt": "Close up of computer screen with retro game — CRT pixel glow",
+      "credit": "Unsplash"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1537028806615-68fcab3e3396?w=600&h=400&fit=crop",
+      "alt": "People playing video games in an arcade — colorful cabinet screens",
+      "credit": "Unsplash"
     }
   ]
 }
